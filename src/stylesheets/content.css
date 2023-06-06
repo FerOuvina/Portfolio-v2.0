@@ -1,0 +1,10 @@
+div.folderContainer {
+  border-radius: 6px;
+  border: 2px solid black;
+  box-shadow: 4px 6px 0px 2px black;
+}
+
+div.container {
+  border-end-end-radius: 2px;
+  border-end-start-radius: 3px;
+}

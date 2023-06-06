@@ -1,0 +1,6 @@
+.mainContainer {
+  background-clip: border-box;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../assets/background.jpg');
+}
