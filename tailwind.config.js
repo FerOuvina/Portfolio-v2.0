@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,6 +15,15 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
     },
+    colors: {
+      aquaGreen: '#CFDACC',
+      aquaBlue: '#749FA8',
+      darkBrown: '#483E49',
+      brown: '#8B575B',
+      pink: '#E8BDC4',
+      white: '#F2EAE7',
+      black: '#0F0F0F',
+    },
+    plugins: [],
   },
-  plugins: [],
-}
+};
