@@ -8,6 +8,7 @@ import '../stylesheets/card.css';
 export default function Card({
   children,
   navTitle,
+  contentFirst,
   contentTitle,
   contentH1,
   contentH2,
@@ -73,13 +74,21 @@ export default function Card({
 
       <div className='flex flex-col gap-4 justify-center items-center mx-3 my-6'>
         <div className='container flex justify-start items-center'>
-          <p className='px-1 py-1 text-brown'>Search</p>
+          <p className='px-1 py-1 text-brown'>
+            {contentFirst ? contentFirst : 'Search'}
+          </p>
         </div>
 
         <div className='container bg-white text-brown folderContainer-content'>
-          <p className='p-2 text-center'>{contentTitle}</p>
-          <h1 className='p-2'>{contentH1}</h1>
-          <h2 className='p-2'>{contentH2}</h2>
+          <p className={`p-2 ${contentTitle ? 'block' : 'hidden'} text-center`}>
+            {contentTitle}
+          </p>
+          <h1 className={`p-2 ${contentH1 ? 'block' : 'hidden'}`}>
+            {contentH1}
+          </h1>
+          <h2 className={`p-2 ${contentH2 ? 'block' : 'hidden'}`}>
+            {contentH2}
+          </h2>
         </div>
 
         {children}
