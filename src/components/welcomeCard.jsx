@@ -8,6 +8,8 @@ export default function WelcomeCard() {
       contentTitle={'Welcome!'}
       contentH1={`I'm Fernando Ouviña`}
       contentH2={`I'm a Front End Developer`}
+      id={'welcomeCard'}
+      width={250}
     >
       <footer className='container bg-white'>
         <ul className='flex justify-around p-2 text-brown'>
