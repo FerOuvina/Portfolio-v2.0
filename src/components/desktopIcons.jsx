@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 export default function DesktopIcons() {
   let zIndex = 0;
+  let currentZIndex = zIndex;
   const openWelcomeCard = () => {
     gsap.fromTo(
       '#welcomeCard',
@@ -15,6 +16,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
+        zIndex: currentZIndex,
       },
       {
         duration: 0.4,
@@ -36,6 +38,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
+        zIndex: currentZIndex,
       },
       {
         duration: 0.4,
