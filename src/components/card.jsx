@@ -9,18 +9,16 @@ export default function Card({
   children,
   navTitle,
   contentFirst,
-  contentTitle,
   contentH1,
   contentH2,
+  contentText,
   id,
   width,
 }) {
   if (width !== null && width !== undefined && width !== 0) {
     width = width;
-    // ref.current.style.width = width;
   } else {
     width = 'auto';
-    // ref.current.style.width = width;
   }
 
   const ref = useRef();
@@ -80,15 +78,15 @@ export default function Card({
         </div>
 
         <div className='container bg-white text-brown folderContainer-content'>
-          <p className={`p-2 ${contentTitle ? 'block' : 'hidden'} text-center`}>
-            {contentTitle}
-          </p>
           <h1 className={`p-2 ${contentH1 ? 'block' : 'hidden'}`}>
             {contentH1}
           </h1>
           <h2 className={`p-2 ${contentH2 ? 'block' : 'hidden'}`}>
             {contentH2}
           </h2>
+          <p className={`p-2 ${contentText ? 'block' : 'hidden'} text-center`}>
+            {contentText}
+          </p>
         </div>
 
         {children}
