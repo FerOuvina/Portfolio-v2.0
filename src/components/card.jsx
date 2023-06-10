@@ -1,3 +1,5 @@
+import { useRef } from 'react';
+import { gsap } from 'gsap';
 import Image from 'next/image';
 import blueCircle from '../assets/blue-circle.png';
 import brownCircle from '../assets/brown-circle.png';
@@ -9,14 +11,63 @@ export default function Card({
   contentTitle,
   contentH1,
   contentH2,
+  id,
+  width,
 }) {
+  if (width !== null && width !== undefined && width !== 0) {
+    width = width;
+    // ref.current.style.width = width;
+  } else {
+    width = 'auto';
+    // ref.current.style.width = width;
+  }
+
+  const ref = useRef();
+  const minimizeCard = () => {
+    gsap.to(ref.current, {
+      scale: 0.1,
+      x: -300,
+      y: 1000,
+      duration: 0.6,
+    });
+  };
+
+  const closeCard = () => {
+    gsap.to(ref.current, {
+      display: 'none',
+      duration: 0.1,
+    });
+  };
   return (
-    <section className='flex flex-col folderContainer'>
+    <section
+      className={`hidden flex-col folderContainer`}
+      style={{
+        width: width,
+      }}
+      id={id}
+      ref={ref}
+    >
       <div className='flex justify-between border-b-2 border-black'>
         <h4 className='pl-1 text-brown'>{navTitle}</h4>
         <div className='flex items-center'>
-          <Image src={blueCircle} alt='blue-circle' width={20} height={20} />
-          <Image src={brownCircle} alt='blue-circle' width={20} height={20} />
+          <Image
+            src={blueCircle}
+            alt='blue-circle'
+            width={25}
+            height={25}
+            className='cursor-pointer'
+            onClick={minimizeCard}
+            title='minimize'
+          />
+          <Image
+            src={brownCircle}
+            alt='blue-circle'
+            width={25}
+            height={25}
+            className='cursor-pointer'
+            onClick={closeCard}
+            title='close'
+          />
         </div>
       </div>
 
@@ -25,7 +76,7 @@ export default function Card({
           <p className='px-1 py-1 text-brown'>Search</p>
         </div>
 
-        <div className='container text-brown folderContainer-content'>
+        <div className='container bg-white text-brown folderContainer-content'>
           <p className='p-2 text-center'>{contentTitle}</p>
           <h1 className='p-2'>{contentH1}</h1>
           <h2 className='p-2'>{contentH2}</h2>
