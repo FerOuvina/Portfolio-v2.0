@@ -1,10 +1,14 @@
 import { gsap } from 'gsap';
+import { useContext } from 'react';
+import ZIndexContext from '@/context/zIndexContext';
 import Card from './card';
 import ContactYes from './contactYes';
 import ContactNo from './contactNo';
 import '../stylesheets/contact.css';
 
 export default function Contact() {
+  const { zIndex, setZIndex } = useContext(ZIndexContext);
+
   const handleYes = () => {
     gsap.to('#contact', {
       duration: 0.5,
@@ -18,6 +22,7 @@ export default function Contact() {
         duration: 0.5,
         x: 100,
         opacity: 0,
+        zIndex: zIndex,
       },
       {
         x: 0,
@@ -26,6 +31,7 @@ export default function Contact() {
         opacity: 1,
         position: 'absolute',
         display: 'flex',
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };
@@ -43,6 +49,7 @@ export default function Contact() {
         duration: 0.5,
         x: -100,
         opacity: 0,
+        zIndex: zIndex,
       },
       {
         x: 0,
@@ -51,6 +58,7 @@ export default function Contact() {
         opacity: 1,
         position: 'absolute',
         display: 'flex',
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };

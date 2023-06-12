@@ -1,4 +1,6 @@
 import { gsap } from 'gsap';
+import { useContext } from 'react';
+import ZIndexContext from '@/context/zIndexContext';
 import icon1 from '../assets/icon1.png';
 import icon2 from '../assets/icon2.png';
 import icon3 from '../assets/icon3.png';
@@ -7,8 +9,8 @@ import icon5 from '../assets/icon5.png';
 import Image from 'next/image';
 
 export default function DesktopIcons() {
-  let zIndex = 0;
-  let currentZIndex = zIndex;
+  const { zIndex, setZIndex } = useContext(ZIndexContext);
+
   const openWelcomeCard = () => {
     gsap.fromTo(
       '#welcomeCard',
@@ -16,7 +18,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
-        zIndex: currentZIndex,
+        zIndex: zIndex,
       },
       {
         duration: 0.4,
@@ -26,7 +28,7 @@ export default function DesktopIcons() {
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: (zIndex += 1),
+        zIndex: setZIndex((zIndex + 1)),
       }
     );
   };
@@ -38,7 +40,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
-        zIndex: currentZIndex,
+        zIndex: zIndex,
       },
       {
         duration: 0.4,
@@ -48,7 +50,7 @@ export default function DesktopIcons() {
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: (zIndex += 1),
+        zIndex: setZIndex((zIndex + 1)),
       }
     );
   };
@@ -60,7 +62,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
-        zIndex: currentZIndex,
+        zIndex: zIndex,
       },
       {
         duration: 0.4,
@@ -70,7 +72,7 @@ export default function DesktopIcons() {
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: (zIndex += 1),
+        zIndex: setZIndex((zIndex + 1)),
       }
     );
   };
@@ -82,7 +84,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
-        zIndex: currentZIndex,
+        zIndex: zIndex,
       },
       {
         duration: 0.4,
@@ -92,7 +94,7 @@ export default function DesktopIcons() {
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: (zIndex += 1),
+        zIndex: setZIndex((zIndex + 1)),
       }
     );
   };
@@ -104,7 +106,7 @@ export default function DesktopIcons() {
         x: -20,
         y: -220,
         opacity: 0.01,
-        zIndex: currentZIndex,
+        zIndex: zIndex,
       },
       {
         duration: 0.4,
@@ -114,7 +116,7 @@ export default function DesktopIcons() {
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: (zIndex += 1),
+        zIndex: setZIndex((zIndex + 1)),
       }
     );
   };
