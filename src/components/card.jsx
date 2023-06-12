@@ -37,6 +37,7 @@ export default function Card({
       duration: 0.1,
     });
   };
+  
   return (
     <section
       className={`hidden flex-col folderContainer`}
@@ -72,7 +73,7 @@ export default function Card({
 
       <div className='flex flex-col gap-4 justify-center items-center mx-3 my-6'>
         <div className='container flex justify-start items-center'>
-          <p className='px-1 py-1 text-brown'>
+          <p className='px-1 py-1 w-full text-brown'>
             {contentFirst ? contentFirst : 'Search'}
           </p>
         </div>
