@@ -15,7 +15,7 @@ export default function ContactNo() {
       contentH1={[
         `This device will self destruct now`,
         <br key={'contactFailded-br'} />,
-        <br key={'contactFailded-br'} />,
+        <br key={'contactFailded-br1'} />,
         `Unless you press the big red button below`,
       ]}
       id={'contactNo'}
