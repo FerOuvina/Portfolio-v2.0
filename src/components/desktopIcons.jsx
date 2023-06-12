@@ -53,6 +53,72 @@ export default function DesktopIcons() {
     );
   };
 
+  const openProjectsCard = () => {
+    gsap.fromTo(
+      '#projects',
+      {
+        x: -20,
+        y: -220,
+        opacity: 0.01,
+        zIndex: currentZIndex,
+      },
+      {
+        duration: 0.4,
+        x: '0',
+        y: 0,
+        scale: 1.0,
+        position: 'absolute',
+        display: 'flex',
+        opacity: 1,
+        zIndex: (zIndex += 1),
+      }
+    );
+  };
+
+  const openContactCard = () => {
+    gsap.fromTo(
+      '#contact',
+      {
+        x: -20,
+        y: -220,
+        opacity: 0.01,
+        zIndex: currentZIndex,
+      },
+      {
+        duration: 0.4,
+        x: '0',
+        y: 0,
+        scale: 1.0,
+        position: 'absolute',
+        display: 'flex',
+        opacity: 1,
+        zIndex: (zIndex += 1),
+      }
+    );
+  };
+
+  const openBlogCard = () => {
+    gsap.fromTo(
+      '#blog',
+      {
+        x: -20,
+        y: -220,
+        opacity: 0.01,
+        zIndex: currentZIndex,
+      },
+      {
+        duration: 0.4,
+        x: '0',
+        y: 0,
+        scale: 1.0,
+        position: 'absolute',
+        display: 'flex',
+        opacity: 1,
+        zIndex: (zIndex += 1),
+      }
+    );
+  };
+
   return (
     <ul className='grid grid-cols-3 m-4 z-100'>
       <li className='flex flex-col justify-center items-center px-4 py-2'>
@@ -68,7 +134,7 @@ export default function DesktopIcons() {
 
       <li className='flex flex-col justify-center items-center px-4 py-2'>
         <button
-          // onClick={openWelcomeCard}
+          onClick={openProjectsCard}
           className='flex flex-col items-center'
           title='Projects'
         >
@@ -90,7 +156,7 @@ export default function DesktopIcons() {
 
       <li className='flex flex-col justify-center items-center px-4 py-2'>
         <button
-          // onClick={openWelcomeCard}
+          onClick={openContactCard}
           className='flex flex-col items-center'
           title='Contact'
         >
@@ -101,7 +167,7 @@ export default function DesktopIcons() {
 
       <li className='flex flex-col justify-center items-center px-4 py-2'>
         <button
-          // onClick={openWelcomeCard}
+          onClick={openBlogCard}
           className='flex flex-col items-center'
           title='Blog'
         >
