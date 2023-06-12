@@ -1,0 +1,27 @@
+.form-group {
+  border-radius: 3px;
+}
+
+.form-group input {
+  color: #8b575b;
+  padding-left: 4px;
+}
+
+.form-group input:focus {
+  outline: none;
+}
+
+.form-group textarea {
+  color: #8b575b;
+  height: 100px;
+}
+
+.form-group textarea:focus {
+  outline: none;
+}
+
+.formContainer button {
+  border-radius: 6px;
+  border: 2px solid black;
+  box-shadow: 4px 6px 0px 2px black;
+}
