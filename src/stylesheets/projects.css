@@ -1,0 +1,9 @@
+.projectsContainer {
+  border-radius: 6px;
+  border: 2px solid black;
+  box-shadow: 4px 6px 0px 2px black;
+}
+
+.projectsContainer img {
+  border-radius: 5px;
+}
