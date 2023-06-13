@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { useContext } from 'react';
 import ZIndexContext from '@/context/zIndexContext';
+import useObserver from '@/hooks/useObserver';
 import icon1 from '../assets/icon1.png';
 import icon2 from '../assets/icon2.png';
 import icon3 from '../assets/icon3.png';
@@ -11,7 +12,14 @@ import Image from 'next/image';
 export default function DesktopIcons() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);
 
+  const isIntersecting = useObserver('welcomeCard');
+  const isIntersecting2 = useObserver('specificationsCard');
+  const isIntersecting3 = useObserver('projects');
+  const isIntersecting4 = useObserver('contact');
+  const isIntersecting5 = useObserver('blog');
+
   const openWelcomeCard = () => {
+    if (isIntersecting) return;
     gsap.fromTo(
       '#welcomeCard',
       {
@@ -28,56 +36,59 @@ export default function DesktopIcons() {
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: setZIndex((zIndex + 1)),
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };
 
   const openSpecCard = () => {
+    if (isIntersecting2) return;
     gsap.fromTo(
       '#specificationsCard',
       {
-        x: -20,
-        y: -220,
+        x: 20,
+        y: -200,
         opacity: 0.01,
         zIndex: zIndex,
       },
       {
         duration: 0.4,
-        x: '0',
+        x: 0,
         y: 0,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: setZIndex((zIndex + 1)),
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };
 
   const openProjectsCard = () => {
+    if (isIntersecting3) return;
     gsap.fromTo(
       '#projects',
       {
-        x: -20,
+        x: 0,
         y: -220,
         opacity: 0.01,
         zIndex: zIndex,
       },
       {
         duration: 0.4,
-        x: '0',
+        x: 0,
         y: 0,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: setZIndex((zIndex + 1)),
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };
 
   const openContactCard = () => {
+    if (isIntersecting4) return;
     gsap.fromTo(
       '#contact',
       {
@@ -88,35 +99,36 @@ export default function DesktopIcons() {
       },
       {
         duration: 0.4,
-        x: '0',
+        x: 0,
         y: 0,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: setZIndex((zIndex + 1)),
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };
 
   const openBlogCard = () => {
+    if (isIntersecting5) return;
     gsap.fromTo(
       '#blog',
       {
-        x: -20,
+        x: 0,
         y: -220,
         opacity: 0.01,
         zIndex: zIndex,
       },
       {
         duration: 0.4,
-        x: '0',
+        x: 0,
         y: 0,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
         opacity: 1,
-        zIndex: setZIndex((zIndex + 1)),
+        zIndex: setZIndex(zIndex + 1),
       }
     );
   };
