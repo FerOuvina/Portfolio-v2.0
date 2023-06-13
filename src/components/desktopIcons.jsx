@@ -134,8 +134,8 @@ export default function DesktopIcons() {
   };
 
   return (
-    <ul className='grid grid-cols-3 m-4 z-100'>
-      <li className='flex flex-col justify-center items-center px-4 py-2'>
+    <ul className='grid grid-cols-3 m-4 mt-20 text-black z-100'>
+      <li className='flex flex-col justify-center items-center px-3 py-2'>
         <button
           onClick={openWelcomeCard}
           className='flex flex-col items-center'
@@ -164,7 +164,7 @@ export default function DesktopIcons() {
           title='Specifications'
         >
           <Image src={icon2} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>Specifications</p>
+          <p className='mt-1'>Specs</p>
         </button>
       </li>
 
