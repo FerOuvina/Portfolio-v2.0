@@ -24,7 +24,7 @@ export default function WelcomeCard() {
         ` I post some interesting stuff there.`,
       ]}
       id={'welcomeCard'}
-      width={280}
+      width={300}
     >
       <footer className='container bg-white'>
         <ul className='flex justify-around p-2 text-brown'>
