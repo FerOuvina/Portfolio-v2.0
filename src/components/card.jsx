@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
-import blueCircle from '../assets/blue-circle.png';
-import brownCircle from '../assets/brown-circle.png';
+import close from '../assets/close.png';
+import minimize from '../assets/minimize.png';
 import '../stylesheets/card.css';
 
 export default function Card({
@@ -37,7 +37,7 @@ export default function Card({
       duration: 0.1,
     });
   };
-  
+
   return (
     <section
       className={`hidden flex-col folderContainer`}
@@ -51,7 +51,7 @@ export default function Card({
         <h4 className='pl-1 text-brown'>{navTitle}</h4>
         <div className='flex items-center'>
           <Image
-            src={blueCircle}
+            src={minimize}
             alt='blue-circle'
             width={25}
             height={25}
@@ -60,7 +60,7 @@ export default function Card({
             title='minimize'
           />
           <Image
-            src={brownCircle}
+            src={close}
             alt='blue-circle'
             width={25}
             height={25}
