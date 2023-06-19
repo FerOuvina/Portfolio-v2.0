@@ -1,15 +1,19 @@
 'use client';
 
 import { ZIndexProvider } from '@/context/zIndexContext';
+import dynamic from 'next/dynamic';
 import Content from '@/components/content';
-import Navbar from '@/components/navbar';
 import '../stylesheets/page.css';
+
+const NavbarDynamic = dynamic(() => import('@/components/navbar'), {
+  ssr: false,
+});
 
 export default function Home() {
   return (
     <ZIndexProvider>
       <div className='mainContainer'>
-        <Navbar />
+        <NavbarDynamic />
         <Content />
       </div>
     </ZIndexProvider>
