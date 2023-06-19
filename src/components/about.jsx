@@ -5,7 +5,7 @@ import reactLogo from '../assets/React-Logo.svg';
 import nextLogo from '../assets/Next-Logo.svg';
 import tailwindLogo from '../assets/Tailwind-Logo.svg';
 import gitLogo from '../assets/Git-Logo.svg';
-import javaLogo from '../assets/java-logo.svg';
+import javaLogo from '../assets/Java-Logo.svg';
 import CSSLogo from '../assets/CSS-Logo.svg';
 import HTMLLogo from '../assets/HTML-Logo.svg';
 import '../stylesheets/about.css';
