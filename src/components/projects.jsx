@@ -1,29 +1,29 @@
 import Card from './card';
 import Image from 'next/image';
 import Link from 'next/link';
-import javaScriptLogo from '../assets/JavaScript-COLOR-Logo.svg';
-import reactLogo from '../assets/React-COLOR-Logo.svg';
-import nextLogo from '../assets/Next-Logo.svg';
-import tailwindLogo from '../assets/Tailwind-COLOR-Logo.svg';
-import wouterLogo from '../assets/Wouter-Logo.svg';
-import nextUILogo from '../assets/NextUI-Logo.png';
-import CSSLogo from '../assets/CSS-Logo.svg';
-import HTMLLogo from '../assets/HTML-Logo.svg';
-import gsapLogo from '../assets/Gsap-Logo.svg';
-import xkcdGif from '../assets/xkcdGif.gif';
-import giphy1 from '../assets/Giphy1.gif';
-import portfolioGif from '../assets/Portfolio.gif';
-import hangmanGif from '../assets/HangmanGif1.gif';
+import javaScriptLogo from '../assets/logos/JavaScript-COLOR-Logo.svg';
+import reactLogo from '../assets/logos/React-COLOR-Logo.svg';
+import nextLogo from '../assets/logos/Next-Logo.svg';
+import tailwindLogo from '../assets/logos/Tailwind-COLOR-Logo.svg';
+import wouterLogo from '../assets/logos/Wouter-Logo.svg';
+import nextUILogo from '../assets/logos/NextUI-Logo.png';
+import CSSLogo from '../assets/logos/CSS-Logo.svg';
+import HTMLLogo from '../assets/logos/HTML-Logo.svg';
+import gsapLogo from '../assets/logos/Gsap-Logo.svg';
+import xkcdGif from '../assets/images/xkcdGif.gif';
+import giphy1 from '../assets/images/Giphy1.gif';
+import portfolioGif from '../assets/images/Portfolio.gif';
+import hangmanGif from '../assets/images/HangmanGif1.gif';
 import '../stylesheets/projects.css';
 
 export default function Projects() {
   return (
     <Card
-      navTitle={`/projects/mm...`}
+      navTitle={`/projects/hmm...`}
       contentFirst={`My Projects`}
-      contentH1={`This are my "best" projects`}
-      contentH2={`Pro tip: You can scroll for more!`}
-      id={`projects`}
+      contentH1={`These projects truly shine and exemplify the best of my abilities.`}
+      contentH2={`Keep scrolling to discover more exceptional work that I'm proud to share with you!`}
+      id={'projects'}
       width={300}
     >
       <section className='overflow-y-scroll px-2 py-3 w-full h-56 bg-white projectsContainer'>

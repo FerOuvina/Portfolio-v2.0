@@ -1,9 +1,9 @@
 import Card from './card';
 import Link from 'next/link';
 import Image from 'next/image';
-import gitHubLogo from '../assets/GitHub-Logo.svg';
-import linkedInLogo from '../assets/LinkedIn-Logo.svg';
-import blogLogo from '../assets/Blog-Logo.svg';
+import gitHubLogo from '../assets/logos/GitHub-Logo.svg';
+import linkedInLogo from '../assets/logos/LinkedIn-Logo.svg';
+import blogLogo from '../assets/logos/Blog-Logo.svg';
 
 export default function WelcomeCard() {
   return (
@@ -16,12 +16,12 @@ export default function WelcomeCard() {
         `Check out my github to see what I'm working on`,
         <br key={'welcomeCard-br'} />,
         `Also check my LinkedIn I `,
-        <em key={'welcomeCard-sometimes'}>(sometimes)</em>,
+        <em key={'welcomeCard-sometimes'} className='underline'>sometimes</em>,
         ` post about my projects there.`,
         <br key={'welcomeCard-br2'} />,
         `And don't forget to visit my blog too `,
-        <em key={'welcomeCard-wip'}>(still in progress),</em>,
-        ` I post some interesting stuff there.`,
+        <em key={'welcomeCard-wip'} className='underline'>still in progress</em>,
+        `, I post some interesting stuff there.`,
       ]}
       id={'welcomeCard'}
       width={300}

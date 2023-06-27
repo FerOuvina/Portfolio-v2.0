@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import homeIcon from '../assets/home.png';
+import homeIcon from '../assets/images/home.png';
 import Image from 'next/image';
 
 export default function Navbar() {

@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
-import close from '../assets/close.png';
-import minimize from '../assets/minimize.png';
+import close from '../assets/images/close.png';
+import minimize from '../assets/images/minimize.png';
 import '../stylesheets/card.css';
 
 export default function Card({
@@ -85,7 +85,7 @@ export default function Card({
           <h2 className={`p-2 ${contentH2 ? 'block' : 'hidden'}`}>
             {contentH2}
           </h2>
-          <p className={`p-2 ${contentText ? 'block' : 'hidden'} text-center`}>
+          <p className={`p-2 ${contentText ? 'block' : 'hidden'}`}>
             {contentText}
           </p>
         </div>

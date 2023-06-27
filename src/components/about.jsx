@@ -1,13 +1,13 @@
 import Image from 'next/image';
 import Card from './card';
-import javaScriptLogo from '../assets/JavaScript-Logo.svg';
-import reactLogo from '../assets/React-Logo.svg';
-import nextLogo from '../assets/Next-Logo.svg';
-import tailwindLogo from '../assets/Tailwind-Logo.svg';
-import gitLogo from '../assets/Git-Logo.svg';
-import javaLogo from '../assets/Java-Logo.svg';
-import CSSLogo from '../assets/CSS-Logo.svg';
-import HTMLLogo from '../assets/HTML-Logo.svg';
+import javaScriptLogo from '../assets/logos/JavaScript-Logo.svg';
+import reactLogo from '../assets/logos/React-Logo.svg';
+import nextLogo from '../assets/logos/Next-Logo.svg';
+import tailwindLogo from '../assets/logos/Tailwind-Logo.svg';
+import gitLogo from '../assets/logos/Git-Logo.svg';
+import javaLogo from '../assets/logos/Java-Logo.svg';
+import CSSLogo from '../assets/logos/CSS-Logo.svg';
+import HTMLLogo from '../assets/logos/HTML-Logo.svg';
 import '../stylesheets/about.css';
 
 export default function About() {
@@ -19,15 +19,15 @@ export default function About() {
       navTitle={`/specifications/about`}
       contentFirst={'About Me'}
       contentText={[
-        `I'm a passionate web developer who loves to create beautiful and functional websites, and applications.`,
-        <br key={'specificationsCard-br'} />,
-        `I'm currently looking for opportunities to grow my skills and a chance to start my career as a developer.`,
+        `I'm a skilled web developer who thrives on creating visually appealing and highly functional websites and applications.`,
+        <br key={'about-br'} />,
+        `Currently, I'm actively seeking opportunities to expand my skills and kickstart my career in this dynamic field.`,
       ]}
       id={`specificationsCard`}
       width={300}
     >
       <footer className='w-full bg-white aboutContainer'>
-        <h2 className='text-lg text-center text-brown'>
+        <h2 className='py-1 text-lg text-center text-brown'>
           This is my current stack
         </h2>
         <hr className='w-full border-2 breakLine' />

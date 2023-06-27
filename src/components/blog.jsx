@@ -1,6 +1,6 @@
 import Card from './card';
-import waiting from '../assets/waiting.gif';
 import Image from 'next/image';
+import waiting from '../assets/images/waiting.gif';
 
 export default function Blog() {
   return (

@@ -2,12 +2,12 @@ import { gsap } from 'gsap';
 import { useContext } from 'react';
 import ZIndexContext from '@/context/zIndexContext';
 import useObserver from '@/hooks/useObserver';
-import icon1 from '../assets/icon1.png';
-import icon2 from '../assets/icon2.png';
-import icon3 from '../assets/icon3.png';
-import icon4 from '../assets/icon4.png';
-import icon5 from '../assets/icon5.png';
 import Image from 'next/image';
+import icon1 from '../assets/images/icon1.png';
+import icon2 from '../assets/images/icon2.png';
+import icon3 from '../assets/images/icon3.png';
+import icon4 from '../assets/images/icon4.png';
+import icon5 from '../assets/images/icon5.png';
 
 export default function DesktopIcons() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);

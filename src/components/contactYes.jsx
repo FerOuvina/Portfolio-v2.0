@@ -10,15 +10,15 @@ export default function ContactYes() {
     <Card
       navTitle={'/contact/contact-success'}
       contentFirst={[
-        <div
-          key={`contactYesContainer`}
-          className='flex flex-col justify-center items-center bg-white'
-        >
-          <span>Awesome!</span>
+        <div key={`contactYesContainer`} className='text-center'>
+          <span>Nicely done!</span>
+        </div>,
+      ]}
+      contentH1={[
+        <div key={`contactYesContainer-1`} className='text-center'>
           <span>Now please fill this form</span>
         </div>,
       ]}
-      contentH1={'waos'}
       id={'contactYes'}
       width={300}
     >
@@ -45,7 +45,7 @@ export default function ContactYes() {
           </div>
 
           <div className='flex flex-col p-1 w-full form-group bg-aquaGreen'>
-            <label htmlFor='message'>Message</label>
+            <label htmlFor='message'>Message:</label>
             <textarea
               id='message'
               name='message'
