@@ -1,13 +1,26 @@
 import { gsap } from 'gsap';
 import { useContext } from 'react';
 import ZIndexContext from '@/context/zIndexContext';
+import useObserver from '@/hooks/useObserver';
+import useSound from 'use-sound';
 import Card from './card';
 import ContactYes from './contactYes';
 import ContactNo from './contactNo';
-import '../stylesheets/contact.css';
+import Button from './button';
 
 export default function Contact() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);
+  const [playTadaa] = useSound('/sounds/Tadaa.mp3', {
+    volume: 0.2,
+  });
+
+  let interruptPlay = false;
+  const [playAlert, { stop }] = useSound('/sounds/Alert.mp3', {
+    volume: 0.2,
+    playbackRate: 0.95,
+    interrupt: interruptPlay,
+  });
+  const isIntersecting = useObserver('contactNo');
 
   const handleYes = () => {
     gsap.to('#contact', {
@@ -16,6 +29,7 @@ export default function Contact() {
       x: -100,
       display: 'none',
     });
+    playTadaa();
     gsap.fromTo(
       '#contactYes',
       {
@@ -61,6 +75,12 @@ export default function Contact() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
+
+    playAlert();
+    interruptPlay = true;
+    setTimeout(() => {
+      isIntersecting ? stop() : null;
+    }, 9000);
   };
 
   return (
@@ -81,16 +101,13 @@ export default function Contact() {
         id={'contact'}
         width={280}
       >
-        <section className='container flex justify-evenly items-center text-brown contactCard'>
-          <button
-            className='px-3 py-1 mx-4 w-full bg-white'
-            onClick={handleYes}
-          >
+        <section className='container flex justify-evenly items-center contactCard'>
+          <Button className='px-5 py-1 w-[100px] bg-white' onClick={handleYes}>
             Yes
-          </button>
-          <button className='px-3 py-1 mx-4 w-full bg-white' onClick={handleNo}>
+          </Button>
+          <Button onClick={handleNo} className={'px-5 py-1 bg-white w-[100px]'}>
             No
-          </button>
+          </Button>
         </section>
       </Card>
 
