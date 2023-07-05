@@ -1,5 +1,6 @@
 import { gsap } from 'gsap';
 import { useContext } from 'react';
+import useSound from 'use-sound';
 import ZIndexContext from '@/context/zIndexContext';
 import useObserver from '@/hooks/useObserver';
 import Image from 'next/image';
@@ -13,10 +14,25 @@ export default function DesktopIcons() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);
 
   const isIntersecting = useObserver('welcomeCard');
+  const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
+    volume: 0.4,
+  });
   const isIntersecting2 = useObserver('specificationsCard');
+  const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
+    volume: 0.4,
+  });
   const isIntersecting3 = useObserver('projects');
+  const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
+    volume: 0.4,
+  });
   const isIntersecting4 = useObserver('contact');
+  const [playContactSound] = useSound('/sounds/Chord.mp3', {
+    volume: 0.4,
+  });
   const isIntersecting5 = useObserver('blog');
+  const [playBlogSound] = useSound('/sounds/Ding.mp3', {
+    volume: 0.4,
+  });
 
   const openWelcomeCard = () => {
     if (isIntersecting) return;
@@ -39,6 +55,7 @@ export default function DesktopIcons() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
+    playWelcomeCardSound();
   };
 
   const openSpecCard = () => {
@@ -62,6 +79,7 @@ export default function DesktopIcons() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
+    playSpecCardSound();
   };
 
   const openProjectsCard = () => {
@@ -85,6 +103,7 @@ export default function DesktopIcons() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
+    playProjectsSound();
   };
 
   const openContactCard = () => {
@@ -108,6 +127,7 @@ export default function DesktopIcons() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
+    playContactSound();
   };
 
   const openBlogCard = () => {
@@ -131,6 +151,7 @@ export default function DesktopIcons() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
+    playBlogSound();
   };
 
   return (
