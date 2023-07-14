@@ -1,7 +1,6 @@
 import { gsap } from 'gsap';
 import { useContext } from 'react';
 import ZIndexContext from '@/context/zIndexContext';
-import useObserver from '@/hooks/useObserver';
 import useSound from 'use-sound';
 import Card from './card';
 import ContactYes from './contactYes';
@@ -13,14 +12,6 @@ export default function Contact() {
   const [playTadaa] = useSound('/sounds/Tadaa.mp3', {
     volume: 0.2,
   });
-
-  let interruptPlay = false;
-  const [playAlert, { stop }] = useSound('/sounds/Alert.mp3', {
-    volume: 0.2,
-    playbackRate: 0.95,
-    interrupt: interruptPlay,
-  });
-  const isIntersecting = useObserver('contactNo');
 
   const handleYes = () => {
     gsap.to('#contact', {
@@ -75,12 +66,6 @@ export default function Contact() {
         zIndex: setZIndex(zIndex + 1),
       }
     );
-
-    playAlert();
-    interruptPlay = true;
-    setTimeout(() => {
-      isIntersecting ? stop() : null;
-    }, 9000);
   };
 
   return (
