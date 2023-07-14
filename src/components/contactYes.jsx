@@ -1,4 +1,5 @@
 import Card from './card';
+import Button from './button';
 import '../stylesheets/contactYes.css';
 
 export default function ContactYes() {
@@ -54,9 +55,9 @@ export default function ContactYes() {
           </div>
 
           <div className='flex justify-center items-center w-full'>
-            <button type='submit' className='px-10 py-1 text-center text-brown'>
+            <Button type='submit' className='px-10 py-1 text-center text-brown'>
               Send
-            </button>
+            </Button>
           </div>
         </form>
       </div>
