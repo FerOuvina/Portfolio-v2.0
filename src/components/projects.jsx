@@ -30,8 +30,8 @@ export default function Projects() {
         <ul className='grid grid-cols-1 gap-4'>
           <li>
             <article>
-              <Link legacyBehavior href={'#'}>
-                <a>
+              <Link legacyBehavior href={'https://xkcd-reimagined.vercel.app/'}>
+                <a target='_blank'>
                   <p className='text-lg text-right text-brown'>
                     xkcd - Reimagined
                   </p>
@@ -90,8 +90,8 @@ export default function Projects() {
             </article>
 
             <article>
-              <Link legacyBehavior href={'#'}>
-                <a>
+              <Link legacyBehavior href={'https://ferouvina.github.io/Giphy-App-v2/'}>
+                <a target='_blank'>
                   <p className='text-lg text-right text-brown'>Giphy App</p>
                   <Image
                     src={giphy1}
@@ -142,8 +142,8 @@ export default function Projects() {
             </article>
 
             <article>
-              <Link legacyBehavior href={'#'}>
-                <a>
+              <Link legacyBehavior href={'https://ferouvina.github.io/Portfolio/'}>
+                <a target='_blank'>
                   <p className='text-lg text-right text-brown'>
                     My old Portfolio
                   </p>
@@ -189,8 +189,8 @@ export default function Projects() {
             </article>
 
             <article>
-              <Link legacyBehavior href={'#'}>
-                <a>
+              <Link legacyBehavior href={'https://ferouvina.github.io/Oracle-One-Hangman/index.html'}>
+                <a target='_blank'>
                   <p className='text-lg text-right text-brown'>Hangman Game</p>
                   <Image
                     src={hangmanGif}
