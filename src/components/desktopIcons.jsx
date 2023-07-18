@@ -9,6 +9,7 @@ import icon2 from '../assets/images/icon2.png';
 import icon3 from '../assets/images/icon3.png';
 import icon4 from '../assets/images/icon4.png';
 import icon5 from '../assets/images/icon5.png';
+import icon6 from '../assets/images/icon6.webp';
 
 export default function DesktopIcons() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);
@@ -31,6 +32,10 @@ export default function DesktopIcons() {
   });
   const isIntersecting5 = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
+    volume: 0.4,
+  });
+  const isIntersecting6 = useObserver('blog');
+  const [playMusicSound] = useSound('/sounds/Notify.mp3', {
     volume: 0.4,
   });
 
@@ -154,6 +159,30 @@ export default function DesktopIcons() {
     playBlogSound();
   };
 
+  const openMusicCard = () => {
+    if (isIntersecting6) return;
+    gsap.fromTo(
+      '#mediaCard',
+      {
+        x: 0,
+        y: -220,
+        opacity: 0.01,
+        zIndex: zIndex,
+      },
+      {
+        duration: 0.4,
+        x: 0,
+        y: 0,
+        scale: 1.0,
+        position: 'absolute',
+        display: 'flex',
+        opacity: 1,
+        zIndex: setZIndex(zIndex + 1),
+      }
+    );
+    playMusicSound();
+  }
+
   return (
     <ul className='grid grid-cols-3 m-4 mt-20 text-black z-100'>
       <li className='flex flex-col justify-center items-center px-3 py-2'>
@@ -208,6 +237,17 @@ export default function DesktopIcons() {
         >
           <Image src={icon1} alt='icon1' width={50} height={50} />
           <p className='mt-1'>Blog</p>
+        </button>
+      </li>
+
+      <li className='flex flex-col justify-center items-center px-4 py-2'>
+        <button
+          onClick={openMusicCard}
+          className='flex flex-col items-center'
+          title='Media Player'
+        >
+          <Image src={icon6} alt='icon1' width={50} height={50} />
+          <p className='mt-1'>Music</p>
         </button>
       </li>
     </ul>
