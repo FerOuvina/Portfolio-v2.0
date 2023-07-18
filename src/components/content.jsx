@@ -1,4 +1,5 @@
 import About from './about';
+import AudioPlayer from './audioPlayer';
 import Blog from './blog';
 import Contact from './contact';
 import DesktopIcons from './desktopIcons';
@@ -27,6 +28,9 @@ export default function Content() {
 
         {/* Blog Card */}
         <Blog />
+
+        {/* Music Player Card */}
+        <AudioPlayer />
       </section>
     </main>
   );
