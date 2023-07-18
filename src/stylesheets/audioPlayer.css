@@ -1,0 +1,106 @@
+.progressBar {
+  --barBg: #745758;
+  --seekBeforeWidth: 0px;
+  --seekBeforeColor: #809ea6;
+  --knoby: #809ea6;
+  --selectedKnobby: #809ea6;
+
+  appearance: none;
+  background: var(--barBg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+/* progressBar - Safari */
+
+.progressBar::-webkit-slider-runnable-track {
+  background: var(--barBg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+/* progressBar - Firefox */
+
+.progressBar::-moz-range-track {
+  background: var(--barBg);
+  border-radius: 10px;
+  position: relative;
+  width: 100%;
+  height: 11px;
+  outline: none;
+}
+
+.progressBar::-moz-focus-outer {
+  border: 0;
+}
+
+/* progressBar - Chrome & Safari */
+
+.progressBar::before {
+  content: '';
+  height: 11px;
+  width: var(--seekBeforeWidth);
+  background-color: var(--seekBeforeColor);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/* progressBar - Firefox */
+
+.progressBar::-moz-range-progress {
+  background-color: var(--seekBeforeColor);
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  height: 11px;
+}
+
+/* Knobby - Chrome & Safari */
+
+.progressBar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: none;
+  background-color: var(--knoby);
+  cursor: pointer;
+  position: relative;
+  margin: -2px 0 0 0;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.progressBar:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+  background-color: var(--selectedKnobby);
+}
+
+/* Knobby - Firefox */
+
+.progressBar::-moz-range-thumb {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  border: transparent;
+  background-color: var(--knoby);
+  cursor: pointer;
+  position: relative;
+  z-index: 3;
+  box-sizing: border-box;
+}
+
+.progressBar:active::-moz-range-thumb {
+  transform: scale(1.2);
+  background-color: var(--selectedKnobby);
+}
