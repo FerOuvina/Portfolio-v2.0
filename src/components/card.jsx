@@ -85,9 +85,9 @@ export default function Card({
           <h2 className={`p-2 ${contentH2 ? 'block' : 'hidden'}`}>
             {contentH2}
           </h2>
-          <p className={`p-2 ${contentText ? 'block' : 'hidden'}`}>
+          <div className={`p-2 ${contentText ? 'block' : 'hidden'}`}>
             {contentText}
-          </p>
+          </div>
         </div>
 
         {children}
