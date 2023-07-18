@@ -9,18 +9,33 @@ export default function WelcomeCard() {
   return (
     <Card
       navTitle={'/home/welcome'}
-      contentFirst={'Welcome!'}
-      contentH1={`I'm Fernando Ouviña`}
-      contentH2={`I'm a Front End Developer`}
+      contentFirst={[
+        <span key={'welcomeCard-mainTitle'} className='text-lg'>
+          Welcome!
+        </span>,
+      ]}
+      contentH1={[
+        <span key={'welcomeCard-title'} className='text-lg'>
+          I&apos;m Fernando Ouvi&ntilde;a,
+        </span>,
+        <br key={'welcomeCard-title-br'} />,
+        <span key={'welcomeCard-title2'} className='text-lg underline'>
+          Front End Developer
+        </span>,
+      ]}
       contentText={[
-        `Check out my github to see what I'm working on`,
+        `Here you will find my latest work, a little something about me and my socials. Check out my github to see what I'm working on at the moment.`,
         <br key={'welcomeCard-br'} />,
-        `Also check my LinkedIn I `,
-        <em key={'welcomeCard-sometimes'} className='underline'>sometimes</em>,
-        ` post about my projects there.`,
+        `Also check my LinkedIn, I `,
+        <em key={'welcomeCard-sometimes'} className='underline'>
+          sometimes
+        </em>,
+        ` post about my activities there.`,
         <br key={'welcomeCard-br2'} />,
         `And don't forget to visit my blog too `,
-        <em key={'welcomeCard-wip'} className='underline'>still in progress</em>,
+        <em key={'welcomeCard-wip'} className='underline'>
+          still in progress
+        </em>,
         `, I post some interesting stuff there.`,
       ]}
       id={'welcomeCard'}
