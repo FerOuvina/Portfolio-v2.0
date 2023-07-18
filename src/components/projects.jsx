@@ -145,7 +145,7 @@ export default function Projects() {
               <Link legacyBehavior href={'https://ferouvina.github.io/Portfolio/'}>
                 <a target='_blank'>
                   <p className='text-lg text-right text-brown'>
-                    My old Portfolio
+                    My first Portfolio
                   </p>
                   <Image
                     src={portfolioGif}
