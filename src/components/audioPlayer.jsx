@@ -5,7 +5,7 @@ import leftArrow from '../assets/images/LeftArrow.svg';
 import rightArrow from '../assets/images/RightArrow.svg';
 import playButton from '../assets/images/PlayButton.svg';
 import pauseButton from '../assets/images/PauseButton.svg';
-import '../stylesheets/AudioPlayer.css';
+import '../stylesheets/audioPlayer.css';
 
 export default function AudioPlayer() {
   const songs = [
@@ -121,7 +121,10 @@ export default function AudioPlayer() {
     <Card
       navTitle={'/home/media-player'}
       contentFirst={[
-        <span key={'media-player-span1'} className='flex justify-center items-center text-md'>
+        <span
+          key={'media-player-span1'}
+          className='flex justify-center items-center bg-white text-md'
+        >
           Song: {currentSong}
         </span>,
       ]}
@@ -131,13 +134,11 @@ export default function AudioPlayer() {
             Your browser does not support the <code>audio</code> element.
           </audio>
 
-          <div className='flex gap-1 justify-evenly'>
-            {/* Current Time */}
+          <div className='flex gap-1 justify-evenly items-center py-2 my-2'>
             <span className='text-sm'>
               {!isNaN(currentTime) && calculateTime(currentTime)}
             </span>
 
-            {/* Progress Bar */}
             <div>
               <input
                 type='range'
@@ -148,7 +149,6 @@ export default function AudioPlayer() {
               />
             </div>
 
-            {/* Duration */}
             <span className='text-sm'>
               {audioDuration &&
                 !isNaN(audioDuration) &&
@@ -156,7 +156,6 @@ export default function AudioPlayer() {
             </span>
           </div>
 
-          {/* Controls */}
           <div className='flex justify-evenly'>
             <button onClick={previousSong}>
               <Image
@@ -200,6 +199,6 @@ export default function AudioPlayer() {
       ]}
       id={`mediaCard`}
       width={300}
-    ></Card>
+    />
   );
 }
