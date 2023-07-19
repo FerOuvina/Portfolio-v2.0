@@ -38,7 +38,7 @@ export default function WelcomeScreen() {
       ref={componentRef}
     >
       <div className='flex flex-col justify-center items-center h-full'>
-        <div className='container w-[300px]'>
+        <div className='itemContainer w-[300px]'>
           <form
             className='flex flex-col justify-center items-center form-group'
             onSubmit={handleSubmit}
