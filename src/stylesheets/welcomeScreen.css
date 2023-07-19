@@ -1,0 +1,114 @@
+.container {
+  border: 1px solid #bfbbb3;
+}
+
+.navTitle {
+  background: rgba(11, 38, 107, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(11, 38, 107, 1) 0%,
+    rgba(84, 114, 169, 1) 51%,
+    rgba(164, 199, 238, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(11, 38, 107, 1)),
+    color-stop(51%, rgba(84, 114, 169, 1)),
+    color-stop(100%, rgba(164, 199, 238, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(11, 38, 107, 1) 0%,
+    rgba(84, 114, 169, 1) 51%,
+    rgba(164, 199, 238, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(11, 38, 107, 1) 0%,
+    rgba(84, 114, 169, 1) 51%,
+    rgba(164, 199, 238, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(11, 38, 107, 1) 0%,
+    rgba(84, 114, 169, 1) 51%,
+    rgba(164, 199, 238, 1) 100%
+  );
+  background: linear-gradient(
+    to right,
+    rgba(11, 38, 107, 1) 0%,
+    rgba(84, 114, 169, 1) 51%,
+    rgba(164, 199, 238, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0b266b', endColorstr='#a4c7ee', GradientType=1 );
+}
+
+.iconContainer {
+  background-color: #fcfcfa;
+}
+
+.divider {
+  background: rgba(1, 55, 85, 1);
+  background: -moz-linear-gradient(
+    left,
+    rgba(1, 55, 85, 1) 0%,
+    rgba(2, 88, 137, 1) 21%,
+    rgba(84, 114, 169, 1) 52%,
+    rgba(2, 88, 137, 1) 83%,
+    rgba(1, 55, 85, 1) 100%
+  );
+  background: -webkit-gradient(
+    left top,
+    right top,
+    color-stop(0%, rgba(1, 55, 85, 1)),
+    color-stop(21%, rgba(2, 88, 137, 1)),
+    color-stop(52%, rgba(84, 114, 169, 1)),
+    color-stop(83%, rgba(2, 88, 137, 1)),
+    color-stop(100%, rgba(1, 55, 85, 1))
+  );
+  background: -webkit-linear-gradient(
+    left,
+    rgba(1, 55, 85, 1) 0%,
+    rgba(2, 88, 137, 1) 21%,
+    rgba(84, 114, 169, 1) 52%,
+    rgba(2, 88, 137, 1) 83%,
+    rgba(1, 55, 85, 1) 100%
+  );
+  background: -o-linear-gradient(
+    left,
+    rgba(1, 55, 85, 1) 0%,
+    rgba(2, 88, 137, 1) 21%,
+    rgba(84, 114, 169, 1) 52%,
+    rgba(2, 88, 137, 1) 83%,
+    rgba(1, 55, 85, 1) 100%
+  );
+  background: -ms-linear-gradient(
+    left,
+    rgba(1, 55, 85, 1) 0%,
+    rgba(2, 88, 137, 1) 21%,
+    rgba(84, 114, 169, 1) 52%,
+    rgba(2, 88, 137, 1) 83%,
+    rgba(1, 55, 85, 1) 100%
+  );
+}
+
+.input {
+  border: 1px solid black;
+  box-shadow: 1px 1px 0px 0px black;
+}
+
+.button {
+  border: 1px solid black;
+  box-shadow: 1px 1px 0px 0px black;
+}
+
+.button:hover {
+  background-color: #bfbbb3;
+}
+
+.button:active {
+  border: 1px solid rgb(81, 79, 79);
+  background-color: #9d958a;
+  transform: scale(0.98);
+}
