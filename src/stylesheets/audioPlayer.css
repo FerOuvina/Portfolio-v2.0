@@ -1,10 +1,11 @@
 .progressBar {
-  --barBg: #745758;
+  --barBg: #749FA8;
   --seekBeforeWidth: 0px;
-  --seekBeforeColor: #809ea6;
-  --knoby: #809ea6;
-  --selectedKnobby: #809ea6;
+  --seekBeforeColor: #483E49;
+  --knoby: #E8BDC4;
+  --selectedKnobby: #CFDACC;
 
+  -webkit-appearance: none;
   appearance: none;
   background: var(--barBg);
   border-radius: 10px;
