@@ -34,7 +34,7 @@ export default function DesktopIcons() {
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
     volume: 0.4,
   });
-  const isIntersecting6 = useObserver('blog');
+  const isIntersecting6 = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
     volume: 0.4,
   });
