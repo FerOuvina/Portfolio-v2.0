@@ -75,7 +75,7 @@ export default function Contact() {
         contentFirst={[
           <div
             key={'contactContainer'}
-            className='flex flex-col justify-center items-center textcen'
+            className='flex flex-col justify-center items-center bg-white textcen'
           >
             <span>WARNING</span>
             <br />
