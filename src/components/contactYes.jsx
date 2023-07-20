@@ -3,10 +3,6 @@ import Button from './button';
 import '../stylesheets/contactYes.css';
 
 export default function ContactYes() {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   return (
     <Card
       navTitle={'/contact/contact-success'}
@@ -24,7 +20,11 @@ export default function ContactYes() {
       width={300}
     >
       <div className='container bg-white text-darkBrown formContainer'>
-        <form className='flex flex-col gap-2 p-4' onSubmit={handleSubmit}>
+        <form
+          className='flex flex-col gap-2 p-4'
+          action='https://formsubmit.co/contactfernando07@gmail.com'
+          method='POST'
+        >
           <div className='flex p-1 w-full form-group bg-aquaGreen'>
             <label htmlFor='name'>Name:</label>
             <input
@@ -59,6 +59,12 @@ export default function ContactYes() {
               Send
             </Button>
           </div>
+
+          <input
+            type='hidden'
+            name='_next'
+            value={`https://ouvina-fernando.vercel.app/thankyou`}
+          />
         </form>
       </div>
     </Card>
