@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import Image from 'next/image';
-import icon4 from '../assets/images/icon4.png';
+import icon7 from '../assets/images/icon7.png';
 import '../stylesheets/contactYes.css';
 import '../stylesheets/welcomeScreen.css';
 
@@ -13,7 +13,7 @@ export default function WelcomeScreen() {
   const iconRef = useRef();
   const formRef = useRef();
   const [playSound] = useSound('/sounds/LogIn.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
 
   const handleSubmit = (event) => {
@@ -34,8 +34,9 @@ export default function WelcomeScreen() {
 
   return (
     <div
-      className='absolute z-10 w-screen h-screen bg-aquaBlue'
+      className='absolute block w-screen h-screen z-[20000] bg-aquaBlue'
       ref={componentRef}
+      id='welcomeScreen'
     >
       <div className='flex flex-col justify-center items-center h-full'>
         <div className='itemContainer w-[300px]'>
@@ -51,7 +52,7 @@ export default function WelcomeScreen() {
               ref={iconRef}
             >
               <Image
-                src={icon4}
+                src={icon7}
                 alt='icon'
                 width={70}
                 height={70}
