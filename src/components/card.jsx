@@ -40,7 +40,7 @@ export default function Card({
 
   return (
     <section
-      className={`hidden flex-col folderContainer`}
+      className={`hidden overflow-y-scroll flex-col folderContainer`}
       style={{
         width: width,
       }}
@@ -48,7 +48,7 @@ export default function Card({
       ref={ref}
     >
       <div className='flex justify-between border-b-2 border-black'>
-        <h4 className='pl-1 text-brown'>{navTitle}</h4>
+        <h4 className='pl-1 font-mono text-brown'>{navTitle}</h4>
         <div className='flex items-center'>
           <Image
             src={minimize}
@@ -71,21 +71,23 @@ export default function Card({
         </div>
       </div>
 
-      <div className='flex flex-col gap-4 justify-center items-center mx-3 my-6'>
+      <div className='flex flex-col gap-2 justify-center items-center py-2 mx-3'>
         <div className='container flex justify-start items-center'>
-          <div className='px-1 py-1 w-full text-brown'>
+          <div className='px-1 py-1 w-full font-bold text-brown'>
             {contentFirst ? contentFirst : 'Search'}
           </div>
         </div>
 
-        <div className='container bg-white text-brown folderContainer-content'>
-          <h1 className={`p-2 ${contentH1 ? 'block' : 'hidden'}`}>
+        <div className='container font-mono bg-white text-brown folderContainer-content'>
+          <h1
+            className={`px-2 overflow-auto ${contentH1 ? 'block' : 'hidden'}`}
+          >
             {contentH1}
           </h1>
-          <h2 className={`p-2 ${contentH2 ? 'block' : 'hidden'}`}>
+          <h2 className={`px-2 ${contentH2 ? 'block' : 'hidden'}`}>
             {contentH2}
           </h2>
-          <div className={`p-2 ${contentText ? 'block' : 'hidden'}`}>
+          <div className={`px-2 ${contentText ? 'block' : 'hidden'}`}>
             {contentText}
           </div>
         </div>

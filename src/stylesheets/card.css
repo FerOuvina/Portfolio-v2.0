@@ -5,19 +5,13 @@
   background-clip: border-box;
   border-radius: 6px;
   border: 2px solid black;
-  box-shadow: 4px 6px 0px 2px black;
+  box-shadow: 2px 4px 0px 2px black;
 }
 
-.folderContainer > div > div.container {
+.folderContainer > div > div.container, .folderContainer > div > footer.container {
   border-radius: 6px;
   border: 2px solid black;
-  box-shadow: 5px 5px 0px 1px black;
-}
-
-.folderContainer > div > footer.container {
-  border-radius: 6px;
-  border: 2px solid black;
-  box-shadow: 5px 5px 0px 1px black;
+  box-shadow: 2px 2px 0px 1px black;
 }
 
 .folderContainer-content {
