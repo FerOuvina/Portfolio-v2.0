@@ -22,7 +22,7 @@ export default function ButtonContactNo() {
 
   return (
     <div className='pt-4'>
-      <button className='depth' onClick={handleClick}></button>
+      <button className='mb-2 depth' onClick={handleClick}></button>
     </div>
   );
 }
