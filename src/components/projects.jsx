@@ -32,7 +32,7 @@ export default function Projects() {
             <article>
               <Link legacyBehavior href={'https://xkcd-reimagined.vercel.app/'}>
                 <a target='_blank'>
-                  <p className='text-lg text-right text-brown'>
+                  <p className='text-lg font-bold text-right text-brown'>
                     xkcd - Reimagined
                   </p>
                   <Image
@@ -80,7 +80,7 @@ export default function Projects() {
                   />
                 </li>
               </ul>
-              <p className='hidden md:block text-brown'>
+              <p className='hidden font-mono md:block text-brown'>
                 This is a xkcd comic page made with Next.js to my liking, with a
                 new modern look and feel. <br />
                 Making this project I learned about scraping a web page, and
@@ -92,7 +92,7 @@ export default function Projects() {
             <article>
               <Link legacyBehavior href={'https://ferouvina.github.io/Giphy-App-v2/'}>
                 <a target='_blank'>
-                  <p className='text-lg text-right text-brown'>Giphy App</p>
+                  <p className='text-lg font-bold text-right text-brown'>Giphy App</p>
                   <Image
                     src={giphy1}
                     alt='xkcd'
@@ -131,7 +131,7 @@ export default function Projects() {
                   />
                 </li>
               </ul>
-              <p className='hidden md:block text-brown'>
+              <p className='hidden font-mono md:block text-brown'>
                 This is a Giphy-like Gif Searching App made in React. <br />
                 This project helped me a lot to really undertand the core
                 concepts of React. <br />
@@ -144,7 +144,7 @@ export default function Projects() {
             <article>
               <Link legacyBehavior href={'https://ferouvina.github.io/Portfolio/'}>
                 <a target='_blank'>
-                  <p className='text-lg text-right text-brown'>
+                  <p className='text-lg font-bold text-right text-brown'>
                     My first Portfolio
                   </p>
                   <Image
@@ -178,7 +178,7 @@ export default function Projects() {
                   <Image src={gsapLogo} alt='gsap' width={25} title='Gsap' />
                 </li>
               </ul>
-              <p className='hidden md:block text-brown'>
+              <p className='hidden font-mono md:block text-brown'>
                 This was my first ever portfolio, I made it using vanilla
                 JavaScript, plain HTML and CSS. <br />I also used gsap for
                 making animations. <br />I made this to put in practice what I
@@ -191,7 +191,7 @@ export default function Projects() {
             <article>
               <Link legacyBehavior href={'https://ferouvina.github.io/Oracle-One-Hangman/index.html'}>
                 <a target='_blank'>
-                  <p className='text-lg text-right text-brown'>Hangman Game</p>
+                  <p className='text-lg font-bold text-right text-brown'>Hangman Game</p>
                   <Image
                     src={hangmanGif}
                     alt='Hangman Game'
@@ -219,7 +219,7 @@ export default function Projects() {
                   <Image src={CSSLogo} alt='css' width={25} title='CSS' />
                 </li>
               </ul>
-              <p className='hidden md:block text-brown'>
+              <p className='hidden font-mono md:block text-brown'>
                 This was my first challenge at that time, making the logic of
                 this game took a lot of effort and research. <br />
                 But in the end it was a success, and thanks to this I learned a
