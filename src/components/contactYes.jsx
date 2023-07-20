@@ -22,7 +22,7 @@ export default function ContactYes() {
       <div className='container bg-white text-darkBrown formContainer'>
         <form
           className='flex flex-col gap-2 p-4'
-          action='https://formsubmit.co/contactfernando07@gmail.com'
+          action='8a5cb5c35323d26a178452e28a134ed8 '
           method='POST'
         >
           <div className='flex p-1 w-full form-group bg-aquaGreen'>
