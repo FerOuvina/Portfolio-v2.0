@@ -78,7 +78,7 @@ export default function Card({
           </div>
         </div>
 
-        <div className='container font-mono bg-white text-brown folderContainer-content'>
+        <div className='container font-mono bg-white text-brown overflow-y-scroll max-h-[300px] folderContainer-content'>
           <h1
             className={`px-2 overflow-auto ${contentH1 ? 'block' : 'hidden'}`}
           >

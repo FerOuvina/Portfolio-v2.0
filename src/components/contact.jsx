@@ -31,7 +31,7 @@ export default function Contact() {
       },
       {
         x: 0,
-        y: 0,
+        y: -50,
         scale: 1,
         opacity: 1,
         position: 'absolute',
@@ -58,7 +58,7 @@ export default function Contact() {
       },
       {
         x: 0,
-        y: 0,
+        y: -50,
         scale: 1,
         opacity: 1,
         position: 'absolute',
