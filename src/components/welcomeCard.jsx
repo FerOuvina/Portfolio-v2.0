@@ -15,11 +15,11 @@ export default function WelcomeCard() {
         </span>,
       ]}
       contentH1={[
-        <span key={'welcomeCard-title'} className='text-lg'>
+        <span key={'welcomeCard-title'} className='text-lg font-bold'>
           I&apos;m Fernando Ouvi&ntilde;a,
         </span>,
         <br key={'welcomeCard-title-br'} />,
-        <span key={'welcomeCard-title2'} className='text-lg underline'>
+        <span key={'welcomeCard-title2'} className='text-lg font-bold underline'>
           Front End Developer
         </span>,
       ]}
