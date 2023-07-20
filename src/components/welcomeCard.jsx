@@ -48,7 +48,7 @@ export default function WelcomeCard() {
             href={'https://github.com/FerOuvina'}
             referrerPolicy='no-referrer'
           >
-            <a>
+            <a target='_blank'>
               <li title='Github Profile'>
                 <Image
                   src={gitHubLogo}
@@ -65,7 +65,7 @@ export default function WelcomeCard() {
             href={'https://www.linkedin.com/in/fernando07'}
             referrerPolicy='no-referrer'
           >
-            <a>
+            <a target='_blank'>
               <li title='LinkedIn Profile'>
                 <Image
                   src={linkedInLogo}
@@ -82,7 +82,7 @@ export default function WelcomeCard() {
             href={'example.com'}
             referrerPolicy='no-referrer'
           >
-            <a>
+            <a target='_blank'>
               <li title='Personal Blog'>
                 <Image
                   src={blogLogo}
