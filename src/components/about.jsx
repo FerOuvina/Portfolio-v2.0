@@ -19,9 +19,13 @@ export default function About() {
       navTitle={`/specifications/about`}
       contentFirst={'About Me'}
       contentText={[
-        `I'm a skilled web developer who thrives on creating visually appealing and highly functional websites and applications.`,
-        <br key={'about-br'} />,
-        `Currently, I'm actively seeking opportunities to expand my skills and kickstart my career in this dynamic field.`,
+        <span key={`about-span`} className='overflow-y-scroll max-h-[300px]'>
+          I&apos;m a skilled web developer who thrives on creating visually
+          appealing and highly functional websites and applications.
+          <br key={'about-br'} />Currently, I&apos;m actively seeking
+          opportunities to expand my skills and kickstart my career in this
+          dynamic field.
+        </span>,
       ]}
       id={`specificationsCard`}
       width={300}
