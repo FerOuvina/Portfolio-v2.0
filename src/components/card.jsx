@@ -40,7 +40,7 @@ export default function Card({
 
   return (
     <section
-      className={`hidden overflow-y-scroll flex-col folderContainer`}
+      className={`hidden overflow-y-scroll flex-col max-h-[500px] folderContainer`}
       style={{
         width: width,
       }}
