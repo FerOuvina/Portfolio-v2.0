@@ -27,7 +27,7 @@ export default function About() {
       width={300}
     >
       <footer className='w-full bg-white aboutContainer'>
-        <h2 className='py-1 text-lg text-center text-brown'>
+        <h2 className='py-1 text-lg font-bold text-center text-brown'>
           This is my current stack
         </h2>
         <hr className='w-full border-2 breakLine' />
