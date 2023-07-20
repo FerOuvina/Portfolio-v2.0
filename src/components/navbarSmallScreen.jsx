@@ -61,7 +61,7 @@ export default function Navbar() {
       {
         duration: 0.4,
         x: '0',
-        y: 0,
+        y: -30,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
@@ -87,7 +87,7 @@ export default function Navbar() {
       {
         duration: 0.4,
         x: 0,
-        y: 0,
+        y: -30,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
@@ -113,7 +113,7 @@ export default function Navbar() {
       {
         duration: 0.4,
         x: 0,
-        y: 0,
+        y: -30,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
@@ -139,7 +139,7 @@ export default function Navbar() {
       {
         duration: 0.4,
         x: 0,
-        y: 0,
+        y: -30,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
@@ -165,7 +165,7 @@ export default function Navbar() {
       {
         duration: 0.4,
         x: 0,
-        y: 0,
+        y: -30,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
@@ -191,7 +191,7 @@ export default function Navbar() {
       {
         duration: 0.4,
         x: 0,
-        y: 0,
+        y: -30,
         scale: 1.0,
         position: 'absolute',
         display: 'flex',
