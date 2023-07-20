@@ -4,14 +4,14 @@ import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
 import ZIndexContext from '@/context/zIndexContext';
 import Image from 'next/image';
-import icon1 from '../assets/images/icon1.png';
-import icon2 from '../assets/images/icon2.png';
-import icon3 from '../assets/images/icon3.png';
-import icon4 from '../assets/images/icon4.png';
-import icon5 from '../assets/images/icon5.png';
-import icon6 from '../assets/images/icon6.webp';
-import icon7 from '../assets/images/icon7.png';
-import icon8 from '../assets/images/icon8.png';
+import icon1 from '../assets/images/icon1.ico';
+import icon2 from '../assets/images/icon2.ico';
+import icon3 from '../assets/images/icon3.ico';
+import icon4 from '../assets/images/icon4.ico';
+import icon5 from '../assets/images/icon5.ico';
+import icon6 from '../assets/images/icon6.ico';
+import icon7 from '../assets/images/icon7.ico';
+import icon8 from '../assets/images/icon8.ico';
 import '../stylesheets/navbarSmallScreen.css';
 
 export default function Navbar() {

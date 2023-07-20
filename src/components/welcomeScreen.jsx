@@ -2,7 +2,7 @@ import { useRef } from 'react';
 import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import Image from 'next/image';
-import icon7 from '../assets/images/icon7.png';
+import icon7 from '../assets/images/icon7.ico';
 import '../stylesheets/contactYes.css';
 import '../stylesheets/welcomeScreen.css';
 
