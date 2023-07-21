@@ -19,7 +19,7 @@ export default function About() {
       navTitle={`/specifications/about`}
       contentFirst={'About Me'}
       contentText={[
-        <span key={`about-span`} className='overflow-y-scroll max-h-[300px]'>
+        <span key={`about-span`}>
           I&apos;m a skilled web developer who thrives on creating visually
           appealing and highly functional websites and applications.
           <br key={'about-br'} />Currently, I&apos;m actively seeking

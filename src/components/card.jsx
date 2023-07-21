@@ -87,7 +87,7 @@ export default function Card({
           <h2 className={`px-2 ${contentH2 ? 'block' : 'hidden'}`}>
             {contentH2}
           </h2>
-          <div className={`px-2 ${contentText ? 'block' : 'hidden'}`}>
+          <div className={`px-2 max-h-[200px] ${contentText ? 'block' : 'hidden'}`}>
             {contentText}
           </div>
         </div>
