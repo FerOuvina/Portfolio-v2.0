@@ -47,7 +47,17 @@ export default function NavbarSmallScreen() {
   });
 
   const openWelcomeCard = () => {
-    if (isIntersecting) return;
+    if (isIntersecting) {
+      gsap.to('#welcomeCard', {
+        scale: 0.1,
+        x: -300,
+        y: 1000,
+        duration: 0.6,
+      });
+      menuIconRef.current.classList.toggle('open');
+      menuRef.current.classList.toggle('closed');
+      return;
+    }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     gsap.fromTo(
@@ -73,7 +83,17 @@ export default function NavbarSmallScreen() {
   };
 
   const openSpecCard = () => {
-    if (isIntersecting2) return;
+    if (isIntersecting2) {
+      gsap.to('#specificationsCard', {
+        scale: 0.1,
+        x: -300,
+        y: 1000,
+        duration: 0.6,
+      });
+      menuIconRef.current.classList.toggle('open');
+      menuRef.current.classList.toggle('closed');
+      return;
+    }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     gsap.fromTo(
@@ -99,7 +119,17 @@ export default function NavbarSmallScreen() {
   };
 
   const openProjectsCard = () => {
-    if (isIntersecting3) return;
+    if (isIntersecting3) {
+      gsap.to('#projects', {
+        scale: 0.1,
+        x: -300,
+        y: 1000,
+        duration: 0.6,
+      });
+      menuIconRef.current.classList.toggle('open');
+      menuRef.current.classList.toggle('closed');
+      return;
+    }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     gsap.fromTo(
@@ -125,7 +155,17 @@ export default function NavbarSmallScreen() {
   };
 
   const openContactCard = () => {
-    if (isIntersecting4) return;
+    if (isIntersecting4) {
+      gsap.to('#contact', {
+        scale: 0.1,
+        x: -300,
+        y: 1000,
+        duration: 0.6,
+      });
+      menuIconRef.current.classList.toggle('open');
+      menuRef.current.classList.toggle('closed');
+      return;
+    }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     gsap.fromTo(
@@ -151,7 +191,17 @@ export default function NavbarSmallScreen() {
   };
 
   const openBlogCard = () => {
-    if (isIntersecting5) return;
+    if (isIntersecting5) {
+      gsap.to('#blog', {
+        scale: 0.1,
+        x: -300,
+        y: 1000,
+        duration: 0.6,
+      });
+      menuIconRef.current.classList.toggle('open');
+      menuRef.current.classList.toggle('closed');
+      return;
+    }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     gsap.fromTo(
@@ -177,7 +227,17 @@ export default function NavbarSmallScreen() {
   };
 
   const openMusicCard = () => {
-    if (isIntersecting6) return;
+    if (isIntersecting6) {
+      gsap.to('#mediaCard', {
+        scale: 0.1,
+        x: -300,
+        y: 1000,
+        duration: 0.6,
+      });
+      menuIconRef.current.classList.toggle('open');
+      menuRef.current.classList.toggle('closed');
+      return;
+    }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     gsap.fromTo(
