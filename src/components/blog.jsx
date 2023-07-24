@@ -13,7 +13,8 @@ export default function Blog() {
         </div>,
       ]}
       id={'blog'}
-      width={300}
-    ></Card>
+      minWidth={300}
+      maxWidth={300}
+      ></Card>
   );
 }

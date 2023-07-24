@@ -17,7 +17,8 @@ export default function ContactYes() {
         </div>,
       ]}
       id={'contactYes'}
-      width={300}
+      minWidth={300}
+      maxWidth={400}
     >
       <div className='container bg-white text-darkBrown formContainer'>
         <form

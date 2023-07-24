@@ -198,7 +198,8 @@ export default function AudioPlayer() {
         </div>,
       ]}
       id={`mediaCard`}
-      width={300}
-    />
+      minWidth={300}
+      maxWidth={400}
+      />
   );
 }

@@ -84,8 +84,9 @@ export default function Contact() {
         ]}
         contentH1={'Do you want to contact the admin of this page?'}
         id={'contact'}
-        width={280}
-      >
+        minWidth={280}
+        maxWidth={350}
+>
         <section className='container flex justify-evenly items-center contactCard'>
           <Button className='px-5 py-1 w-[100px] bg-white' onClick={handleYes}>
             Yes

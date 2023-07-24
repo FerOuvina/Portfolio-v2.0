@@ -19,7 +19,10 @@ export default function WelcomeCard() {
           I&apos;m Fernando Ouvi&ntilde;a,
         </span>,
         <br key={'welcomeCard-title-br'} />,
-        <span key={'welcomeCard-title2'} className='text-lg font-bold underline'>
+        <span
+          key={'welcomeCard-title2'}
+          className='text-lg font-bold underline'
+        >
           Front End Developer
         </span>,
       ]}
@@ -38,8 +41,9 @@ export default function WelcomeCard() {
         </em>,
         `, I post some interesting stuff there.`,
       ]}
+      minWidth={300}
+      maxWidth={400}
       id={'welcomeCard'}
-      width={300}
     >
       <footer className='container bg-white'>
         <ul className='flex justify-around p-2 text-brown'>

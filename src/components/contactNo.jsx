@@ -14,13 +14,17 @@ export default function ContactNo() {
         </div>,
       ]}
       contentH1={[
-        <span key={`contactNo-span`} className='flex justify-center items-center text-center'>
+        <span
+          key={`contactNo-span`}
+          className='flex justify-center items-center text-center'
+        >
           This device will self destruct unless you press the big red button
           below
         </span>,
       ]}
       id={'contactNo'}
-      width={300}
+      minWidth={300}
+      maxWidth={350}
     >
       <ButtonContactNo />
     </Card>

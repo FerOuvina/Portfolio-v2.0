@@ -28,7 +28,8 @@ export default function About() {
         </span>,
       ]}
       id={`specificationsCard`}
-      width={300}
+      minWidth={300}
+      maxWidth={400}
     >
       <footer className='w-full bg-white aboutContainer'>
         <h2 className='py-1 text-lg font-bold text-center text-brown'>
