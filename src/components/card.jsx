@@ -13,14 +13,9 @@ export default function Card({
   contentH2,
   contentText,
   id,
-  width,
+  minWidth,
+  maxWidth,
 }) {
-  if (width !== null && width !== undefined && width !== 0) {
-    width = width;
-  } else {
-    width = 'auto';
-  }
-
   const ref = useRef();
   const minimizeCard = () => {
     gsap.to(ref.current, {
@@ -40,9 +35,10 @@ export default function Card({
 
   return (
     <section
-      className={`hidden flex-col folderContainer`}
+      className={`hidden flex-col bg-white rounded-md folderContainer w-[300px] sm:w-[500px] md:w-[700px] lg:w-[900px] xl:w-[1100px] 3xl:w-[1500px]`}
       style={{
-        width: width,
+        minWidth: minWidth,
+        maxWidth: maxWidth,
       }}
       id={id}
       ref={ref}
@@ -78,7 +74,7 @@ export default function Card({
           </div>
         </div>
 
-        <div className='container font-mono bg-white text-brown overflow-y-scroll max-h-[300px] folderContainer-content'>
+        <div className='container overflow-y-scroll font-mono bg-white text-brown max-h-[300px] sm:max-h-[500px] folderContainer-content'>
           <h1
             className={`px-2 overflow-auto ${contentH1 ? 'block' : 'hidden'}`}
           >
@@ -87,7 +83,11 @@ export default function Card({
           <h2 className={`px-2 ${contentH2 ? 'block' : 'hidden'}`}>
             {contentH2}
           </h2>
-          <div className={`px-2 max-h-[200px] ${contentText ? 'block' : 'hidden'}`}>
+          <div
+            className={`px-2 max-h-[200px] min-h-min sm:max-h-full md:max-h-full ${
+              contentText ? 'block' : 'hidden'
+            }`}
+          >
             {contentText}
           </div>
         </div>
