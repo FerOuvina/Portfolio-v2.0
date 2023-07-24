@@ -14,7 +14,7 @@ import icon7 from '../assets/images/icon7.ico';
 import icon8 from '../assets/images/icon8.ico';
 import '../stylesheets/navbarSmallScreen.css';
 
-export default function Navbar() {
+export default function NavbarSmallScreen() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);
 
   const isIntersecting = useObserver('welcomeCard');
