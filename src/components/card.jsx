@@ -1,8 +1,8 @@
 import { useRef } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
-import close from '../assets/images/close.png';
-import minimize from '../assets/images/minimize.png';
+import minus from '../assets/images/minus.svg';
+import x from '../assets/images/x.svg';
 import '../stylesheets/card.css';
 
 export default function Card({
@@ -45,22 +45,22 @@ export default function Card({
     >
       <div className='flex justify-between border-b-2 border-black'>
         <h4 className='pl-1 font-mono text-brown'>{navTitle}</h4>
-        <div className='flex items-center'>
+        <div className='flex gap-1 items-center mx-[2px]'>
           <Image
-            src={minimize}
+            src={minus}
             alt='blue-circle'
-            width={25}
-            height={25}
-            className='cursor-pointer'
+            width={22}
+            height={22}
+            className='cursor-pointer minus'
             onClick={minimizeCard}
             title='minimize'
           />
           <Image
-            src={close}
+            src={x}
             alt='blue-circle'
-            width={25}
-            height={25}
-            className='cursor-pointer'
+            width={22}
+            height={22}
+            className='cursor-pointer x'
             onClick={closeCard}
             title='close'
           />
