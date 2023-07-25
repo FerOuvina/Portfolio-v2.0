@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import ZIndexContext from '@/context/zIndexContext';
 import useSound from 'use-sound';
 import Card from './card';
@@ -8,6 +8,17 @@ import ContactNo from './contactNo';
 import Button from './button';
 
 export default function Contact() {
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 1024;
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResizeWindow);
+    return () => {
+      window.removeEventListener('resize', handleResizeWindow);
+    };
+  }, []);
+
   const { zIndex, setZIndex } = useContext(ZIndexContext);
   const [playTadaa] = useSound('/sounds/Tadaa.mp3', {
     volume: 0.2,
@@ -20,25 +31,46 @@ export default function Contact() {
       x: -100,
       display: 'none',
     });
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#contactYes',
+        {
+          duration: 0.5,
+          x: 100,
+          opacity: 0,
+          zIndex: zIndex,
+        },
+        {
+          x: -150,
+          y: -50,
+          scale: 1,
+          opacity: 1,
+          position: 'absolute',
+          display: 'flex',
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#contactYes',
+        {
+          duration: 0.5,
+          x: 100,
+          opacity: 0,
+          zIndex: zIndex,
+        },
+        {
+          x: 0,
+          y: -50,
+          scale: 1,
+          opacity: 1,
+          position: 'absolute',
+          display: 'flex',
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playTadaa();
-    gsap.fromTo(
-      '#contactYes',
-      {
-        duration: 0.5,
-        x: 100,
-        opacity: 0,
-        zIndex: zIndex,
-      },
-      {
-        x: 0,
-        y: -50,
-        scale: 1,
-        opacity: 1,
-        position: 'absolute',
-        display: 'flex',
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
   };
 
   const handleNo = () => {
@@ -48,24 +80,45 @@ export default function Contact() {
       x: 100,
       display: 'none',
     });
-    gsap.fromTo(
-      '#contactNo',
-      {
-        duration: 0.5,
-        x: -100,
-        opacity: 0,
-        zIndex: zIndex,
-      },
-      {
-        x: 0,
-        y: -50,
-        scale: 1,
-        opacity: 1,
-        position: 'absolute',
-        display: 'flex',
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#contactNo',
+        {
+          duration: 0.5,
+          x: -100,
+          opacity: 0,
+          zIndex: zIndex,
+        },
+        {
+          x: 150,
+          y: -150,
+          scale: 1,
+          opacity: 1,
+          position: 'absolute',
+          display: 'flex',
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#contactNo',
+        {
+          duration: 0.5,
+          x: -100,
+          opacity: 0,
+          zIndex: zIndex,
+        },
+        {
+          x: 0,
+          y: -50,
+          scale: 1,
+          opacity: 1,
+          position: 'absolute',
+          display: 'flex',
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
   };
 
   return (
@@ -86,7 +139,7 @@ export default function Contact() {
         id={'contact'}
         minWidth={280}
         maxWidth={350}
->
+      >
         <section className='container flex justify-evenly items-center contactCard'>
           <Button className='px-5 py-1 w-[100px] bg-white' onClick={handleYes}>
             Yes

@@ -1,4 +1,4 @@
-import { useContext, useRef } from 'react';
+import { useContext, useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
@@ -14,6 +14,17 @@ import icon7 from '../assets/images/icon7.ico';
 import icon8 from '../assets/images/icon8.ico';
 
 export default function NavbarBigScreen() {
+  const [width, setWidth] = useState(window.innerWidth);
+  const breakpoint = 1024;
+
+  useEffect(() => {
+    const handleResizeWindow = () => setWidth(window.innerWidth);
+    window.addEventListener('resize', handleResizeWindow);
+    return () => {
+      window.removeEventListener('resize', handleResizeWindow);
+    };
+  }, []);
+
   const { zIndex, setZIndex } = useContext(ZIndexContext);
 
   const isIntersecting = useObserver('welcomeCard');
@@ -59,25 +70,47 @@ export default function NavbarBigScreen() {
     }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
-    gsap.fromTo(
-      '#welcomeCard',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: '0',
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#welcomeCard',
+        {
+          x: -20,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          x: -200,
+          y: 100,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#welcomeCard',
+        {
+          x: -20,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: '0',
+          y: -50,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playWelcomeCardSound();
   };
 
@@ -91,25 +124,46 @@ export default function NavbarBigScreen() {
       });
       return;
     }
-    gsap.fromTo(
-      '#welcomeCard',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: '0',
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#welcomeCard',
+        {
+          x: -20,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          x: -200,
+          y: 100,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#welcomeCard',
+        {
+          x: -20,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: '0',
+          y: -50,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playWelcomeCardSound();
   };
 
@@ -127,25 +181,47 @@ export default function NavbarBigScreen() {
     }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
-    gsap.fromTo(
-      '#specificationsCard',
-      {
-        x: 20,
-        y: -200,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#specificationsCard',
+        {
+          x: 20,
+          y: -200,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 200,
+          y: 50,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#specificationsCard',
+        {
+          x: 20,
+          y: -200,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 0,
+          y: -30,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playSpecCardSound();
   };
 
@@ -159,25 +235,47 @@ export default function NavbarBigScreen() {
       });
       return;
     }
-    gsap.fromTo(
-      '#specificationsCard',
-      {
-        x: 20,
-        y: -200,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#specificationsCard',
+        {
+          x: 20,
+          y: -200,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 200,
+          y: 50,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#specificationsCard',
+        {
+          x: 20,
+          y: -200,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 0,
+          y: -30,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playSpecCardSound();
   };
 
@@ -331,25 +429,47 @@ export default function NavbarBigScreen() {
     }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
-    gsap.fromTo(
-      '#blog',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#blog',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: -100,
+          y: -180,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#blog',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 0,
+          y: -30,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playBlogSound();
   };
 
@@ -363,25 +483,47 @@ export default function NavbarBigScreen() {
       });
       return;
     }
-    gsap.fromTo(
-      '#blog',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#blog',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: -100,
+          y: -180,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#blog',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 0,
+          y: -30,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playBlogSound();
   };
 
@@ -399,25 +541,47 @@ export default function NavbarBigScreen() {
     }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
-    gsap.fromTo(
-      '#mediaCard',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#mediaCard',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: -90,
+          y: 160,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#mediaCard',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 0,
+          y: -30,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playMusicSound();
   };
 
@@ -431,25 +595,47 @@ export default function NavbarBigScreen() {
       });
       return;
     }
-    gsap.fromTo(
-      '#mediaCard',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    if (width > breakpoint) {
+      gsap.fromTo(
+        '#mediaCard',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: -90,
+          y: 160,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    } else {
+      gsap.fromTo(
+        '#mediaCard',
+        {
+          x: 0,
+          y: -220,
+          opacity: 0.01,
+          zIndex: zIndex,
+        },
+        {
+          duration: 0.4,
+          x: 0,
+          y: -30,
+          scale: 1.0,
+          position: 'absolute',
+          display: 'flex',
+          opacity: 1,
+          zIndex: setZIndex(zIndex + 1),
+        }
+      );
+    }
     playMusicSound();
   };
 
