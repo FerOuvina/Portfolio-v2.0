@@ -8,7 +8,7 @@ import '../stylesheets/page.css';
 const NavbarDynamic = dynamic(() => import('@/components/navbar'), {
   ssr: false,
 });
-const ContextDynamic = dynamic(() => import('@/components/content'), {
+const ContentDynamic = dynamic(() => import('@/components/content'), {
   ssr: false,
 });
 
@@ -18,7 +18,7 @@ export default function Home() {
       <div className='mainContainer'>
         <WelcomeScreen />
         <NavbarDynamic />
-        <ContextDynamic />
+        <ContentDynamic />
       </div>
     </ZIndexProvider>
   );
