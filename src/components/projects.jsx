@@ -10,10 +10,12 @@ import nextUILogo from '../assets/logos/NextUI-Logo.png';
 import CSSLogo from '../assets/logos/CSS-Logo.svg';
 import HTMLLogo from '../assets/logos/HTML-Logo.svg';
 import gsapLogo from '../assets/logos/Gsap-Logo.svg';
+import millionLogo from '../assets/logos/Million-Logo.png';
+import viteLogo from '../assets/logos/Vite-Logo.svg';
 import xkcdGif from '../assets/images/xkcdGif.gif';
 import giphy1 from '../assets/images/Giphy1.gif';
 import portfolioGif from '../assets/images/Portfolio.gif';
-import hangmanGif from '../assets/images/HangmanGif1.gif';
+import ishinoguroGif from '../assets/images/ishinoguroGif.gif';
 import '../stylesheets/projects.css';
 
 export default function Projects() {
@@ -30,17 +32,17 @@ export default function Projects() {
       <section className='overflow-y-scroll px-2 py-3 w-full h-56 bg-white sm:h-72 md:h-96 projectsContainer'>
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-10'>
           <article>
-            <Link legacyBehavior href={'https://xkcd-reimagined.vercel.app/'}>
+            <Link legacyBehavior href={'https://www.ishinoguro.com.ar'}>
               <a target='_blank'>
                 <p className='text-lg font-bold text-right sm:text-left text-brown'>
-                  xkcd - Reimagined
+                  Ishinoguro - Digital Artist
                 </p>
                 <Image
-                  src={xkcdGif}
-                  alt='xkcd'
+                  src={ishinoguroGif}
+                  alt='ishinoguro'
                   width={250}
                   quality={100}
-                  title='xkcd - Reimagined Gif'
+                  title='Ishinoguro Digital Artist'
                   className='h-[150px]'
                 />
               </a>
@@ -60,10 +62,6 @@ export default function Projects() {
               </li>
 
               <li>
-                <Image src={nextLogo} alt='next' width={25} title='Next.js' />
-              </li>
-
-              <li>
                 <Image
                   src={tailwindLogo}
                   alt='tailwind'
@@ -74,19 +72,34 @@ export default function Projects() {
 
               <li>
                 <Image
-                  src={nextUILogo}
-                  alt='nextui'
+                  src={millionLogo}
+                  alt='Million.js Logo'
                   width={25}
-                  title='NextUI'
+                  title='Million.js'
                 />
+              </li>
+
+              <li>
+                <Image
+                  src={wouterLogo}
+                  alt='wouter'
+                  width={25}
+                  title='Wouter'
+                />
+              </li>
+
+              <li>
+                <Image src={viteLogo} alt='Vite' width={25} title='Vite' />
               </li>
             </ul>
             <p className='hidden font-mono md:block text-brown'>
-              This is a xkcd comic page made with Next.js to my liking, with a
-              new modern look and feel. <br />
-              Making this project I learned about scraping a web page, and using
-              it to create a new page. <br />I also learned how to use Next.js
-              getStaticProps, getServerSideProps, getStaticPaths, etc.
+              Ishinoguro - Digital Artist is a commissioned work mainly focused
+              on displaying the artist main capabilities and taste on art, as well as being
+              a hub for all of her social media, and a complete form for
+              requesting a commissioned artwork. Using Million.js to optimize
+              the virtual DOM to have a better performance and loading times and Wouter for a
+              lightweight React Router alternative, since the website
+              doesn&apos;t have much navigation.
             </p>
           </article>
 
@@ -142,7 +155,7 @@ export default function Projects() {
             </ul>
             <p className='hidden font-mono md:block sm:text-right text-brown'>
               This is a Giphy-like Gif Searching App made in React. <br />
-              This project helped me a lot to really undertand the core concepts
+              This project helped me a lot to really understand the core concepts
               of React. <br />
               Thanks to this I learned how to use hooks, useReducer, useEffect,
               useMemo, useState, useContext, and how to create custom hooks.
@@ -202,22 +215,17 @@ export default function Projects() {
 
           <article>
             <div className='md:flex md:justify-end'>
-              <Link
-                legacyBehavior
-                href={
-                  'https://ferouvina.github.io/Oracle-One-Hangman/index.html'
-                }
-              >
+              <Link legacyBehavior href={'https://xkcd-reimagined.vercel.app/'}>
                 <a target='_blank'>
                   <p className='text-lg font-bold text-right text-brown'>
-                    Hangman Game
+                    xkcd - Reimagined
                   </p>
                   <Image
-                    src={hangmanGif}
-                    alt='Hangman Game'
+                    src={xkcdGif}
+                    alt='xkcd'
                     width={250}
                     quality={100}
-                    title='Hangman Game Gif'
+                    title='xkcd - Reimagined Gif'
                     className='h-[150px]'
                   />
                 </a>
@@ -234,18 +242,36 @@ export default function Projects() {
               </li>
 
               <li>
-                <Image src={HTMLLogo} alt='html' width={25} title='HTML' />
+                <Image src={reactLogo} alt='react' width={25} title='React' />
               </li>
 
               <li>
-                <Image src={CSSLogo} alt='css' width={25} title='CSS' />
+                <Image src={nextLogo} alt='next' width={25} title='Next.js' />
+              </li>
+
+              <li>
+                <Image
+                  src={tailwindLogo}
+                  alt='tailwind'
+                  width={25}
+                  title='Tailwind'
+                />
+              </li>
+
+              <li>
+                <Image
+                  src={nextUILogo}
+                  alt='nextui'
+                  width={25}
+                  title='NextUI'
+                />
               </li>
             </ul>
             <p className='hidden font-mono md:block md:text-right text-brown'>
-              This was my first challenge at that time, making the logic of this
-              game took a lot of effort and research. <br />
-              But in the end it was a success, and thanks to this I learned a
-              lot of JavaScript. <br />
+              This is a xkcd comic page made with Next.js to my liking, with a
+              new modern look and feel. <br />
+              Making this project I learned about scraping a web page, and using
+              it to create a new one. <br />I also learned how to use Next.js and some of it&apos;s core features like getStaticProps, getServerSideProps, getStaticPaths, etc.
             </p>
           </article>
         </div>
