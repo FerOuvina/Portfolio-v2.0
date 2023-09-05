@@ -27,27 +27,27 @@ export default function DesktopIcons() {
 
   const isWelcomeCardIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
   const isSpecificationsCardIntersecting = useObserver('specificationsCard');
   const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
   const isProjectsCardIntersecting = useObserver('projects');
   const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
   const isContactCardIntersecting = useObserver('contact');
   const [playContactSound] = useSound('/sounds/Chord.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
   const isBlogCardIntersecting = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
   const isMediaCardIntersecting = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.4,
+    volume: 0.2,
   });
 
   const openWelcomeCard = () => {
