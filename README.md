@@ -25,7 +25,6 @@ You can access the live version of the portfolio at [Portfolio v2.0](https://ouv
 - JavaScript
 - React
 - Tailwind CSS
-- Million.js
 - Wouter
 - Vite
 - HTML5
