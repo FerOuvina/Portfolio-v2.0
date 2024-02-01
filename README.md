@@ -5,7 +5,7 @@
 This is the second version of my personal portfolio website. It showcases my work, skills, and provides a brief introduction about me.
 
 ## Table of Contents
-- [Demo](#demo)
+- [Live Version](#live-version)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Contributing](#contributing)
@@ -25,8 +25,8 @@ You can access the live version of the portfolio at [Portfolio v2.0](https://ouv
 - JavaScript
 - React
 - Tailwind CSS
-- Million.js
 - Wouter
+- Gsap
 - Vite
 - HTML5
 - CSS3
@@ -40,7 +40,3 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 - Make your changes and commit them.
 - Push your changes to your fork.
 - Submit a pull request to the main repository.
-
-## License
-
-This project is open-source and available under the MIT License.
