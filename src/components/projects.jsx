@@ -93,7 +93,7 @@ export default function Projects() {
               </li>
             </ul>
             <p className='hidden font-mono md:block text-brown'>
-              <li>This website was born from the artist's need to show her work on the web and be able to reach more users and, at the same time, offer a quick and easy way to request a commission.</li>
+              <li>This website was born from the artist&apos;s need to show her work on the web and be able to reach more users and, at the same time, offer a quick and easy way to request a commission.</li>
               <li>She chose me for the job after seeing my portfolio and thinking that I had a good taste for details and design.</li>
               <li>Thanks to that we were able to complete her project that brought her an average of 30 to 50 people a day on her website, as well as facilitate the commission filter for her work.</li>
             </p>
