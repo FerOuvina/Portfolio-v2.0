@@ -14,7 +14,7 @@ import millionLogo from '../assets/logos/Million-Logo.png';
 import viteLogo from '../assets/logos/Vite-Logo.svg';
 import xkcdGif from '../assets/images/xkcdGif.gif';
 import giphy1 from '../assets/images/Giphy1.gif';
-import portfolioGif from '../assets/images/Portfolio.gif';
+import encryptorGif from '../assets/images/Encryptor.gif';
 import ishinoguroGif from '../assets/images/ishinoguroGif.gif';
 import '../stylesheets/projects.css';
 
@@ -93,13 +93,9 @@ export default function Projects() {
               </li>
             </ul>
             <p className='hidden font-mono md:block text-brown'>
-              Ishinoguro - Digital Artist is a commissioned work mainly focused
-              on displaying the artist main capabilities and taste on art, as well as being
-              a hub for all of her social media, and a complete form for
-              requesting a commissioned artwork. Using Million.js to optimize
-              the virtual DOM to have a better performance and loading times and Wouter for a
-              lightweight React Router alternative, since the website
-              doesn&apos;t have much navigation.
+              <li>This website was born from the artist's need to show her work on the web and be able to reach more users and, at the same time, offer a quick and easy way to request a commission.</li>
+              <li>She chose me for the job after seeing my portfolio and thinking that I had a good taste for details and design.</li>
+              <li>Thanks to that we were able to complete her project that brought her an average of 30 to 50 people a day on her website, as well as facilitate the commission filter for her work.</li>
             </p>
           </article>
 
@@ -165,18 +161,18 @@ export default function Projects() {
           <article>
             <Link
               legacyBehavior
-              href={'https://ferouvina.github.io/Portfolio/'}
+              href={'https://ferouvina.github.io/Oracle-One-Encryptor/'}
             >
               <a target='_blank'>
                 <p className='text-lg font-bold text-right sm:text-left text-brown'>
-                  My first Portfolio
+                  Simple Encryptor
                 </p>
                 <Image
-                  src={portfolioGif}
-                  alt='xkcd'
+                  src={encryptorGif}
+                  alt='Encryptor Gif'
                   width={250}
                   quality={100}
-                  title='Portfolio Gif'
+                  title='Encryptor Gif'
                   className='h-[150px]'
                 />
               </a>
@@ -199,23 +195,20 @@ export default function Projects() {
                 <Image src={CSSLogo} alt='css' width={25} title='CSS' />
               </li>
 
-              <li>
-                <Image src={gsapLogo} alt='gsap' width={25} title='Gsap' />
-              </li>
             </ul>
             <p className='hidden font-mono md:block text-brown'>
-              This was my first ever portfolio, I made it using vanilla
-              JavaScript, plain HTML and CSS. <br />I also used gsap for making
-              animations. <br />I made this to put in practice what I have
-              learned and to showcase it. Thanks to this project I learned a lot
-              of JavaScript, specifically about of the Intersection Observer
-              API.
+              This is a simple encryptor made with HTML, CSS, and JavaScript.
+              <br />
+              This project helped me a lot to really understand the core concepts
+              of JavaScript. <br />
+              Thanks to this I learned how to use variables, data types,
+              operators, and functions.
             </p>
           </article>
 
           <article>
             <div className='md:flex md:justify-end'>
-              <Link legacyBehavior href={'https://xkcd-reimagined.vercel.app/'}>
+              <Link legacyBehavior href={'https://xkcd-reimagined-git-master-ferouvina.vercel.app/en'}>
                 <a target='_blank'>
                   <p className='text-lg font-bold text-right text-brown'>
                     xkcd - Reimagined
