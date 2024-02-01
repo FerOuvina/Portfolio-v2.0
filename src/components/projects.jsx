@@ -95,7 +95,7 @@ export default function Projects() {
             <p className='hidden font-mono md:block text-brown'>
               <li>This website was born from the artist&apos;s need to show her work on the web and be able to reach more users and, at the same time, offer a quick and easy way to request a commission.</li>
               <li>She chose me for the job after seeing my portfolio and thinking that I had a good taste for details and design.</li>
-              <li>Thanks to that we were able to complete her project that brought her an average of 30 to 50 people a day on her website, as well as facilitate the commission filter for her work.</li>
+              <li>Thanks to that we were able to complete her project that brought her an <strong>average of 30 to 50 people a day</strong> on her website, as well as facilitate the commission filter for her work.</li>
             </p>
           </article>
 
@@ -151,8 +151,9 @@ export default function Projects() {
             </ul>
             <p className='hidden font-mono md:block sm:text-right text-brown'>
               This is a Giphy-like Gif Searching App made in React. <br />
-              This project helped me a lot to really understand the core concepts
-              of React. <br />
+              <strong>It comes with a searh bar, lazy loading and infinite scrolling.</strong> <br />
+              This project helped me a lot to really understand the <strong>core concepts
+              of React.</strong> <br />
               Thanks to this I learned how to use hooks, useReducer, useEffect,
               useMemo, useState, useContext, and how to create custom hooks.
             </p>
@@ -165,7 +166,7 @@ export default function Projects() {
             >
               <a target='_blank'>
                 <p className='text-lg font-bold text-right sm:text-left text-brown'>
-                  Simple Encryptor
+                  Simple Text Encryptor
                 </p>
                 <Image
                   src={encryptorGif}
