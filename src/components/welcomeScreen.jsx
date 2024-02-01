@@ -80,7 +80,7 @@ export default function WelcomeScreen() {
             >
               <h1 className='text-2xl text-center'>Welcome</h1>
               <label htmlFor='username' className='text-center'>
-                Please enter a username
+                Please enter your name
               </label>
               <div className='flex flex-col gap-2 justify-center items-center'>
                 <input
