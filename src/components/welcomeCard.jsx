@@ -12,7 +12,7 @@ export default function WelcomeCard() {
       contentFirst={[
         <span key={'welcomeCard-mainTitle'} className='text-lg'>
           Welcome!
-        </span>,
+        </span>
       ]}
       contentH1={[
         <span key={'welcomeCard-title'} className='text-lg font-bold'>
@@ -21,15 +21,28 @@ export default function WelcomeCard() {
         <br key={'welcomeCard-title-br'} />,
         <span
           key={'welcomeCard-title2'}
-          className='text-lg font-bold underline'
-        >
+          className='text-lg font-bold underline'>
           Front End Developer
-        </span>,
+        </span>
       ]}
       contentText={[
-        `Here you will find my latest work, a little something about me and my socials. Check out my github to see what I'm working on at the moment.`,
+        `Here you will find my latest work, a little something about me and my socials. Check out my `,
+        <a
+          target='_blank'
+          href='https://github.com/FerOuvina'
+          className='underline font-bold'>
+          Github
+        </a>,
+        ` to see what I'm working on at the moment.`,
         <br key={'welcomeCard-br'} />,
-        `Also check my LinkedIn, I `,
+        `Also check my `,
+        <a
+          target='_blank'
+          href='https://www.linkedin.com/in/fernando07'
+          className='underline font-bold'>
+          LinkedIn
+        </a>,
+        ` I `,
         <em key={'welcomeCard-sometimes'} className='underline'>
           sometimes
         </em>,
@@ -37,21 +50,19 @@ export default function WelcomeCard() {
         <br key={'welcomeCard-br2'} />,
         `And don't forget to visit my blog too `,
         <em key={'welcomeCard-wip'} className='underline'>
-          still in progress
+          maybe one day
         </em>,
-        `, I post some interesting stuff there.`,
+        `, I'll post some interesting stuff there.`
       ]}
       minWidth={300}
       maxWidth={400}
-      id={'welcomeCard'}
-    >
+      id={'welcomeCard'}>
       <footer className='container bg-white'>
         <ul className='flex justify-around p-2 text-brown'>
           <Link
             legacyBehavior
             href={'https://github.com/FerOuvina'}
-            referrerPolicy='no-referrer'
-          >
+            referrerPolicy='no-referrer'>
             <a target='_blank'>
               <li title='Github Profile'>
                 <Image
@@ -67,8 +78,7 @@ export default function WelcomeCard() {
           <Link
             legacyBehavior
             href={'https://www.linkedin.com/in/fernando07'}
-            referrerPolicy='no-referrer'
-          >
+            referrerPolicy='no-referrer'>
             <a target='_blank'>
               <li title='LinkedIn Profile'>
                 <Image
@@ -84,8 +94,7 @@ export default function WelcomeCard() {
           <Link
             legacyBehavior
             href={'example.com'}
-            referrerPolicy='no-referrer'
-          >
+            referrerPolicy='no-referrer'>
             <a target='_blank'>
               <li title='Personal Blog'>
                 <Image

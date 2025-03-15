@@ -6,8 +6,8 @@ import nextLogo from '../assets/logos/Next-Logo.svg';
 import tailwindLogo from '../assets/logos/Tailwind-Logo.svg';
 import gitLogo from '../assets/logos/Git-Logo.svg';
 import javaLogo from '../assets/logos/Java-Logo.svg';
-import CSSLogo from '../assets/logos/CSS-Logo.svg';
-import HTMLLogo from '../assets/logos/HTML-Logo.svg';
+import MySQLLogo from '../assets/logos/Mysql-logo.svg';
+import ExpressLogo from '../assets/logos/Express-logo.svg';
 import '../stylesheets/about.css';
 
 export default function About() {
@@ -20,17 +20,17 @@ export default function About() {
       contentFirst={'About Me'}
       contentText={[
         <span key={`about-span`}>
-          I&apos;m a skilled web developer who thrives on creating visually
-          appealing and highly functional websites and applications.
-          <br key={'about-br'} />Currently, I&apos;m actively seeking
-          opportunities to expand my skills and kickstart my career in this
-          dynamic field.
-        </span>,
+          I’m a web developer with over a year of experience working both
+          independently and as part of a team, creating visually engaging and
+          highly functional websites and applications.
+          <br /> I’m now seeking new opportunities to apply my skills, take on
+          new challenges, and grow professionally in the field of web
+          development.
+        </span>
       ]}
       id={`specificationsCard`}
       minWidth={300}
-      maxWidth={400}
-    >
+      maxWidth={400}>
       <footer className='w-full bg-white aboutContainer'>
         <h2 className='py-1 text-lg font-bold text-center text-brown'>
           This is my current stack
@@ -79,6 +79,26 @@ export default function About() {
 
           <li>
             <Image
+              src={MySQLLogo}
+              alt='MySQL Logo'
+              width={imgWidth}
+              height={imgHeight}
+              title='MySQL'
+            />
+          </li>
+
+          <li>
+            <Image
+              src={ExpressLogo}
+              alt='Express.js Logo'
+              width={imgWidth}
+              height={imgHeight}
+              title='Express.js'
+            />
+          </li>
+
+          <li>
+            <Image
               src={gitLogo}
               alt='Git Logo'
               width={imgWidth}
@@ -94,26 +114,6 @@ export default function About() {
               width={imgWidth}
               height={imgHeight}
               title='Java'
-            />
-          </li>
-
-          <li>
-            <Image
-              src={CSSLogo}
-              alt='CSS Logo'
-              width={imgWidth}
-              height={imgHeight}
-              title='CSS'
-            />
-          </li>
-
-          <li>
-            <Image
-              src={HTMLLogo}
-              alt='HTML Logo'
-              width={imgWidth}
-              height={imgHeight}
-              title='HTML'
             />
           </li>
         </ul>
