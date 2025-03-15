@@ -28,6 +28,7 @@ export default function WelcomeCard() {
       contentText={[
         `Here you will find my latest work, a little something about me and my socials. Check out my `,
         <a
+          key={'welcomeCard-git'}
           target='_blank'
           href='https://github.com/FerOuvina'
           className='underline font-bold'>
@@ -37,6 +38,7 @@ export default function WelcomeCard() {
         <br key={'welcomeCard-br'} />,
         `Also check my `,
         <a
+          key={'welcomeCard-linkedIn'}
           target='_blank'
           href='https://www.linkedin.com/in/fernando07'
           className='underline font-bold'>

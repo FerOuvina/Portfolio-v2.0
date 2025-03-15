@@ -106,7 +106,7 @@ export default function Projects() {
                 portfolio and recognizing my attention to detail and strong
                 design sensibility. As a result, we successfully launched a
                 website that now attracts an average of 30 to 50 visitors per
-                day, enhancing the artist's reach and improving commission
+                day, enhancing the artist&apos;s reach and improving commission
                 management.
               </li>
             </p>
@@ -166,11 +166,11 @@ export default function Projects() {
               interface that provides easy access to key game information,
               including registration, downloads, and news. <br /> Implemented
               new gameplay elements, such as dungeons, weapons, and enhanced
-              mechanics, contributing to the game's content expansion. <br />{' '}
+              mechanics, contributing to the game&apos;s content expansion. <br />{' '}
               Managed and optimized the game’s database, ensuring efficient and
               secure performance. <br /> Configured and maintained the server
               environment on a VPS running Ubuntu, managing the infrastructure
-              required for the project's smooth operation.
+              required for the project&apos;s smooth operation.
             </p>
           </article>
 
@@ -293,7 +293,7 @@ export default function Projects() {
               This is a GIF search application, similar to Giphy, built with
               React. It features a search bar, lazy loading, and infinite
               scrolling for a smooth user experience. This project was
-              instrumental in deepening my understanding of React's core
+              instrumental in deepening my understanding of React&apos;s core
               concepts. Through it, I gained hands-on experience with hooks such
               as useReducer, useEffect, useMemo, useState, and useContext, as
               well as the creation of custom hooks.
