@@ -2,7 +2,7 @@
 
 import { ZIndexProvider } from '@/context/zIndexContext';
 import dynamic from 'next/dynamic';
-import WelcomeScreen from '@/components/welcomeScreen';
+// import WelcomeScreen from '@/components/welcomeScreen';
 import '../stylesheets/page.css';
 
 const NavbarDynamic = dynamic(() => import('@/components/navbar'), {
@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <ZIndexProvider>
       <div className='mainContainer'>
-        <WelcomeScreen />
+        {/* <WelcomeScreen /> */}
         <NavbarDynamic />
         <ContentDynamic />
       </div>
