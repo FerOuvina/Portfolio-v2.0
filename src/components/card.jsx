@@ -45,13 +45,22 @@ export default function Card({
       listeners: {
         start(event) {
           const { target } = event;
-          document.body.classList.add('draggingWindow');
-          window.getSelection().removeAllRanges();
+          const { transform } = window.getComputedStyle(target);
+          let x = 0;
+          let y = 0;
+          if (transform && transform !== 'none') {
+            const matrix = new DOMMatrixReadOnly(transform);
+            x = matrix.m41;
+            y = matrix.m42;
+          }
+          gsap.set(target, { x, y });
+          target.setAttribute('data-x', x);
+          target.setAttribute('data-y', y);
           const nextZIndex = zIndexRef.current + 1;
           setZIndex(nextZIndex);
           gsap.set(target, { zIndex: nextZIndex });
-          target.setAttribute('data-x', gsap.getProperty(target, 'x') || 0);
-          target.setAttribute('data-y', gsap.getProperty(target, 'y') || 0);
+          document.body.classList.add('draggingWindow');
+          window.getSelection().removeAllRanges();
         },
         move(event) {
           const { target } = event;
@@ -62,7 +71,11 @@ export default function Card({
           target.setAttribute('data-x', x);
           target.setAttribute('data-y', y);
         },
-        end() {
+        end(event) {
+          const { target } = event;
+          const x = parseFloat(target.getAttribute('data-x')) || 0;
+          const y = parseFloat(target.getAttribute('data-y')) || 0;
+          gsap.set(target, { x, y });
           document.body.classList.remove('draggingWindow');
         },
       },

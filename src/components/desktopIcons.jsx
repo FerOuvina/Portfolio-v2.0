@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import useSound from 'use-sound';
 import ZIndexContext from '@/context/zIndexContext';
 import useObserver from '@/hooks/useObserver';
@@ -12,17 +12,6 @@ import icon5 from '../assets/images/icon5.ico';
 import icon6 from '../assets/images/icon6.ico';
 
 export default function DesktopIcons() {
-  const [width, setWidth] = useState(window.innerWidth);
-  const breakpoint = 1024;
-
-  useEffect(() => {
-    const handleResizeWindow = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', handleResizeWindow);
-    return () => {
-      window.removeEventListener('resize', handleResizeWindow);
-    };
-  }, []);
-
   const { zIndex, setZIndex } = useContext(ZIndexContext);
 
   const isWelcomeCardIntersecting = useObserver('welcomeCard');
@@ -50,234 +39,56 @@ export default function DesktopIcons() {
     volume: 0.2,
   });
 
+  const openCard = (selector) => {
+    const nextZIndex = zIndex + 1;
+    setZIndex(nextZIndex);
+    gsap.fromTo(
+      selector,
+      { opacity: 0.01, scale: 0.95 },
+      {
+        duration: 0.3,
+        scale: 1,
+        opacity: 1,
+        position: 'absolute',
+        display: 'flex',
+        zIndex: nextZIndex,
+      }
+    );
+  };
+
   const openWelcomeCard = () => {
     if (isWelcomeCardIntersecting) return;
-    if (width > breakpoint) {
-      gsap.fromTo(
-        '#welcomeCard',
-        {
-          x: -20,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          x: -200,
-          y: 100,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      gsap.fromTo(
-        '#welcomeCard',
-        {
-          x: -20,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: '0',
-          y: -50,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#welcomeCard');
     playWelcomeCardSound();
   };
 
   const openSpecCard = () => {
     if (isSpecificationsCardIntersecting) return;
-    if (width > breakpoint) {
-      gsap.fromTo(
-        '#specificationsCard',
-        {
-          x: 20,
-          y: -200,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 200,
-          y: 50,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      gsap.fromTo(
-        '#specificationsCard',
-        {
-          x: 20,
-          y: -200,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#specificationsCard');
     playSpecCardSound();
   };
 
   const openProjectsCard = () => {
     if (isProjectsCardIntersecting) return;
-    gsap.fromTo(
-      '#projects',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#projects');
     playProjectsSound();
   };
 
   const openContactCard = () => {
     if (isContactCardIntersecting) return;
-    gsap.fromTo(
-      '#contact',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#contact');
     playContactSound();
   };
 
   const openBlogCard = () => {
     if (isBlogCardIntersecting) return;
-    if (width > breakpoint) {
-      gsap.fromTo(
-        '#blog',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: -100,
-          y: -180,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      gsap.fromTo(
-        '#blog',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#blog');
     playBlogSound();
   };
 
   const openMusicCard = () => {
     if (isMediaCardIntersecting) return;
-    if (width > breakpoint) {
-      gsap.fromTo(
-        '#mediaCard',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: -90,
-          y: 160,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      gsap.fromTo(
-        '#mediaCard',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#mediaCard');
     playMusicSound();
   };
 
