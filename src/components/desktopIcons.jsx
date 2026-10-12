@@ -1,7 +1,5 @@
-import { useContext } from 'react';
 import useSound from 'use-sound';
-import ZIndexContext from '@/context/zIndexContext';
-import { openCardTween } from '@/utils/cardPositions';
+import { openCard } from '@/utils/cardPositions';
 import useObserver from '@/hooks/useObserver';
 import Image from 'next/image';
 import icon1 from '../assets/images/icon1.ico';
@@ -12,51 +10,30 @@ import icon5 from '../assets/images/icon5.ico';
 import icon6 from '../assets/images/icon6.ico';
 
 export default function DesktopIcons() {
-  const { zIndex, setZIndex } = useContext(ZIndexContext);
-
   const isWelcomeCardIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.2,
+    volume: 0.05,
   });
   const isSpecificationsCardIntersecting = useObserver('specificationsCard');
   const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.2,
+    volume: 0.05,
   });
   const isProjectsCardIntersecting = useObserver('projects');
   const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
-    volume: 0.2,
+    volume: 0.05,
   });
   const isContactCardIntersecting = useObserver('contact');
   const [playContactSound] = useSound('/sounds/Chord.mp3', {
-    volume: 0.2,
+    volume: 0.05,
   });
   const isBlogCardIntersecting = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.2,
+    volume: 0.05,
   });
   const isMediaCardIntersecting = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.2,
+    volume: 0.05,
   });
-
-  const openCard = (selector) => {
-    const nextZIndex = zIndex + 1;
-    setZIndex(nextZIndex);
-    openCardTween(
-      selector,
-      { opacity: 0.01, scale: 0.95 },
-      {
-        x: 0,
-        y: 0,
-        duration: 0.3,
-        scale: 1,
-        opacity: 1,
-        position: 'absolute',
-        display: 'flex',
-        zIndex: nextZIndex,
-      }
-    );
-  };
 
   const openWelcomeCard = () => {
     if (isWelcomeCardIntersecting) return;

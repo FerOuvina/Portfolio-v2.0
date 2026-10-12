@@ -1,6 +1,10 @@
 import { gsap } from 'gsap';
+import { getNextZIndex } from '@/utils/zIndexController';
 
 const savedPositions = new Map();
+
+const defaultFromVars = { opacity: 0.01, scale: 0.95 };
+const defaultToVars = { x: 0, y: 0, duration: 0.3, scale: 1, opacity: 1 };
 
 const resolveElement = (target) =>
   typeof target === 'string' ? document.querySelector(target) : target;
@@ -50,4 +54,16 @@ export const openCardTween = (selector, fromVars, toVars) => {
     fromVars,
     savedPosition ? { ...toVars, ...savedPosition } : toVars
   );
+};
+
+export const openCard = (selector, options = {}) => {
+  const { from = defaultFromVars, to = defaultToVars } = options;
+  const nextZIndex = getNextZIndex();
+
+  openCardTween(selector, from, {
+    ...to,
+    position: 'absolute',
+    display: 'flex',
+    zIndex: nextZIndex,
+  });
 };

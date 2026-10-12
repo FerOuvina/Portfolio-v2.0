@@ -1,9 +1,7 @@
-import { useContext, useEffect, useRef, useState } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useRef, useState } from 'react';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
-import ZIndexContext from '@/context/zIndexContext';
-import { minimizeCard, openCardTween } from '@/utils/cardPositions';
+import { minimizeCard, openCard } from '@/utils/cardPositions';
 import Image from 'next/image';
 import icon1 from '../assets/images/icon1.ico';
 import icon2 from '../assets/images/icon2.ico';
@@ -26,557 +24,116 @@ export default function NavbarBigScreen() {
     };
   }, []);
 
-  const { zIndex, setZIndex } = useContext(ZIndexContext);
-
   const isIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting2 = useObserver('specificationsCard');
   const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting3 = useObserver('projects');
   const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting4 = useObserver('contact');
   const [playContactSound] = useSound('/sounds/Chord.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting5 = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting6 = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
 
-  const [playLogOutSound] = useSound('/sounds/LogOff.mp3', {
-    volume: 0.2,
-  });
+  // const [playLogOutSound] = useSound('/sounds/LogOff.mp3', {
+  //   volume: 0.2,
+  // });
 
   const openWelcomeCard = () => {
     if (isIntersecting) {
       minimizeCard('#welcomeCard');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-
-    if (width > breakpoint) {
-      openCardTween(
-        '#welcomeCard',
-        {
-          x: -20,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          x: -200,
-          y: 100,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#welcomeCard',
-        {
-          x: -20,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: '0',
-          y: -50,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
-    playWelcomeCardSound();
-  };
-
-  const openWelcomeCardNavbar = () => {
-    if (isIntersecting) {
-      minimizeCard('#welcomeCard');
-      return;
-    }
-    if (width > breakpoint) {
-      openCardTween(
-        '#welcomeCard',
-        {
-          x: -20,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          x: -200,
-          y: 100,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#welcomeCard',
-        {
-          x: -20,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: '0',
-          y: -50,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#welcomeCard', {
+      from: { x: -20, y: -220, opacity: 0.01 },
+      to:
+        width > breakpoint
+          ? { x: -200, y: 100, scale: 1.0, opacity: 1 }
+          : { duration: 0.4, x: 0, y: -50, scale: 1.0, opacity: 1 },
+    });
     playWelcomeCardSound();
   };
 
   const openSpecCard = () => {
     if (isIntersecting2) {
       minimizeCard('#specificationsCard');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    if (width > breakpoint) {
-      openCardTween(
-        '#specificationsCard',
-        {
-          x: 20,
-          y: -200,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 200,
-          y: 50,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#specificationsCard',
-        {
-          x: 20,
-          y: -200,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
-    playSpecCardSound();
-  };
-
-  const openSpecCardNavbar = () => {
-    if (isIntersecting2) {
-      minimizeCard('#specificationsCard');
-      return;
-    }
-    if (width > breakpoint) {
-      openCardTween(
-        '#specificationsCard',
-        {
-          x: 20,
-          y: -200,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 200,
-          y: 50,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#specificationsCard',
-        {
-          x: 20,
-          y: -200,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#specificationsCard', {
+      from: { x: 20, y: -200, opacity: 0.01 },
+      to:
+        width > breakpoint
+          ? { duration: 0.4, x: 200, y: 50, scale: 1.0, opacity: 1 }
+          : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playSpecCardSound();
   };
 
   const openProjectsCard = () => {
     if (isIntersecting3) {
       minimizeCard('#projects');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#projects',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
-    playProjectsSound();
-  };
-
-  const openProjectsCardNavbar = () => {
-    if (isIntersecting3) {
-      minimizeCard('#projects');
-      return;
-    }
-    openCardTween(
-      '#projects',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#projects', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playProjectsSound();
   };
 
   const openContactCard = () => {
     if (isIntersecting4) {
       minimizeCard('#contact');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#contact',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
-    playContactSound();
-  };
-
-  const openContactCardNavbar = () => {
-    if (isIntersecting4) {
-      minimizeCard('#contact');
-      return;
-    }
-    openCardTween(
-      '#contact',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#contact', {
+      from: { x: -20, y: -220, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playContactSound();
   };
 
   const openBlogCard = () => {
     if (isIntersecting5) {
       minimizeCard('#blog');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    if (width > breakpoint) {
-      openCardTween(
-        '#blog',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: -100,
-          y: -180,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#blog',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
-    playBlogSound();
-  };
-
-  const openBlogCardNavbar = () => {
-    if (isIntersecting5) {
-      minimizeCard('#blog');
-      return;
-    }
-    if (width > breakpoint) {
-      openCardTween(
-        '#blog',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: -100,
-          y: -180,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#blog',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#blog', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to:
+        width > breakpoint
+          ? { duration: 0.4, x: -100, y: -180, scale: 1.0, opacity: 1 }
+          : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playBlogSound();
   };
 
   const openMusicCard = () => {
     if (isIntersecting6) {
       minimizeCard('#mediaCard');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    if (width > breakpoint) {
-      openCardTween(
-        '#mediaCard',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: -90,
-          y: 160,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#mediaCard',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
-    playMusicSound();
-  };
-
-  const openMusicCardNavbar = () => {
-    if (isIntersecting6) {
-      minimizeCard('#mediaCard');
-      return;
-    }
-    if (width > breakpoint) {
-      openCardTween(
-        '#mediaCard',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: -90,
-          y: 160,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    } else {
-      openCardTween(
-        '#mediaCard',
-        {
-          x: 0,
-          y: -220,
-          opacity: 0.01,
-          zIndex: zIndex,
-        },
-        {
-          duration: 0.4,
-          x: 0,
-          y: -30,
-          scale: 1.0,
-          position: 'absolute',
-          display: 'flex',
-          opacity: 1,
-          zIndex: setZIndex(zIndex + 1),
-        }
-      );
-    }
+    openCard('#mediaCard', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to:
+        width > breakpoint
+          ? { duration: 0.4, x: -90, y: 160, scale: 1.0, opacity: 1 }
+          : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playMusicSound();
   };
 
@@ -588,16 +145,16 @@ export default function NavbarBigScreen() {
     menuRef.current.classList.toggle('closed');
   };
 
-  const logOut = () => {
-    playLogOutSound();
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    gsap.to(`#welcomeScreen`, {
-      display: `block`,
-      opacity: 1,
-      duration: 1,
-    });
-  };
+  // const logOut = () => {
+  //   playLogOutSound();
+  //   menuIconRef.current.classList.toggle('open');
+  //   menuRef.current.classList.toggle('closed');
+  //   gsap.to(`#welcomeScreen`, {
+  //     display: `block`,
+  //     opacity: 1,
+  //     duration: 1,
+  //   });
+  // };
 
   return (
     <header className='fixed flex z-[10000] bottom-0 p-1 w-full bg-[#D4D0C8] mainNav'>
@@ -605,67 +162,85 @@ export default function NavbarBigScreen() {
         className='closed flex absolute bottom-[49px] -left-1 justify-between w-72 items-center bg-white menuContainer'
         ref={menuRef}
       >
-        <hr className='h-[389px] w-[13px] bg-black separator' />
-        <div className='flex flex-col justify-center items-center w-full text-brown'>
+        <hr className='h-auto w-[13px] bg-black separator' />
+        <div className='flex flex-col items-center justify-center w-full text-brown'>
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
-            onClick={openWelcomeCard}
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
+            onClick={() => {
+              openMenu();
+              openWelcomeCard();
+            }}
           >
             <Image src={icon4} alt='icon' width={45} height={45} />
             <p>This PC</p>
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
-            onClick={openProjectsCard}
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
+            onClick={() => {
+              openMenu();
+              openProjectsCard();
+            }}
           >
             <Image src={icon3} alt='icon' width={45} height={45} />
             <p>Projects</p>
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
-            onClick={openSpecCard}
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
+            onClick={() => {
+              openMenu();
+              openSpecCard();
+            }}
           >
             <Image src={icon2} alt='icon' width={45} height={45} />
             <p>Specs</p>
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
-            onClick={openContactCard}
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
+            onClick={() => {
+              openMenu();
+              openContactCard();
+            }}
           >
             <Image src={icon5} alt='icon' width={45} height={45} />
             <p>Contact</p>
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
-            onClick={openBlogCard}
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
+            onClick={() => {
+              openMenu();
+              openBlogCard();
+            }}
           >
             <Image src={icon1} alt='icon' width={45} height={45} />
             <p>Blog</p>
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
-            onClick={openMusicCard}
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
+            onClick={() => {
+              openMenu();
+              openMusicCard();
+            }}
           >
             <Image src={icon6} alt='icon' width={45} height={45} />
             <p>Music</p>
           </button>
 
-          <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+          {/* <button
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={logOut}
           >
             <Image src={icon8} alt='icon' width={45} height={45} />
             <p>Log Out</p>
-          </button>
+          </button> */}
         </div>
       </div>
 
-      <div className='flex gap-6 w-screen'>
+      <div className='flex w-screen gap-6'>
         <button>
           <Image
             src={icon7}
@@ -679,48 +254,48 @@ export default function NavbarBigScreen() {
 
         <div className='flex w-full text-brown'>
           <button
-            className='flex gap-2 justify-start items-center w-full buttonIcon'
-            onClick={openWelcomeCardNavbar}
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openWelcomeCard}
           >
             <Image src={icon4} alt='icon' width={30} height={30} />
             <p>This PC</p>
           </button>
 
           <button
-            className='flex gap-2 justify-start items-center w-full buttonIcon'
-            onClick={openProjectsCardNavbar}
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openProjectsCard}
           >
             <Image src={icon3} alt='icon' width={30} height={30} />
             <p>Projects</p>
           </button>
 
           <button
-            className='flex gap-2 justify-start items-center w-full buttonIcon'
-            onClick={openSpecCardNavbar}
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openSpecCard}
           >
             <Image src={icon2} alt='icon' width={30} height={30} />
             <p>Specs</p>
           </button>
 
           <button
-            className='flex gap-2 justify-start items-center w-full buttonIcon'
-            onClick={openContactCardNavbar}
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openContactCard}
           >
             <Image src={icon5} alt='icon' width={30} height={30} />
             <p>Contact</p>
           </button>
 
           <button
-            className='flex gap-2 justify-start items-center w-full buttonIcon'
-            onClick={openBlogCardNavbar}
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openBlogCard}
           >
             <Image src={icon1} alt='icon' width={30} height={30} />
             <p>Blog</p>
           </button>
 
           <button
-            className='flex gap-2 justify-start items-center w-full buttonIcon'
-            onClick={openMusicCardNavbar}
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openMusicCard}
           >
             <Image src={icon6} alt='icon' width={30} height={30} />
             <p>Music</p>

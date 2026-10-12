@@ -1,9 +1,8 @@
-import { useContext, useRef } from 'react';
+import { useRef } from 'react';
 import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
-import ZIndexContext from '@/context/zIndexContext';
-import { minimizeCard, openCardTween } from '@/utils/cardPositions';
+import { minimizeCard, openCard } from '@/utils/cardPositions';
 import Image from 'next/image';
 import icon1 from '../assets/images/icon1.ico';
 import icon2 from '../assets/images/icon2.ico';
@@ -16,220 +15,107 @@ import icon8 from '../assets/images/icon8.ico';
 import '../stylesheets/navbarSmallScreen.css';
 
 export default function NavbarSmallScreen() {
-  const { zIndex, setZIndex } = useContext(ZIndexContext);
-
   const isIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting2 = useObserver('specificationsCard');
   const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting3 = useObserver('projects');
   const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting4 = useObserver('contact');
   const [playContactSound] = useSound('/sounds/Chord.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting5 = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
   const isIntersecting6 = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.4,
+    volume: 0.05,
   });
 
-  const [playLogOutSound] = useSound('/sounds/LogOff.mp3', {
-    volume: 0.2,
-  });
+  // const [playLogOutSound] = useSound('/sounds/LogOff.mp3', {
+  //   volume: 0.2,
+  // });
 
   const openWelcomeCard = () => {
+    openMenu();
     if (isIntersecting) {
       minimizeCard('#welcomeCard');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#welcomeCard',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: '0',
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#welcomeCard');
     playWelcomeCardSound();
   };
 
   const openSpecCard = () => {
+    openMenu();
     if (isIntersecting2) {
       minimizeCard('#specificationsCard');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#specificationsCard',
-      {
-        x: 20,
-        y: -200,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#specificationsCard', {
+      from: { x: 20, y: -200, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playSpecCardSound();
   };
 
   const openProjectsCard = () => {
+    openMenu();
     if (isIntersecting3) {
       minimizeCard('#projects');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#projects',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#projects', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playProjectsSound();
   };
 
   const openContactCard = () => {
+    openMenu();
     if (isIntersecting4) {
       minimizeCard('#contact');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#contact',
-      {
-        x: -20,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#contact', {
+      from: { x: -20, y: -220, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playContactSound();
   };
 
   const openBlogCard = () => {
+    openMenu();
     if (isIntersecting5) {
       minimizeCard('#blog');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#blog',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#blog', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playBlogSound();
   };
 
   const openMusicCard = () => {
+    openMenu();
     if (isIntersecting6) {
       minimizeCard('#mediaCard');
-      menuIconRef.current.classList.toggle('open');
-      menuRef.current.classList.toggle('closed');
       return;
     }
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
-    openCardTween(
-      '#mediaCard',
-      {
-        x: 0,
-        y: -220,
-        opacity: 0.01,
-        zIndex: zIndex,
-      },
-      {
-        duration: 0.4,
-        x: 0,
-        y: -30,
-        scale: 1.0,
-        position: 'absolute',
-        display: 'flex',
-        opacity: 1,
-        zIndex: setZIndex(zIndex + 1),
-      }
-    );
+    openCard('#mediaCard', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+    });
     playMusicSound();
   };
 
@@ -259,9 +145,9 @@ export default function NavbarSmallScreen() {
         ref={menuRef}
       >
         <hr className='h-[389px] w-[13px] bg-black separator' />
-        <div className='flex flex-col justify-center items-center w-full text-brown'>
+        <div className='flex flex-col items-center justify-center w-full text-brown'>
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openWelcomeCard}
           >
             <Image src={icon4} alt='icon' width={45} height={45} />
@@ -269,7 +155,7 @@ export default function NavbarSmallScreen() {
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openProjectsCard}
           >
             <Image src={icon3} alt='icon' width={45} height={45} />
@@ -277,7 +163,7 @@ export default function NavbarSmallScreen() {
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openSpecCard}
           >
             <Image src={icon2} alt='icon' width={45} height={45} />
@@ -285,7 +171,7 @@ export default function NavbarSmallScreen() {
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openContactCard}
           >
             <Image src={icon5} alt='icon' width={45} height={45} />
@@ -293,7 +179,7 @@ export default function NavbarSmallScreen() {
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openBlogCard}
           >
             <Image src={icon1} alt='icon' width={45} height={45} />
@@ -301,20 +187,20 @@ export default function NavbarSmallScreen() {
           </button>
 
           <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openMusicCard}
           >
             <Image src={icon6} alt='icon' width={45} height={45} />
             <p>Music</p>
           </button>
 
-          <button
-            className='flex gap-6 justify-start items-center w-full buttonIcon'
+          {/* <button
+            className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={logOut}
           >
             <Image src={icon8} alt='icon' width={45} height={45} />
             <p>Log Out</p>
-          </button>
+          </button> */}
         </div>
       </div>
       <button>
