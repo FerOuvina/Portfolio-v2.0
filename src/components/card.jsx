@@ -1,6 +1,8 @@
-import { useRef } from 'react';
+import { useContext, useEffect, useRef } from 'react';
+import interact from 'interactjs';
 import { gsap } from 'gsap';
 import Image from 'next/image';
+import ZIndexContext from '@/context/zIndexContext';
 import minus from '../assets/images/minus.svg';
 import x from '../assets/images/x.svg';
 import '../stylesheets/card.css';
@@ -17,6 +19,50 @@ export default function Card({
   maxWidth,
 }) {
   const ref = useRef();
+  const { zIndex, setZIndex } = useContext(ZIndexContext);
+  const zIndexRef = useRef(zIndex);
+  zIndexRef.current = zIndex;
+
+  useEffect(() => {
+    const element = ref.current;
+    if (!element) return undefined;
+
+    const interaction = interact(element);
+
+    interaction.draggable({
+      allowFrom: '.cardHeader',
+      ignoreFrom: 'button, img',
+      inertia: true,
+      modifiers: [
+        interact.modifiers.restrict({
+          restriction: document.documentElement,
+          elementRect: { top: 0, left: 0, bottom: 1, right: 1 },
+        }),
+      ],
+      listeners: {
+        start(event) {
+          const { target } = event;
+          const nextZIndex = zIndexRef.current + 1;
+          setZIndex(nextZIndex);
+          gsap.set(target, { zIndex: nextZIndex });
+          target.setAttribute('data-x', gsap.getProperty(target, 'x') || 0);
+          target.setAttribute('data-y', gsap.getProperty(target, 'y') || 0);
+        },
+        move(event) {
+          const { target } = event;
+          const x = (parseFloat(target.getAttribute('data-x')) || 0) + event.dx;
+          const y = (parseFloat(target.getAttribute('data-y')) || 0) + event.dy;
+
+          target.style.transform = `translate(${x}px, ${y}px)`;
+          target.setAttribute('data-x', x);
+          target.setAttribute('data-y', y);
+        },
+      },
+    });
+
+    return () => interaction.unset();
+  }, [setZIndex]);
+
   const minimizeCard = () => {
     gsap.to(ref.current, {
       scale: 0.1,
@@ -43,7 +89,7 @@ export default function Card({
       id={id}
       ref={ref}
     >
-      <div className='flex justify-between border-b-2 border-black'>
+      <div className='cardHeader flex justify-between border-b-2 border-black'>
         <h4 className='pl-1 font-mono text-brown'>{navTitle}</h4>
         <div className='flex gap-1 items-center mx-[2px]'>
           <Image
