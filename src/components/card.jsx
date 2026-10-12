@@ -27,6 +27,9 @@ export default function Card({
     const element = ref.current;
     if (!element) return undefined;
 
+    const blockNativeDrag = (event) => event.preventDefault();
+    element.addEventListener('dragstart', blockNativeDrag);
+
     const interaction = interact(element);
 
     interaction.draggable({
@@ -42,6 +45,8 @@ export default function Card({
       listeners: {
         start(event) {
           const { target } = event;
+          document.body.classList.add('draggingWindow');
+          window.getSelection().removeAllRanges();
           const nextZIndex = zIndexRef.current + 1;
           setZIndex(nextZIndex);
           gsap.set(target, { zIndex: nextZIndex });
@@ -57,10 +62,17 @@ export default function Card({
           target.setAttribute('data-x', x);
           target.setAttribute('data-y', y);
         },
+        end() {
+          document.body.classList.remove('draggingWindow');
+        },
       },
     });
 
-    return () => interaction.unset();
+    return () => {
+      document.body.classList.remove('draggingWindow');
+      element.removeEventListener('dragstart', blockNativeDrag);
+      interaction.unset();
+    };
   }, [setZIndex]);
 
   const minimizeCard = () => {

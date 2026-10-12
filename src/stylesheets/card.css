@@ -28,3 +28,13 @@
 .cardHeader:active {
   cursor: grabbing;
 }
+
+.draggingWindow,
+.draggingWindow * {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.folderContainer img {
+  -webkit-user-drag: none;
+}
