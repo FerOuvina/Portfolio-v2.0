@@ -30,7 +30,7 @@ const stack = {
 const projects = [
   {
     title: 'Ishinoguro — Digital Artist',
-    url: 'https://www.ishinoguro.com.ar',
+    url: 'https://ishinoguro.vercel.app',
     image: ishinoguroGif,
     summary:
       'Portfolio and commission-management PWA that I built from scratch for a digital artist — it attracted 30–50 visitors a day.',
@@ -38,7 +38,7 @@ const projects = [
   },
   {
     title: 'Grand Fantasia Awakening',
-    url: 'https://gfawakening.online',
+    url: 'https://gfawakening.vercel.app/',
     image: gfawakeningGif,
     summary:
       'Official game website with registration, downloads and news. I also maintained the Ubuntu VPS that hosted it.',
@@ -72,7 +72,7 @@ export default function Projects() {
       id={'projects'}
       minWidth={300}
       maxWidth={800}>
-      <section className='overflow-y-scroll px-2 py-3 w-full h-56 bg-white sm:h-72 md:h-96 projectsContainer'>
+      <section className='w-full h-56 px-2 py-3 overflow-y-scroll bg-white sm:h-72 md:h-96 projectsContainer'>
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6'>
           {projects.map((project) => (
             <article key={project.title} className='projectEntry'>
@@ -103,7 +103,7 @@ export default function Projects() {
                   </Link>
                 </div>
 
-                <p className='text-sm font-mono text-brown'>{project.summary}</p>
+                <p className='font-mono text-sm text-brown'>{project.summary}</p>
 
                 <ul className='flex flex-wrap gap-1'>
                   {project.stack.map((tech) => (

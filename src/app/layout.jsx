@@ -5,9 +5,9 @@ import { Analytics } from '@vercel/analytics/react';
 const roboto = Roboto_Mono({ subsets: ['latin'] });
 
 export const metadata = {
-  title: `Fernando Ouviña - Web Developer`,
+  title: `Fernando Ouviña - Full Stack Developer`,
   description:
-    'Fernando Ouviña - Web Developer, JavaScript, React, Next.js, TailwindCSS, HTML, CSS, Git, Github, Web Designer'
+    'Fernando Ouviña - Full Stack Developer, JavaScript, React, MySQL, PHP, Git, Github.'
 };
 
 export default function RootLayout({ children }) {
