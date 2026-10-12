@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { useContext } from 'react';
 import ZIndexContext from '@/context/zIndexContext';
+import { openCardTween, resetCardPosition } from '@/utils/cardPositions';
 import useSound from 'use-sound';
 import Card from './card';
 import ContactYes from './contactYes';
@@ -16,7 +17,7 @@ export default function Contact() {
   const openCard = (selector) => {
     const nextZIndex = zIndex + 1;
     setZIndex(nextZIndex);
-    gsap.fromTo(
+    openCardTween(
       selector,
       { opacity: 0.01, scale: 0.95 },
       {
@@ -31,6 +32,7 @@ export default function Contact() {
   };
 
   const handleYes = () => {
+    resetCardPosition('#contact');
     gsap.to('#contact', {
       duration: 0.5,
       opacity: 0,
@@ -41,6 +43,7 @@ export default function Contact() {
   };
 
   const handleNo = () => {
+    resetCardPosition('#contact');
     gsap.to('#contact', {
       duration: 0.5,
       opacity: 0,

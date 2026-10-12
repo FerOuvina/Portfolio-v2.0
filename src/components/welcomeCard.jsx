@@ -31,7 +31,7 @@ export default function WelcomeCard() {
           key={'welcomeCard-git'}
           target='_blank'
           href='https://github.com/FerOuvina'
-          className='underline font-bold'>
+          className='font-bold underline'>
           Github
         </a>,
         ` to see what I'm working on at the moment.`,
@@ -40,8 +40,8 @@ export default function WelcomeCard() {
         <a
           key={'welcomeCard-linkedIn'}
           target='_blank'
-          href='https://www.linkedin.com/in/fernando07'
-          className='underline font-bold'>
+          href='https://www.linkedin.com/in/contactfernando07/'
+          className='font-bold underline'>
           LinkedIn
         </a>,
         ` I `,
@@ -79,7 +79,7 @@ export default function WelcomeCard() {
           </Link>
           <Link
             legacyBehavior
-            href={'https://www.linkedin.com/in/fernando07'}
+            href={'https://www.linkedin.com/in/contactfernando07/'}
             referrerPolicy='no-referrer'>
             <a target='_blank'>
               <li title='LinkedIn Profile'>

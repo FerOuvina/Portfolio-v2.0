@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
 import ZIndexContext from '@/context/zIndexContext';
+import { minimizeCard, openCardTween } from '@/utils/cardPositions';
 import Image from 'next/image';
 import icon1 from '../assets/images/icon1.ico';
 import icon2 from '../assets/images/icon2.ico';
@@ -58,12 +59,7 @@ export default function NavbarBigScreen() {
 
   const openWelcomeCard = () => {
     if (isIntersecting) {
-      gsap.to('#welcomeCard', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#welcomeCard');
       menuIconRef.current.classList.toggle('open');
       menuRef.current.classList.toggle('closed');
       return;
@@ -72,7 +68,7 @@ export default function NavbarBigScreen() {
     menuRef.current.classList.toggle('closed');
 
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#welcomeCard',
         {
           x: -20,
@@ -91,7 +87,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#welcomeCard',
         {
           x: -20,
@@ -116,16 +112,11 @@ export default function NavbarBigScreen() {
 
   const openWelcomeCardNavbar = () => {
     if (isIntersecting) {
-      gsap.to('#welcomeCard', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#welcomeCard');
       return;
     }
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#welcomeCard',
         {
           x: -20,
@@ -144,7 +135,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#welcomeCard',
         {
           x: -20,
@@ -169,12 +160,7 @@ export default function NavbarBigScreen() {
 
   const openSpecCard = () => {
     if (isIntersecting2) {
-      gsap.to('#specificationsCard', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#specificationsCard');
       menuIconRef.current.classList.toggle('open');
       menuRef.current.classList.toggle('closed');
       return;
@@ -182,7 +168,7 @@ export default function NavbarBigScreen() {
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#specificationsCard',
         {
           x: 20,
@@ -202,7 +188,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#specificationsCard',
         {
           x: 20,
@@ -227,16 +213,11 @@ export default function NavbarBigScreen() {
 
   const openSpecCardNavbar = () => {
     if (isIntersecting2) {
-      gsap.to('#specificationsCard', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#specificationsCard');
       return;
     }
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#specificationsCard',
         {
           x: 20,
@@ -256,7 +237,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#specificationsCard',
         {
           x: 20,
@@ -281,19 +262,14 @@ export default function NavbarBigScreen() {
 
   const openProjectsCard = () => {
     if (isIntersecting3) {
-      gsap.to('#projects', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#projects');
       menuIconRef.current.classList.toggle('open');
       menuRef.current.classList.toggle('closed');
       return;
     }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
-    gsap.fromTo(
+    openCardTween(
       '#projects',
       {
         x: 0,
@@ -317,15 +293,10 @@ export default function NavbarBigScreen() {
 
   const openProjectsCardNavbar = () => {
     if (isIntersecting3) {
-      gsap.to('#projects', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#projects');
       return;
     }
-    gsap.fromTo(
+    openCardTween(
       '#projects',
       {
         x: 0,
@@ -349,19 +320,14 @@ export default function NavbarBigScreen() {
 
   const openContactCard = () => {
     if (isIntersecting4) {
-      gsap.to('#contact', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#contact');
       menuIconRef.current.classList.toggle('open');
       menuRef.current.classList.toggle('closed');
       return;
     }
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
-    gsap.fromTo(
+    openCardTween(
       '#contact',
       {
         x: -20,
@@ -385,15 +351,10 @@ export default function NavbarBigScreen() {
 
   const openContactCardNavbar = () => {
     if (isIntersecting4) {
-      gsap.to('#contact', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#contact');
       return;
     }
-    gsap.fromTo(
+    openCardTween(
       '#contact',
       {
         x: -20,
@@ -417,12 +378,7 @@ export default function NavbarBigScreen() {
 
   const openBlogCard = () => {
     if (isIntersecting5) {
-      gsap.to('#blog', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#blog');
       menuIconRef.current.classList.toggle('open');
       menuRef.current.classList.toggle('closed');
       return;
@@ -430,7 +386,7 @@ export default function NavbarBigScreen() {
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#blog',
         {
           x: 0,
@@ -450,7 +406,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#blog',
         {
           x: 0,
@@ -475,16 +431,11 @@ export default function NavbarBigScreen() {
 
   const openBlogCardNavbar = () => {
     if (isIntersecting5) {
-      gsap.to('#blog', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#blog');
       return;
     }
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#blog',
         {
           x: 0,
@@ -504,7 +455,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#blog',
         {
           x: 0,
@@ -529,12 +480,7 @@ export default function NavbarBigScreen() {
 
   const openMusicCard = () => {
     if (isIntersecting6) {
-      gsap.to('#mediaCard', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#mediaCard');
       menuIconRef.current.classList.toggle('open');
       menuRef.current.classList.toggle('closed');
       return;
@@ -542,7 +488,7 @@ export default function NavbarBigScreen() {
     menuIconRef.current.classList.toggle('open');
     menuRef.current.classList.toggle('closed');
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#mediaCard',
         {
           x: 0,
@@ -562,7 +508,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#mediaCard',
         {
           x: 0,
@@ -587,16 +533,11 @@ export default function NavbarBigScreen() {
 
   const openMusicCardNavbar = () => {
     if (isIntersecting6) {
-      gsap.to('#mediaCard', {
-        scale: 0.1,
-        x: -300,
-        y: 1000,
-        duration: 0.6,
-      });
+      minimizeCard('#mediaCard');
       return;
     }
     if (width > breakpoint) {
-      gsap.fromTo(
+      openCardTween(
         '#mediaCard',
         {
           x: 0,
@@ -616,7 +557,7 @@ export default function NavbarBigScreen() {
         }
       );
     } else {
-      gsap.fromTo(
+      openCardTween(
         '#mediaCard',
         {
           x: 0,

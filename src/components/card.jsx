@@ -3,6 +3,7 @@ import interact from 'interactjs';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 import ZIndexContext from '@/context/zIndexContext';
+import { resetCardPosition, saveCardPosition } from '@/utils/cardPositions';
 import minus from '../assets/images/minus.svg';
 import x from '../assets/images/x.svg';
 import '../stylesheets/card.css';
@@ -76,6 +77,7 @@ export default function Card({
           const x = parseFloat(target.getAttribute('data-x')) || 0;
           const y = parseFloat(target.getAttribute('data-y')) || 0;
           gsap.set(target, { x, y });
+          saveCardPosition(target);
           document.body.classList.remove('draggingWindow');
         },
       },
@@ -88,7 +90,12 @@ export default function Card({
     };
   }, [setZIndex]);
 
+  const getCurrentCardPosition = () => {
+    saveCardPosition(ref.current);
+  };
+
   const minimizeCard = () => {
+    getCurrentCardPosition();
     gsap.to(ref.current, {
       scale: 0.1,
       x: -300,
@@ -98,6 +105,7 @@ export default function Card({
   };
 
   const closeCard = () => {
+    resetCardPosition(ref.current);
     gsap.to(ref.current, {
       display: 'none',
       duration: 0.1,
@@ -114,7 +122,7 @@ export default function Card({
       id={id}
       ref={ref}
     >
-      <div className='cardHeader flex justify-between border-b-2 border-black'>
+      <div className='flex justify-between border-b-2 border-black cardHeader'>
         <h4 className='pl-1 font-mono text-brown'>{navTitle}</h4>
         <div className='flex gap-1 items-center mx-[2px]'>
           <Image
@@ -138,9 +146,9 @@ export default function Card({
         </div>
       </div>
 
-      <div className='flex flex-col gap-2 justify-center items-center py-2 mx-3'>
-        <div className='container flex justify-start items-center'>
-          <div className='px-1 py-1 w-full font-bold text-brown'>
+      <div className='flex flex-col items-center justify-center gap-2 py-2 mx-3'>
+        <div className='container flex items-center justify-start'>
+          <div className='w-full px-1 py-1 font-bold text-brown'>
             {contentFirst ? contentFirst : 'Search'}
           </div>
         </div>

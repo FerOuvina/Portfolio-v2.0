@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
+import { resetCardPosition } from '@/utils/cardPositions';
 import '../stylesheets/button-contactNo.css';
 
 export default function ButtonContactNo() {
@@ -12,6 +13,7 @@ export default function ButtonContactNo() {
   isIntersecting ? playAlert() : stop();
 
   const handleClick = () => {
+    resetCardPosition('#contactNo');
     gsap.to('#contactNo', {
       duration: 0.3,
       opacity: 0,
