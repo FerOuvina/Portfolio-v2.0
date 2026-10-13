@@ -8,31 +8,36 @@ import icon3 from '../assets/images/icon3.ico';
 import icon4 from '../assets/images/icon4.ico';
 import icon5 from '../assets/images/icon5.ico';
 import icon6 from '../assets/images/icon6.ico';
+import icon8 from '../assets/images/icon8.ico';
 
 export default function DesktopIcons() {
   const isWelcomeCardIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isSpecificationsCardIntersecting = useObserver('specificationsCard');
   const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isProjectsCardIntersecting = useObserver('projects');
   const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isContactCardIntersecting = useObserver('contact');
   const [playContactSound] = useSound('/sounds/Chord.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isBlogCardIntersecting = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isMediaCardIntersecting = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.05,
+    volume: 0.05
+  });
+  const isThemesCardIntersecting = useObserver('themesCard');
+  const [playThemesSound] = useSound('/sounds/Ding.mp3', {
+    volume: 0.05
   });
 
   const openWelcomeCard = () => {
@@ -71,14 +76,19 @@ export default function DesktopIcons() {
     playMusicSound();
   };
 
+  const openThemeCard = () => {
+    if (isThemesCardIntersecting) return;
+    openCard('#themesCard');
+    playThemesSound();
+  };
+
   return (
-    <ul className='grid grid-cols-3 m-4 mt-20 text-black z-100 sm:flex'>
+    <ul className='grid grid-cols-3 m-4 mt-20 text-[var(--text-primary)] z-100 sm:flex'>
       <li className='flex flex-col items-center justify-center px-3 py-2'>
         <button
           onClick={openWelcomeCard}
           className='flex flex-col items-center'
-          title='This PC'
-        >
+          title='This PC'>
           <Image src={icon4} alt='icon1' width={50} height={50} />
           <p className='mt-1'>This PC</p>
         </button>
@@ -88,8 +98,7 @@ export default function DesktopIcons() {
         <button
           onClick={openProjectsCard}
           className='flex flex-col items-center'
-          title='Projects'
-        >
+          title='Projects'>
           <Image src={icon3} alt='icon1' width={50} height={50} />
           <p className='mt-1'>Projects</p>
         </button>
@@ -99,8 +108,7 @@ export default function DesktopIcons() {
         <button
           onClick={openSpecCard}
           className='flex flex-col items-center'
-          title='Specifications'
-        >
+          title='Specifications'>
           <Image src={icon2} alt='icon1' width={50} height={50} />
           <p className='mt-1'>Specs</p>
         </button>
@@ -110,8 +118,7 @@ export default function DesktopIcons() {
         <button
           onClick={openContactCard}
           className='flex flex-col items-center'
-          title='Contact'
-        >
+          title='Contact'>
           <Image src={icon5} alt='icon1' width={50} height={50} />
           <p className='mt-1'>Contact</p>
         </button>
@@ -121,8 +128,7 @@ export default function DesktopIcons() {
         <button
           onClick={openBlogCard}
           className='flex flex-col items-center'
-          title='Blog'
-        >
+          title='Blog'>
           <Image src={icon1} alt='icon1' width={50} height={50} />
           <p className='mt-1'>Blog</p>
         </button>
@@ -132,10 +138,19 @@ export default function DesktopIcons() {
         <button
           onClick={openMusicCard}
           className='flex flex-col items-center'
-          title='Media Player'
-        >
+          title='Media Player'>
           <Image src={icon6} alt='icon1' width={50} height={50} />
           <p className='mt-1'>Music</p>
+        </button>
+      </li>
+
+      <li className='flex flex-col items-center justify-center px-4 py-2'>
+        <button
+          onClick={openThemeCard}
+          className='flex flex-col items-center'
+          title='Themes'>
+          <Image src={icon8} alt='icon8' width={50} height={50} />
+          <p className='mt-1'>Themes</p>
         </button>
       </li>
     </ul>

@@ -7,7 +7,7 @@ import '../stylesheets/button-contactNo.css';
 export default function ButtonContactNo() {
   const isIntersecting = useObserver('contactNo');
   const [playAlert, { stop }] = useSound('/sounds/Alert.mp3', {
-    volume: 0.2,
+    volume: 0.005,
     playbackRate: 0.95,
   });
   isIntersecting ? playAlert() : stop();

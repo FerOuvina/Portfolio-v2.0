@@ -1,0 +1,52 @@
+.theme-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.theme-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 8px;
+  border-radius: 6px;
+  border: 2px solid var(--menu-border-dark);
+  background-color: var(--menu-bg);
+  color: var(--menu-text);
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.theme-button:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 2px 2px 0px 1px var(--menu-border-dark);
+}
+
+.theme-button.active {
+  border-color: var(--hover-bg);
+  box-shadow: 2px 2px 0px 1px var(--hover-bg);
+}
+
+.theme-swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 4px;
+  border: 2px solid var(--menu-border-dark);
+}
+
+.theme-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.theme-check {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--hover-bg);
+}

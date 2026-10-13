@@ -123,7 +123,7 @@ export default function AudioPlayer() {
       contentFirst={[
         <span
           key={'media-player-span1'}
-          className='flex justify-center items-center bg-white text-md'
+          className='flex justify-center items-center bg-[var(--card-bg)] text-md'
         >
           Song: {currentSong}
         </span>,

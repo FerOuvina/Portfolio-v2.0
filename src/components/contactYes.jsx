@@ -24,7 +24,7 @@ export default function ContactYes() {
       id={'contactYes'}
       minWidth={300}
       maxWidth={400}>
-      <div className='container bg-white text-darkBrown formContainer'>
+      <div className='container bg-[var(--card-bg)] text-darkBrown formContainer'>
         <form
           className='flex flex-col gap-2 p-4'
           action='https://formsubmit.co/contactfernando07@gmail.com'
@@ -71,7 +71,7 @@ export default function ContactYes() {
           />
         </form>
       </div>
-      <div className='container bg-white text-darkBrown px-4'>
+      <div className='container bg-[var(--card-bg)] text-darkBrown px-4'>
         <h2>
           Alternatively you can contact me through my socials or my e-mail
         </h2>

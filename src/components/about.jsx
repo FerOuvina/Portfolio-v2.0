@@ -32,7 +32,7 @@ export default function About() {
       minWidth={300}
       maxWidth={400}
     >
-      <footer className="w-full bg-white aboutContainer">
+      <footer className="w-full bg-[var(--card-bg)] aboutContainer">
         <h2 className="py-1 text-lg font-bold text-center text-brown">
           This is my current stack
         </h2>

@@ -25,7 +25,7 @@ export default function Button({ children, ...props }) {
       ref={ref}
     >
       <button
-        className={`mainButton text-brown ${props.className}`}
+        className={`mainButton text-[var(--menu-text)] ${props.className}`}
         onClick={props.onClick}
       >
         {children}

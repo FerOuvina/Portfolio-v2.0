@@ -72,7 +72,7 @@ export default function Projects() {
       id={'projects'}
       minWidth={300}
       maxWidth={800}>
-      <section className='w-full h-56 px-2 py-3 overflow-y-scroll bg-white sm:h-72 md:h-96 projectsContainer'>
+      <section className='w-full h-56 px-2 py-3 overflow-y-scroll bg-[var(--card-bg)] sm:h-72 md:h-96 projectsContainer'>
         <div className='grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-6'>
           {projects.map((project) => (
             <article key={project.title} className='projectEntry'>

@@ -1,59 +1,58 @@
 .mainNav {
-  border-top: 1px solid black;
+  border-top: 1px solid var(--menu-border-dark);
 }
 
 .menuContainer {
-  border-left: 2px solid #e4e3e0;
-  border-top: 2px solid #e4e3e0;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
+  border-left: 2px solid var(--menu-border-light);
+  border-top: 2px solid var(--menu-border-light);
+  border-right: 2px solid var(--menu-border-dark);
+  border-bottom: 2px solid var(--menu-border-dark);
 }
 
 .menuButton {
-  background-color: #d8d6d0;
-  border: 1px solid black;
+  background-color: var(--menu-bg);
+  border: 1px solid var(--menu-border-dark);
 }
 
 .separator {
-  background: rgba(115, 123, 234, 1);
+  background: var(--separator-start);
   background: -moz-linear-gradient(
     left,
-    rgba(115, 123, 234, 1) 0%,
+    var(--separator-start) 0%,
     rgba(4, 10, 124, 1) 50%,
-    rgba(0, 0, 2, 1) 100%
+    var(--separator-end) 100%
   );
   background: -webkit-gradient(
     left top,
     right top,
-    color-stop(0%, rgba(115, 123, 234, 1)),
+    color-stop(0%, var(--separator-start)),
     color-stop(50%, rgba(4, 10, 124, 1)),
-    color-stop(100%, rgba(0, 0, 2, 1))
+    color-stop(100%, var(--separator-end))
   );
   background: -webkit-linear-gradient(
     left,
-    rgba(115, 123, 234, 1) 0%,
+    var(--separator-start) 0%,
     rgba(4, 10, 124, 1) 50%,
-    rgba(0, 0, 2, 1) 100%
+    var(--separator-end) 100%
   );
   background: -o-linear-gradient(
     left,
-    rgba(115, 123, 234, 1) 0%,
+    var(--separator-start) 0%,
     rgba(4, 10, 124, 1) 50%,
-    rgba(0, 0, 2, 1) 100%
+    var(--separator-end) 100%
   );
   background: -ms-linear-gradient(
     left,
-    rgba(115, 123, 234, 1) 0%,
+    var(--separator-start) 0%,
     rgba(4, 10, 124, 1) 50%,
-    rgba(0, 0, 2, 1) 100%
+    var(--separator-end) 100%
   );
   background: linear-gradient(
     to right,
-    rgba(115, 123, 234, 1) 0%,
+    var(--separator-start) 0%,
     rgba(4, 10, 124, 1) 50%,
-    rgba(0, 0, 2, 1) 100%
+    var(--separator-end) 100%
   );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#737bea', endColorstr='#000002', GradientType=1 );
 }
 
 .buttonIcon {
@@ -61,17 +60,17 @@
 }
 
 .buttonIcon:hover {
-  color: wheat;
-  background-color: blue;
+  color: var(--hover-text);
+  background-color: var(--hover-bg);
 }
 
 .open {
   padding: 2px;
-  background-color: #e4e3e0;
-  border-left: 2px solid black;
-  border-top: 2px solid black;
-  border-right: 2px solid #e4e3e0;
-  border-bottom: 2px solid #e4e3e0;
+  background-color: var(--menu-border-light);
+  border-left: 2px solid var(--menu-border-dark);
+  border-top: 2px solid var(--menu-border-dark);
+  border-right: 2px solid var(--menu-border-light);
+  border-bottom: 2px solid var(--menu-border-light);
 }
 
 .closed {

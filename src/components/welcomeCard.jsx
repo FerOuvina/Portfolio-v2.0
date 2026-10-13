@@ -59,7 +59,7 @@ export default function WelcomeCard() {
       minWidth={300}
       maxWidth={400}
       id={'welcomeCard'}>
-      <footer className='container bg-white'>
+      <footer className='container bg-[var(--card-bg)]'>
         <ul className='flex justify-around p-2 text-brown'>
           <Link
             legacyBehavior

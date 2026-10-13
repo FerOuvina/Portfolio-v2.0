@@ -8,7 +8,7 @@ export default function ContactNo() {
       contentFirst={[
         <div
           key={`contactNoContainer`}
-          className='flex flex-col justify-center items-center bg-white'
+          className='flex flex-col justify-center items-center bg-[var(--card-bg)]'
         >
           <span>System Compomised</span>
         </div>,

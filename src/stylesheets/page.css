@@ -4,3 +4,11 @@
   background-size: cover;
   background-image: url('../assets/images/background.jpg');
 }
+
+.theme-dark .mainContainer {
+  background-image: url('../assets/images/background-dark.png');
+}
+
+.theme-dark .folderContainer {
+  background-image: url('../assets/images/background-dark1.png');
+}

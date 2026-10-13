@@ -2,27 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+:root,
+.theme-light {
+  --taskbar-bg: #d4d0c8;
+  --menu-bg: #ffffff;
+  --menu-text: #8b575b;
+  --menu-border-light: #e4e3e0;
+  --menu-border-dark: #000000;
+  --card-bg: #ffffff;
+  --card-header-bg: #d4d0c8;
+  --text-primary: #000000;
+  --separator-start: rgba(115, 123, 234, 1);
+  --separator-end: rgba(0, 0, 2, 1);
+  --hover-bg: blue;
+  --hover-text: wheat;
+  --desktop-overlay: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.theme-dark {
+  --taskbar-bg: #2b2b2b;
+  --menu-bg: #2b2b2b;
+  --menu-text: #e0e0e0;
+  --menu-border-light: #555555;
+  --menu-border-dark: #111111;
+  --card-bg: #2b2b2b;
+  --card-header-bg: #1e1e1e;
+  --text-primary: #e0e0e0;
+  --separator-start: #4a4a8a;
+  --separator-end: #000000;
+  --hover-bg: #444444;
+  --hover-text: #ffffff;
+  --desktop-overlay: rgba(0, 0, 0, 0.82);
+}
+
+.theme-ocean {
+  --taskbar-bg: #1a4a5e;
+  --menu-bg: #1f5a72;
+  --menu-text: #cce8f5;
+  --menu-border-light: #3a8aaa;
+  --menu-border-dark: #0a2a3a;
+  --card-bg: #1f5a72;
+  --card-header-bg: #16405a;
+  --text-primary: #e0f0fa;
+  --separator-start: #4ac8e0;
+  --separator-end: #003040;
+  --hover-bg: #3a8aaa;
+  --hover-text: #ffffff;
+  --desktop-overlay: transparent;
+}
+
+.theme-forest {
+  --taskbar-bg: #2d5a3d;
+  --menu-bg: #356b47;
+  --menu-text: #d0ecd8;
+  --menu-border-light: #55a06a;
+  --menu-border-dark: #1a3520;
+  --card-bg: #356b47;
+  --card-header-bg: #27503a;
+  --text-primary: #e0f5e8;
+  --separator-start: #60c080;
+  --separator-end: #0a3015;
+  --hover-bg: #55a06a;
+  --hover-text: #ffffff;
+  --desktop-overlay: transparent;
+}
+
+.theme-sunset {
+  --taskbar-bg: #5e3a2a;
+  --menu-bg: #6e4735;
+  --menu-text: #f5ddd0;
+  --menu-border-light: #b0785a;
+  --menu-border-dark: #351a0a;
+  --card-bg: #6e4735;
+  --card-header-bg: #4e2f20;
+  --text-primary: #fae8e0;
+  --separator-start: #f0a060;
+  --separator-end: #401500;
+  --hover-bg: #b0785a;
+  --hover-text: #ffffff;
+  --desktop-overlay: transparent;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--text-primary);
   overflow-y: hidden;
 }

@@ -11,7 +11,7 @@ import Button from './button';
 export default function Contact() {
   const { zIndex, setZIndex } = useContext(ZIndexContext);
   const [playTadaa] = useSound('/sounds/Tadaa.mp3', {
-    volume: 0.2,
+    volume: 0.05
   });
 
   const openCard = (selector) => {
@@ -26,7 +26,7 @@ export default function Contact() {
         opacity: 1,
         position: 'absolute',
         display: 'flex',
-        zIndex: nextZIndex,
+        zIndex: nextZIndex
       }
     );
   };
@@ -36,7 +36,7 @@ export default function Contact() {
     gsap.to('#contact', {
       duration: 0.5,
       opacity: 0,
-      display: 'none',
+      display: 'none'
     });
     openCard('#contactYes');
     playTadaa();
@@ -47,7 +47,7 @@ export default function Contact() {
     gsap.to('#contact', {
       duration: 0.5,
       opacity: 0,
-      display: 'none',
+      display: 'none'
     });
     openCard('#contactNo');
   };
@@ -59,23 +59,21 @@ export default function Contact() {
         contentFirst={[
           <div
             key={'contactContainer'}
-            className='flex flex-col justify-center items-center bg-white textcen'
-          >
+            className='flex flex-col items-center justify-center bg-[var(--card-bg)] textcen'>
             <span>WARNING</span>
             <br />
             <span>HACKING DETECTED</span>
-          </div>,
+          </div>
         ]}
         contentH1={'Do you want to contact the admin of this page?'}
         id={'contact'}
         minWidth={280}
-        maxWidth={350}
-      >
-        <section className='container flex justify-evenly items-center contactCard'>
-          <Button className='px-5 py-1 w-[100px] bg-white' onClick={handleYes}>
+        maxWidth={350}>
+        <section className='container flex items-center justify-evenly contactCard'>
+          <Button className='px-5 py-1 w-[100px] bg-[var(--card-bg)]' onClick={handleYes}>
             Yes
           </Button>
-          <Button onClick={handleNo} className={'px-5 py-1 bg-white w-[100px]'}>
+          <Button onClick={handleNo} className={'px-5 py-1 bg-[var(--card-bg)] w-[100px]'}>
             No
           </Button>
         </section>

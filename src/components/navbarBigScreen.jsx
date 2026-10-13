@@ -26,32 +26,32 @@ export default function NavbarBigScreen() {
 
   const isIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isIntersecting2 = useObserver('specificationsCard');
   const [playSpecCardSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isIntersecting3 = useObserver('projects');
   const [playProjectsSound] = useSound('/sounds/Chimes.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isIntersecting4 = useObserver('contact');
   const [playContactSound] = useSound('/sounds/Chord.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isIntersecting5 = useObserver('blog');
   const [playBlogSound] = useSound('/sounds/Ding.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
   const isIntersecting6 = useObserver('mediaCard');
   const [playMusicSound] = useSound('/sounds/Notify.mp3', {
-    volume: 0.05,
+    volume: 0.05
   });
-
-  // const [playLogOutSound] = useSound('/sounds/LogOff.mp3', {
-  //   volume: 0.2,
-  // });
+  const isIntersecting7 = useObserver('themesCard');
+  const [playThemesSound] = useSound('/sounds/Chimes.mp3', {
+    volume: 0.05
+  });
 
   const openWelcomeCard = () => {
     if (isIntersecting) {
@@ -61,9 +61,9 @@ export default function NavbarBigScreen() {
     openCard('#welcomeCard', {
       from: { x: -20, y: -220, opacity: 0.01 },
       to:
-        width > breakpoint
-          ? { x: -200, y: 100, scale: 1.0, opacity: 1 }
-          : { duration: 0.4, x: 0, y: -50, scale: 1.0, opacity: 1 },
+        width > breakpoint ?
+          { x: -200, y: 100, scale: 1.0, opacity: 1 }
+        : { duration: 0.4, x: 0, y: -50, scale: 1.0, opacity: 1 }
     });
     playWelcomeCardSound();
   };
@@ -76,9 +76,9 @@ export default function NavbarBigScreen() {
     openCard('#specificationsCard', {
       from: { x: 20, y: -200, opacity: 0.01 },
       to:
-        width > breakpoint
-          ? { duration: 0.4, x: 200, y: 50, scale: 1.0, opacity: 1 }
-          : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+        width > breakpoint ?
+          { duration: 0.4, x: 200, y: 50, scale: 1.0, opacity: 1 }
+        : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 }
     });
     playSpecCardSound();
   };
@@ -90,7 +90,7 @@ export default function NavbarBigScreen() {
     }
     openCard('#projects', {
       from: { x: 0, y: -220, opacity: 0.01 },
-      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 }
     });
     playProjectsSound();
   };
@@ -102,7 +102,7 @@ export default function NavbarBigScreen() {
     }
     openCard('#contact', {
       from: { x: -20, y: -220, opacity: 0.01 },
-      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+      to: { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 }
     });
     playContactSound();
   };
@@ -115,9 +115,9 @@ export default function NavbarBigScreen() {
     openCard('#blog', {
       from: { x: 0, y: -220, opacity: 0.01 },
       to:
-        width > breakpoint
-          ? { duration: 0.4, x: -100, y: -180, scale: 1.0, opacity: 1 }
-          : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+        width > breakpoint ?
+          { duration: 0.4, x: -100, y: -180, scale: 1.0, opacity: 1 }
+        : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 }
     });
     playBlogSound();
   };
@@ -130,11 +130,26 @@ export default function NavbarBigScreen() {
     openCard('#mediaCard', {
       from: { x: 0, y: -220, opacity: 0.01 },
       to:
-        width > breakpoint
-          ? { duration: 0.4, x: -90, y: 160, scale: 1.0, opacity: 1 }
-          : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 },
+        width > breakpoint ?
+          { duration: 0.4, x: -90, y: 160, scale: 1.0, opacity: 1 }
+        : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 }
     });
     playMusicSound();
+  };
+
+  const openThemeCard = () => {
+    if (isIntersecting7) {
+      minimizeCard('#themesCard');
+      return;
+    }
+    openCard('#themesCard', {
+      from: { x: 0, y: -220, opacity: 0.01 },
+      to:
+        width > breakpoint ?
+          { duration: 0.4, x: 100, y: 140, scale: 1.0, opacity: 1 }
+        : { duration: 0.4, x: 0, y: -30, scale: 1.0, opacity: 1 }
+    });
+    playThemesSound();
   };
 
   const menuIconRef = useRef();
@@ -145,32 +160,18 @@ export default function NavbarBigScreen() {
     menuRef.current.classList.toggle('closed');
   };
 
-  // const logOut = () => {
-  //   playLogOutSound();
-  //   menuIconRef.current.classList.toggle('open');
-  //   menuRef.current.classList.toggle('closed');
-  //   gsap.to(`#welcomeScreen`, {
-  //     display: `block`,
-  //     opacity: 1,
-  //     duration: 1,
-  //   });
-  // };
-
   return (
-    <header className='fixed flex z-[10000] bottom-0 p-1 w-full bg-[#D4D0C8] mainNav'>
+    <header className='fixed flex z-[10000] bottom-0 p-1 w-full bg-[var(--taskbar-bg)] mainNav'>
       <div
-        className='closed flex absolute bottom-[49px] -left-1 justify-between w-72 items-center bg-white menuContainer'
-        ref={menuRef}
-      >
-        <hr className='h-auto w-[13px] bg-black separator' />
-        <div className='flex flex-col items-center justify-center w-full text-brown'>
+        className='closed flex absolute bottom-[49px] -left-1 justify-between w-72 items-center bg-[var(--menu-bg)] menuContainer pl-2' 
+        ref={menuRef}>
+        <div className='flex flex-col items-center justify-center w-full text-[var(--menu-text)]'>
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={() => {
               openMenu();
               openWelcomeCard();
-            }}
-          >
+            }}>
             <Image src={icon4} alt='icon' width={45} height={45} />
             <p>This PC</p>
           </button>
@@ -180,8 +181,7 @@ export default function NavbarBigScreen() {
             onClick={() => {
               openMenu();
               openProjectsCard();
-            }}
-          >
+            }}>
             <Image src={icon3} alt='icon' width={45} height={45} />
             <p>Projects</p>
           </button>
@@ -191,8 +191,7 @@ export default function NavbarBigScreen() {
             onClick={() => {
               openMenu();
               openSpecCard();
-            }}
-          >
+            }}>
             <Image src={icon2} alt='icon' width={45} height={45} />
             <p>Specs</p>
           </button>
@@ -202,8 +201,7 @@ export default function NavbarBigScreen() {
             onClick={() => {
               openMenu();
               openContactCard();
-            }}
-          >
+            }}>
             <Image src={icon5} alt='icon' width={45} height={45} />
             <p>Contact</p>
           </button>
@@ -213,8 +211,7 @@ export default function NavbarBigScreen() {
             onClick={() => {
               openMenu();
               openBlogCard();
-            }}
-          >
+            }}>
             <Image src={icon1} alt='icon' width={45} height={45} />
             <p>Blog</p>
           </button>
@@ -224,19 +221,20 @@ export default function NavbarBigScreen() {
             onClick={() => {
               openMenu();
               openMusicCard();
-            }}
-          >
+            }}>
             <Image src={icon6} alt='icon' width={45} height={45} />
             <p>Music</p>
           </button>
 
-          {/* <button
+          <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
-            onClick={logOut}
-          >
+            onClick={() => {
+              openMenu();
+              openThemeCard();
+            }}>
             <Image src={icon8} alt='icon' width={45} height={45} />
-            <p>Log Out</p>
-          </button> */}
+            <p>Themes</p>
+          </button>
         </div>
       </div>
 
@@ -252,53 +250,54 @@ export default function NavbarBigScreen() {
           />
         </button>
 
-        <div className='flex w-full text-brown'>
+        <div className='flex w-full text-[var(--menu-text)]'>
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
-            onClick={openWelcomeCard}
-          >
+            onClick={openWelcomeCard}>
             <Image src={icon4} alt='icon' width={30} height={30} />
             <p>This PC</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
-            onClick={openProjectsCard}
-          >
+            onClick={openProjectsCard}>
             <Image src={icon3} alt='icon' width={30} height={30} />
             <p>Projects</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
-            onClick={openSpecCard}
-          >
+            onClick={openSpecCard}>
             <Image src={icon2} alt='icon' width={30} height={30} />
             <p>Specs</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
-            onClick={openContactCard}
-          >
+            onClick={openContactCard}>
             <Image src={icon5} alt='icon' width={30} height={30} />
             <p>Contact</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
-            onClick={openBlogCard}
-          >
+            onClick={openBlogCard}>
             <Image src={icon1} alt='icon' width={30} height={30} />
             <p>Blog</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
-            onClick={openMusicCard}
-          >
+            onClick={openMusicCard}>
             <Image src={icon6} alt='icon' width={30} height={30} />
             <p>Music</p>
+          </button>
+
+          <button
+            className='flex items-center justify-start w-full gap-2 buttonIcon'
+            onClick={openThemeCard}>
+            <Image src={icon8} alt='icon' width={30} height={30} />
+            <p>Themes</p>
           </button>
         </div>
       </div>

@@ -4,6 +4,7 @@ import Blog from './blog';
 import Contact from './contact';
 import DesktopIcons from './desktopIcons';
 import Projects from './projects';
+import ThemeCard from './themeCard';
 import WelcomeCard from './welcomeCard';
 
 export default function Content() {
@@ -14,23 +15,13 @@ export default function Content() {
       </section>
 
       <section className='flex flex-col justify-center items-center'>
-        {/* Presentation Card */}
         <WelcomeCard />
-
-        {/* About Card */}
         <About />
-
-        {/* Projects Card */}
         <Projects />
-
-        {/* Contact Card */}
         <Contact />
-
-        {/* Blog Card */}
         <Blog />
-
-        {/* Music Player Card */}
         <AudioPlayer />
+        <ThemeCard />
       </section>
     </main>
   );
