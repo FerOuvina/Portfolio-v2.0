@@ -2,10 +2,19 @@ import Card from './card';
 import Link from 'next/link';
 import Image from 'next/image';
 import gitHubLogo from '../assets/logos/GitHub-Logo.svg';
+import gitHubLogoWhite from '../assets/logos/GitHub-Logo-white.svg';
 import linkedInLogo from '../assets/logos/LinkedIn-Logo.svg';
+import linkedInLogoWhite from '../assets/logos/LinkedIn-Logo-white.svg';
 import blogLogo from '../assets/logos/Blog-Logo.svg';
+import blogLogoWhite from '../assets/logos/Blog-Logo-white.svg';
+import { useTheme } from '@/context/themeContext';
 
 export default function WelcomeCard() {
+  const { theme } = useTheme();
+  const isDark = theme === 'dark' || theme === 'midnight';
+  const linkedInSrc = isDark ? linkedInLogoWhite : linkedInLogo;
+  const gitHubSrc = isDark ? gitHubLogoWhite : gitHubLogo;
+  const blogSrc = isDark ? blogLogoWhite : blogLogo;
   return (
     <Card
       navTitle={'/home/welcome'}
@@ -68,7 +77,7 @@ export default function WelcomeCard() {
             <a target='_blank'>
               <li title='Github Profile'>
                 <Image
-                  src={gitHubLogo}
+                  src={gitHubSrc}
                   alt='github logo'
                   width={30}
                   height={30}
@@ -84,7 +93,7 @@ export default function WelcomeCard() {
             <a target='_blank'>
               <li title='LinkedIn Profile'>
                 <Image
-                  src={linkedInLogo}
+                  src={linkedInSrc}
                   alt='linkedIn logo'
                   width={30}
                   height={30}
@@ -100,7 +109,7 @@ export default function WelcomeCard() {
             <a target='_blank'>
               <li title='Personal Blog'>
                 <Image
-                  src={blogLogo}
+                  src={blogSrc}
                   alt='blog logo'
                   width={30}
                   height={30}
