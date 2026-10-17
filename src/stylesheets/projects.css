@@ -47,7 +47,7 @@
   font-weight: bold;
   color: black;
   text-decoration: none;
-  background: var(--card-bg);
+  background: white;
   border: 2px solid black;
   border-radius: 4px;
   box-shadow: 1px 1px 0px 1px black;

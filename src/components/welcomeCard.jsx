@@ -11,7 +11,7 @@ import { useTheme } from '@/context/themeContext';
 
 export default function WelcomeCard() {
   const { theme } = useTheme();
-  const isDark = theme === 'dark' || theme === 'midnight';
+  const isDark = theme === 'dark' || theme === 'midnight' || theme === 'sunset' || theme === 'ocean' || theme === 'forest';
   const linkedInSrc = isDark ? linkedInLogoWhite : linkedInLogo;
   const gitHubSrc = isDark ? gitHubLogoWhite : gitHubLogo;
   const blogSrc = isDark ? blogLogoWhite : blogLogo;

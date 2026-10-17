@@ -13,7 +13,7 @@ import '../stylesheets/contactYes.css';
 
 export default function ContactYes() {
   const { theme } = useTheme();
-  const isDark = theme === 'dark' || theme === 'midnight';
+  const isDark = theme === 'dark' || theme === 'midnight' || theme === 'sunset' || theme === 'ocean' || theme === 'forest';
   const linkedInSrc = isDark ? linkedInLogoWhite : linkedInLogo;
   const gitHubSrc = isDark ? gitHubLogoWhite : gitHubLogo;
   const emailSrc = isDark ? emailLogoWhite : emailLogo;
@@ -68,7 +68,7 @@ export default function ContactYes() {
           </div>
 
           <div className='flex items-center justify-center w-full'>
-            <Button type='submit' className='px-10 py-1 text-center text-brown'>
+            <Button type='submit' className='px-10 py-1 text-center text-[var(--menu-text)]'>
               Send
             </Button>
           </div>
@@ -82,7 +82,7 @@ export default function ContactYes() {
       </div>
       <div className='container bg-[var(--card-bg)] text-darkBrown px-4'>
         <h2 className='text-[var(--menu-text)]'>
-          Alternatively you can contact me through my socials or my e-mail
+          Alternatively, you can contact me through my socials or e-mail
         </h2>
         <ul className='flex flex-row justify-around w-full py-1'>
           <li>

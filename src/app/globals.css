@@ -49,6 +49,7 @@
   --hover-bg: #3a8aaa;
   --hover-text: #ffffff;
   --desktop-overlay: transparent;
+  --desktop-text: #000000;
 }
 
 .theme-forest {
@@ -65,6 +66,7 @@
   --hover-bg: #55a06a;
   --hover-text: #ffffff;
   --desktop-overlay: transparent;
+  --desktop-text: #000000;
 }
 
 .theme-sunset {
@@ -81,6 +83,7 @@
   --hover-bg: #b0785a;
   --hover-text: #ffffff;
   --desktop-overlay: transparent;
+  --desktop-text: #000000;
 }
 
 body {

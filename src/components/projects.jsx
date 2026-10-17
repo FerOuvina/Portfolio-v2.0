@@ -9,6 +9,7 @@ import wouterLogo from '../assets/logos/Wouter-Logo.svg';
 import nextUILogo from '../assets/logos/NextUI-Logo.png';
 import millionLogo from '../assets/logos/Million-Logo.png';
 import viteLogo from '../assets/logos/Vite-Logo.svg';
+import styledComponentsLogo from '../assets/logos/Styled-Components-Logo.svg';
 import xkcdGif from '../assets/images/xkcdGif.gif';
 import giphy1 from '../assets/images/Giphy1.gif';
 import ishinoguroGif from '../assets/images/ishinoguroGif.gif';
@@ -24,7 +25,7 @@ const stack = {
   nextui: { src: nextUILogo, title: 'NextUI' },
   million: { src: millionLogo, title: 'Million.js' },
   vite: { src: viteLogo, title: 'Vite' },
-  styled: { emoji: '💅', title: 'Styled Components' },
+  styled: { src: styledComponentsLogo, title: 'Styled Components' }
 };
 
 const projects = [
@@ -34,7 +35,7 @@ const projects = [
     image: ishinoguroGif,
     summary:
       'Portfolio and commission-management PWA that I built from scratch for a digital artist — it attracted 30–50 visitors a day.',
-    stack: ['javascript', 'react', 'tailwind', 'million', 'wouter', 'vite'],
+    stack: ['javascript', 'react', 'tailwind', 'million', 'wouter', 'vite']
   },
   {
     title: 'Grand Fantasia Awakening',
@@ -42,7 +43,7 @@ const projects = [
     image: gfawakeningGif,
     summary:
       'Official game website with registration, downloads and news. I also maintained the Ubuntu VPS that hosted it.',
-    stack: ['javascript', 'react', 'tailwind', 'styled', 'wouter'],
+    stack: ['javascript', 'react', 'tailwind', 'styled', 'wouter']
   },
   {
     title: 'xkcd — Reimagined',
@@ -50,7 +51,7 @@ const projects = [
     image: xkcdGif,
     summary:
       'The xkcd comic archive rebuilt in Next.js: I scraped the comics from the source and served them with static generation.',
-    stack: ['javascript', 'react', 'next', 'tailwind', 'nextui'],
+    stack: ['javascript', 'react', 'next', 'tailwind', 'nextui']
   },
   {
     title: 'Giphy App',
@@ -58,8 +59,8 @@ const projects = [
     image: giphy1,
     summary:
       'GIF search with infinite scroll and lazy loading — the project where I leveled up my React hooks and custom hooks.',
-    stack: ['javascript', 'react', 'styled', 'wouter'],
-  },
+    stack: ['javascript', 'react', 'styled', 'wouter']
+  }
 ];
 
 export default function Projects() {
@@ -90,40 +91,46 @@ export default function Projects() {
                 </a>
               </Link>
 
-              <div className='projectBody'>
+              <div className='h-full projectBody'>
                 <div className='flex items-start justify-between gap-2'>
-                  <h3 className='font-bold text-brown'>{project.title}</h3>
+                  <h3 className='font-bold text-[var(--menu-text)]'>
+                    {project.title}
+                  </h3>
                   <Link legacyBehavior href={project.url}>
                     <a
                       target='_blank'
-                      className='projectLink'
+                      className='bg-white projectLink'
                       title='Open live version'>
                       ↗
                     </a>
                   </Link>
                 </div>
 
-                <p className='font-mono text-sm text-brown'>{project.summary}</p>
+                <p className='font-mono text-sm text-[var(--menu-text)]'>
+                  {project.summary}
+                </p>
 
-                <ul className='flex flex-wrap gap-1'>
-                  {project.stack.map((tech) => (
-                    <li
-                      key={tech}
-                      title={stack[tech].title}
-                      className='projectTech'>
-                      {stack[tech].emoji ? (
-                        <span>{stack[tech].emoji}</span>
-                      ) : (
-                        <Image
-                          src={stack[tech].src}
-                          alt={stack[tech].title}
-                          width={22}
-                          height={22}
-                        />
-                      )}
-                    </li>
-                  ))}
-                </ul>
+                <div className='flex items-end h-full'>
+                  <ul className='flex flex-wrap gap-1'>
+                    {project.stack.map((tech) => (
+                      <li
+                        key={tech}
+                        title={stack[tech].title}
+                        className='projectTech'>
+                        {stack[tech].emoji ?
+                          <span>{stack[tech].emoji}</span>
+                        : <Image
+                            className='bg-white'
+                            src={stack[tech].src}
+                            alt={stack[tech].title}
+                            width={22}
+                            height={22}
+                          />
+                        }
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </article>
           ))}

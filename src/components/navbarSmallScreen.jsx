@@ -145,7 +145,6 @@ export default function NavbarSmallScreen() {
       <div
         className='closed flex absolute bottom-[53px] -left-1 justify-between w-72 items-center bg-[var(--menu-bg)] menuContainer pl-2'
         ref={menuRef}>
-        <hr className='h-auto w-[13px] separator' />
         <div className='flex flex-col items-center justify-center w-full text-[var(--menu-text)]'>
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'

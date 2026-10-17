@@ -83,7 +83,7 @@ export default function DesktopIcons() {
   };
 
   return (
-    <ul className='grid grid-cols-3 m-4 mt-20 text-[var(--text-primary)] z-100 sm:flex'>
+    <ul className='grid grid-cols-3 m-4 mt-20 text-[var(--desktop-text)] z-100 sm:flex'>
       <li className='flex flex-col items-center justify-center px-3 py-2'>
         <button
           onClick={openWelcomeCard}

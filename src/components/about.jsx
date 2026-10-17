@@ -21,7 +21,7 @@ import "../stylesheets/about.css";
 
 export default function About() {
   const { theme } = useTheme();
-  const isDark = theme === 'dark' || theme === 'midnight';
+  const isDark = theme === 'dark' || theme === 'midnight' || theme === 'sunset' || theme === 'ocean' || theme === 'forest';
   const javaScriptSrc = isDark ? javaScriptLogoWhite : javaScriptLogo;
   const reactSrc = isDark ? reactLogoWhite : reactLogo;
   const nextSrc = isDark ? nextLogoWhite : nextLogo;
@@ -52,7 +52,7 @@ export default function About() {
       maxWidth={400}
     >
       <footer className="w-full bg-[var(--card-bg)] aboutContainer">
-        <h2 className="py-1 text-lg font-bold text-center text-brown">
+        <h2 className="py-1 text-lg font-bold text-center text-[var(--menu-text)]">
           This is my current stack
         </h2>
         <hr className="w-full border-2 breakLine" />

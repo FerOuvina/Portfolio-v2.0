@@ -3,9 +3,12 @@ import interact from 'interactjs';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 import ZIndexContext from '@/context/zIndexContext';
+import { useTheme } from '@/context/themeContext';
 import { resetCardPosition, saveCardPosition } from '@/utils/cardPositions';
 import minus from '../assets/images/minus.svg';
 import x from '../assets/images/x.svg';
+import minusMacos from '../assets/images/minus-macos.svg';
+import xMacos from '../assets/images/x-macos.svg';
 import '../stylesheets/card.css';
 
 export default function Card({
@@ -21,6 +24,9 @@ export default function Card({
 }) {
   const ref = useRef();
   const { zIndex, setZIndex } = useContext(ZIndexContext);
+  const { theme } = useTheme();
+  const minusIcon = theme === 'light' ? minus : minusMacos;
+  const closeIcon = theme === 'light' ? x : xMacos;
   const zIndexRef = useRef(zIndex);
   zIndexRef.current = zIndex;
 
@@ -125,8 +131,8 @@ export default function Card({
         <h4 className='pl-1 font-mono text-[var(--menu-text)]'>{navTitle}</h4>
         <div className='flex gap-1 items-center mx-[2px]'>
           <Image
-            src={minus}
-            alt='blue-circle'
+            src={minusIcon}
+            alt='minimize'
             width={22}
             height={22}
             className='cursor-pointer minus'
@@ -134,8 +140,8 @@ export default function Card({
             title='minimize'
           />
           <Image
-            src={x}
-            alt='blue-circle'
+            src={closeIcon}
+            alt='close'
             width={22}
             height={22}
             className='cursor-pointer x'
