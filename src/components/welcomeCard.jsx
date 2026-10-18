@@ -8,34 +8,36 @@ import linkedInLogoWhite from '../assets/logos/LinkedIn-Logo-white.svg';
 import blogLogo from '../assets/logos/Blog-Logo.svg';
 import blogLogoWhite from '../assets/logos/Blog-Logo-white.svg';
 import { useTheme } from '@/context/themeContext';
+import { useI18n } from '@/context/i18nContext';
 
 export default function WelcomeCard() {
   const { theme } = useTheme();
+  const { t } = useI18n();
   const isDark = theme === 'dark' || theme === 'midnight' || theme === 'sunset' || theme === 'ocean' || theme === 'forest';
   const linkedInSrc = isDark ? linkedInLogoWhite : linkedInLogo;
   const gitHubSrc = isDark ? gitHubLogoWhite : gitHubLogo;
   const blogSrc = isDark ? blogLogoWhite : blogLogo;
   return (
     <Card
-      navTitle={'/home/welcome'}
+      navTitle={t('paths.welcome')}
       contentFirst={[
         <span key={'welcomeCard-mainTitle'} className='text-lg'>
-          Welcome!
+          {t('welcomeCard.title')}
         </span>
       ]}
       contentH1={[
         <span key={'welcomeCard-title'} className='text-lg font-bold'>
-          I&apos;m Fernando Ouvi&ntilde;a,
+          {t('welcomeCard.name')},
         </span>,
         <br key={'welcomeCard-title-br'} />,
         <span
           key={'welcomeCard-title2'}
           className='text-lg font-bold underline'>
-          Front End Developer
+          {t('welcomeCard.role')}
         </span>
       ]}
       contentText={[
-        `Here you will find my latest work, a little something about me and my socials. Check out my `,
+        t('welcomeCard.intro'),
         <a
           key={'welcomeCard-git'}
           target='_blank'
@@ -43,9 +45,9 @@ export default function WelcomeCard() {
           className='font-bold underline'>
           Github
         </a>,
-        ` to see what I'm working on at the moment.`,
+        t('welcomeCard.introAfterGithub'),
         <br key={'welcomeCard-br'} />,
-        `Also check my `,
+        t('welcomeCard.alsoCheck'),
         <a
           key={'welcomeCard-linkedIn'}
           target='_blank'
@@ -53,17 +55,17 @@ export default function WelcomeCard() {
           className='font-bold underline'>
           LinkedIn
         </a>,
-        ` I `,
+        t('welcomeCard.i'),
         <em key={'welcomeCard-sometimes'} className='underline'>
-          sometimes
+{t('welcomeCard.sometimes')}
         </em>,
-        ` post about my activities there.`,
+        t('welcomeCard.postAbout'),
         <br key={'welcomeCard-br2'} />,
-        `And don't forget to visit my blog too `,
+        t('welcomeCard.andDontForget'),
         <em key={'welcomeCard-wip'} className='underline'>
-          maybe one day
+          {t('welcomeCard.maybeOneDay')}
         </em>,
-        `, I'll post some interesting stuff there.`
+        t('welcomeCard.blogClosing')
       ]}
       minWidth={300}
       maxWidth={400}
@@ -75,7 +77,7 @@ export default function WelcomeCard() {
             href={'https://github.com/FerOuvina'}
             referrerPolicy='no-referrer'>
             <a target='_blank'>
-              <li title='Github Profile'>
+              <li title={t('welcomeCard.githubProfile')}>
                 <Image
                   src={gitHubSrc}
                   alt='github logo'
@@ -91,7 +93,7 @@ export default function WelcomeCard() {
             href={'https://www.linkedin.com/in/contactfernando07/'}
             referrerPolicy='no-referrer'>
             <a target='_blank'>
-              <li title='LinkedIn Profile'>
+              <li title={t('welcomeCard.linkedInProfile')}>
                 <Image
                   src={linkedInSrc}
                   alt='linkedIn logo'
@@ -107,7 +109,7 @@ export default function WelcomeCard() {
             href={'example.com'}
             referrerPolicy='no-referrer'>
             <a target='_blank'>
-              <li title='Personal Blog'>
+              <li title={t('welcomeCard.personalBlog')}>
                 <Image
                   src={blogSrc}
                   alt='blog logo'

@@ -10,17 +10,18 @@ import tailwindLogo from "../assets/logos/Tailwind-Logo.svg";
 import tailwindLogoWhite from "../assets/logos/Tailwind-Logo-white.svg";
 import gitLogo from "../assets/logos/Git-Logo.svg";
 import gitLogoWhite from "../assets/logos/Git-Logo-white.svg";
-import javaLogo from "../assets/logos/Java-Logo.svg";
-import javaLogoWhite from "../assets/logos/Java-Logo-white.svg";
+import phpLogo from '../assets/logos/PHP-Logo.svg';
 import MySQLLogo from "../assets/logos/Mysql-logo.svg";
 import MySQLLogoWhite from "../assets/logos/Mysql-logo-white.svg";
 import ExpressLogo from "../assets/logos/Express-logo.svg";
 import ExpressLogoWhite from "../assets/logos/Express-logo-white.svg";
 import { useTheme } from '@/context/themeContext';
+import { useI18n } from '@/context/i18nContext';
 import "../stylesheets/about.css";
 
 export default function About() {
   const { theme } = useTheme();
+  const { t } = useI18n();
   const isDark = theme === 'dark' || theme === 'midnight' || theme === 'sunset' || theme === 'ocean' || theme === 'forest';
   const javaScriptSrc = isDark ? javaScriptLogoWhite : javaScriptLogo;
   const reactSrc = isDark ? reactLogoWhite : reactLogo;
@@ -29,22 +30,17 @@ export default function About() {
   const mysqlSrc = isDark ? MySQLLogoWhite : MySQLLogo;
   const expressSrc = isDark ? ExpressLogoWhite : ExpressLogo;
   const gitSrc = isDark ? gitLogoWhite : gitLogo;
-  const javaSrc = isDark ? javaLogoWhite : javaLogo;
   const imgWidth = 35;
   const imgHeight = 35;
 
   return (
     <Card
-      navTitle={`/specifications/about`}
-      contentFirst={"About Me"}
+      navTitle={t('paths.about')}
+      contentFirst={t('about.title')}
       contentText={[
         <span key={`about-span`}>
-          I’m a web developer with over a year of experience working both
-          independently and as part of a team, creating visually engaging and
-          highly functional websites and applications.
-          <br /> I’m now seeking new opportunities to apply my skills, take on
-          new challenges, and grow professionally in the field of web
-          development.
+          {t('about.description')}
+          <br /> {t('about.descriptionAfter')}
         </span>,
       ]}
       id={`specificationsCard`}
@@ -53,7 +49,7 @@ export default function About() {
     >
       <footer className="w-full bg-[var(--card-bg)] aboutContainer">
         <h2 className="py-1 text-lg font-bold text-center text-[var(--menu-text)]">
-          This is my current stack
+          {t('about.stack')}
         </h2>
         <hr className="w-full border-2 breakLine" />
         <ul className="grid grid-cols-4 gap-2 mx-2 my-3 justify-items-center">
@@ -129,11 +125,11 @@ export default function About() {
 
           <li>
             <Image
-              src={javaSrc}
-              alt="Java Logo"
-              width={imgWidth}
-              height={imgHeight}
-              title="Java"
+              src={phpLogo}
+              alt='PHP Logo'
+              width={52}
+              height={28}
+              title='PHP'
             />
           </li>
         </ul>

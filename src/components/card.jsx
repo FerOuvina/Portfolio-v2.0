@@ -4,6 +4,7 @@ import { gsap } from 'gsap';
 import Image from 'next/image';
 import ZIndexContext from '@/context/zIndexContext';
 import { useTheme } from '@/context/themeContext';
+import { useI18n } from '@/context/i18nContext';
 import { resetCardPosition, saveCardPosition } from '@/utils/cardPositions';
 import minus from '../assets/images/minus.svg';
 import x from '../assets/images/x.svg';
@@ -33,6 +34,7 @@ export default function Card({
   const ref = useRef();
   const { zIndex, setZIndex } = useContext(ZIndexContext);
   const { theme } = useTheme();
+  const { t } = useI18n();
   const icons = THEME_ICONS[theme] ?? THEME_ICONS.default;
   const zIndexRef = useRef(zIndex);
   zIndexRef.current = zIndex;
@@ -161,7 +163,7 @@ export default function Card({
       <div className='flex flex-col items-center justify-center gap-2 py-2 mx-3 bg-[var(--car-bg)]'>
         <div className='container flex items-center justify-start'>
           <div className='w-full px-1 py-1 font-bold text-[var(--menu-text)] bg-[var(--card-bg)]'>
-            {contentFirst ? contentFirst : 'Search'}
+            {contentFirst ? contentFirst : t('card.search')}
           </div>
         </div>
 

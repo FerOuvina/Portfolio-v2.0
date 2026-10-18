@@ -1,4 +1,5 @@
 import useSound from 'use-sound';
+import { useI18n } from '@/context/i18nContext';
 import { openCard } from '@/utils/cardPositions';
 import useObserver from '@/hooks/useObserver';
 import Image from 'next/image';
@@ -9,8 +10,10 @@ import icon4 from '../assets/images/icon4.ico';
 import icon5 from '../assets/images/icon5.ico';
 import icon6 from '../assets/images/icon6.ico';
 import icon8 from '../assets/images/icon8.ico';
+import globeIcon from '../assets/logos/globe.png';
 
 export default function DesktopIcons() {
+  const { t } = useI18n();
   const isWelcomeCardIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
     volume: 0.05
@@ -37,6 +40,10 @@ export default function DesktopIcons() {
   });
   const isThemesCardIntersecting = useObserver('themesCard');
   const [playThemesSound] = useSound('/sounds/Ding.mp3', {
+    volume: 0.05
+  });
+  const isLanguageCardIntersecting = useObserver('languageCard');
+  const [playLanguageSound] = useSound('/sounds/Ding.mp3', {
     volume: 0.05
   });
 
@@ -82,15 +89,21 @@ export default function DesktopIcons() {
     playThemesSound();
   };
 
+  const openLanguageCard = () => {
+    if (isLanguageCardIntersecting) return;
+    openCard('#languageCard');
+    playLanguageSound();
+  };
+
   return (
     <ul className='grid grid-cols-3 m-4 mt-20 text-[var(--desktop-text)] z-100 sm:flex'>
       <li className='flex flex-col items-center justify-center px-3 py-2'>
         <button
           onClick={openWelcomeCard}
           className='flex flex-col items-center'
-          title='This PC'>
+          title={t('desktopIcons.thisPCTitle')}>
           <Image src={icon4} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>This PC</p>
+          <p className='mt-1'>{t('nav.thisPC')}</p>
         </button>
       </li>
 
@@ -98,9 +111,9 @@ export default function DesktopIcons() {
         <button
           onClick={openProjectsCard}
           className='flex flex-col items-center'
-          title='Projects'>
+          title={t('desktopIcons.projectsTitle')}>
           <Image src={icon3} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>Projects</p>
+          <p className='mt-1'>{t('nav.projects')}</p>
         </button>
       </li>
 
@@ -108,9 +121,9 @@ export default function DesktopIcons() {
         <button
           onClick={openSpecCard}
           className='flex flex-col items-center'
-          title='Specifications'>
+          title={t('desktopIcons.specsTitle')}>
           <Image src={icon2} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>Specs</p>
+          <p className='mt-1'>{t('nav.specs')}</p>
         </button>
       </li>
 
@@ -118,9 +131,9 @@ export default function DesktopIcons() {
         <button
           onClick={openContactCard}
           className='flex flex-col items-center'
-          title='Contact'>
+          title={t('desktopIcons.contactTitle')}>
           <Image src={icon5} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>Contact</p>
+          <p className='mt-1'>{t('nav.contact')}</p>
         </button>
       </li>
 
@@ -128,9 +141,9 @@ export default function DesktopIcons() {
         <button
           onClick={openBlogCard}
           className='flex flex-col items-center'
-          title='Blog'>
+          title={t('desktopIcons.blogTitle')}>
           <Image src={icon1} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>Blog</p>
+          <p className='mt-1'>{t('nav.blog')}</p>
         </button>
       </li>
 
@@ -138,9 +151,9 @@ export default function DesktopIcons() {
         <button
           onClick={openMusicCard}
           className='flex flex-col items-center'
-          title='Media Player'>
+          title={t('desktopIcons.musicTitle')}>
           <Image src={icon6} alt='icon1' width={50} height={50} />
-          <p className='mt-1'>Music</p>
+          <p className='mt-1'>{t('nav.music')}</p>
         </button>
       </li>
 
@@ -148,9 +161,19 @@ export default function DesktopIcons() {
         <button
           onClick={openThemeCard}
           className='flex flex-col items-center'
-          title='Themes'>
+          title={t('desktopIcons.themesTitle')}>
           <Image src={icon8} alt='icon8' width={50} height={50} />
-          <p className='mt-1'>Themes</p>
+          <p className='mt-1'>{t('nav.themes')}</p>
+        </button>
+      </li>
+
+      <li className='flex flex-col items-center justify-center px-4 py-2'>
+        <button
+          onClick={openLanguageCard}
+          className='flex flex-col items-center'
+          title={t('desktopIcons.languageTitle')}>
+          <Image src={globeIcon} alt='globe' width={50} height={50} />
+          <p className='mt-1'>{t('nav.language')}</p>
         </button>
       </li>
     </ul>

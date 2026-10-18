@@ -20,8 +20,10 @@ You can access the live version of the portfolio at [Portfolio v2.0](https://ouv
 - Desktop-OS style interface: desktop icons open animated "windows" (cards)
 - Window management: drag windows by their title bar (interact.js with inertia), minimize/close buttons, and z-index stacking (clicking or dragging a window brings it to the front)
 - Sections: About/Specs, Projects, Contact (with a playful Yes/No flow and a thank-you page), and Blog
-- Built-in music player with play/pause, seek bar, and track navigation
+- Built-in music player with play/pause, seek bar, volume control, and track navigation
 - Retro system sounds when opening windows (via `use-sound`)
+- Multi-language support (English and Spanish) with a switcher in a draggable Language window opened from the desktop icons; the chosen language is persisted and reflected in the `lang` attribute
+- Multiple themes (Classic, Midnight, Ocean, Forest, Sunset, Honey) selected from a draggable Themes window
 - Responsive design with different layouts for small and big screens (breakpoint at 1024px)
 - Easily customizable to add your own projects and content
 

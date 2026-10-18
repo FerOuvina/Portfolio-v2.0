@@ -2,6 +2,7 @@
 
 import Card from './card';
 import { useTheme } from '@/context/themeContext';
+import { useI18n } from '@/context/i18nContext';
 import '../stylesheets/themeCard.css';
 
 const themeOptions = [
@@ -15,12 +16,13 @@ const themeOptions = [
 
 export default function ThemeCard() {
   const { theme, setTheme } = useTheme();
+  const { t } = useI18n();
 
   return (
     <Card
       navTitle='/settings/themes'
-      contentFirst='Appearance'
-      contentH2='Choose a theme'
+      contentFirst={t('themeCard.appearance')}
+      contentH2={t('themeCard.chooseTheme')}
       id='themesCard'
       minWidth={280}
       maxWidth={380}>
@@ -30,12 +32,14 @@ export default function ThemeCard() {
             key={option.id}
             onClick={() => setTheme(option.id)}
             className={`theme-button ${theme === option.id ? 'active' : ''}`}
-            title={option.label}>
+            title={t(`themeCard.themes.${option.id}`)}>
             <span
               className='theme-swatch'
               style={{ backgroundColor: option.color }}
             />
-            <span className='theme-label'>{option.label}</span>
+            <span className='theme-label'>
+              {t(`themeCard.themes.${option.id}`)}
+            </span>
             {theme === option.id && (
               <span className='theme-check'>✓</span>
             )}

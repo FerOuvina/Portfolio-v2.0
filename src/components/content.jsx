@@ -3,6 +3,7 @@ import AudioPlayer from './audioPlayer';
 import Blog from './blog';
 import Contact from './contact';
 import DesktopIcons from './desktopIcons';
+import LanguageCard from './languageCard';
 import Projects from './projects';
 import ThemeCard from './themeCard';
 import WelcomeCard from './welcomeCard';
@@ -22,6 +23,7 @@ export default function Content() {
         <Blog />
         <AudioPlayer />
         <ThemeCard />
+        <LanguageCard />
       </section>
     </main>
   );

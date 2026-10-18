@@ -9,25 +9,27 @@ import gitHubLogoWhite from '../assets/logos/GitHub-Logo-white.svg';
 import emailLogo from '../assets/logos/email-logo.svg';
 import emailLogoWhite from '../assets/logos/email-logo-white.svg';
 import { useTheme } from '@/context/themeContext';
+import { useI18n } from '@/context/i18nContext';
 import '../stylesheets/contactYes.css';
 
 export default function ContactYes() {
   const { theme } = useTheme();
+  const { t } = useI18n();
   const isDark = theme === 'dark' || theme === 'midnight' || theme === 'sunset' || theme === 'ocean' || theme === 'forest';
   const linkedInSrc = isDark ? linkedInLogoWhite : linkedInLogo;
   const gitHubSrc = isDark ? gitHubLogoWhite : gitHubLogo;
   const emailSrc = isDark ? emailLogoWhite : emailLogo;
   return (
     <Card
-      navTitle={'/contact/contact-success'}
+      navTitle={t('paths.contactSuccess')}
       contentFirst={[
         <div key={`contactYesContainer`} className='text-center'>
-          <span>Nicely done!</span>
+          <span>{t('contactYes.nicelyDone')}</span>
         </div>
       ]}
       contentH1={[
         <div key={`contactYesContainer-1`} className='text-center'>
-          <span>Now please fill this form</span>
+          <span>{t('contactYes.fillForm')}</span>
         </div>
       ]}
       id={'contactYes'}
@@ -39,7 +41,7 @@ export default function ContactYes() {
           action='https://formsubmit.co/contactfernando07@gmail.com'
           method='POST'>
           <div className='flex w-full p-1 form-group bg-aquaGreen'>
-            <label htmlFor='name'>Name:</label>
+            <label htmlFor='name'>{t('contactYes.name')}:</label>
             <input
               type='text'
               id='name'
@@ -49,7 +51,7 @@ export default function ContactYes() {
           </div>
 
           <div className='flex w-full p-1 form-group bg-aquaGreen'>
-            <label htmlFor='email'>Email:</label>
+            <label htmlFor='email'>{t('contactYes.email')}:</label>
             <input
               type='email'
               id='email'
@@ -59,7 +61,7 @@ export default function ContactYes() {
           </div>
 
           <div className='flex flex-col w-full p-1 form-group bg-aquaGreen'>
-            <label htmlFor='message'>Message:</label>
+            <label htmlFor='message'>{t('contactYes.message')}:</label>
             <textarea
               id='message'
               name='message'
@@ -69,7 +71,7 @@ export default function ContactYes() {
 
           <div className='flex items-center justify-center w-full'>
             <Button type='submit' className='px-10 py-1 text-center text-[var(--menu-text)]'>
-              Send
+              {t('contactYes.send')}
             </Button>
           </div>
 
@@ -82,7 +84,7 @@ export default function ContactYes() {
       </div>
       <div className='container bg-[var(--card-bg)] text-darkBrown px-4'>
         <h2 className='text-[var(--menu-text)]'>
-          Alternatively, you can contact me through my socials or e-mail
+{t('contactYes.alternatively')}
         </h2>
         <ul className='flex flex-row justify-around w-full py-1'>
           <li>

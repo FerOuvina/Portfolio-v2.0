@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Card from '@/components/card';
+import { useI18n } from '@/context/i18nContext';
 import '../../stylesheets/thankYou.css';
 
 export default function Page() {
+  const { t } = useI18n();
   const [countdown, setCountdown] = useState(10);
 
   if (countdown > 0) {
@@ -18,14 +20,14 @@ export default function Page() {
   return (
     <div className='flex flex-col justify-center items-center h-screen mainContainer'>
       <Card
-        navTitle={`/home/thank-you`}
-        contentFirst={`Thank you for your message!`}
-        contentH1={`I will get back to you as soon as possible.`}
+        navTitle={t('paths.thankYou')}
+        contentFirst={t('thankYou.title')}
+        contentH1={t('thankYou.subtitle')}
         contentH2={[
           <div key={`contenet-subTitle`}>
             <p>
-              Redirecting you to the home page in <span>{countdown}</span>{' '}
-              seconds...
+              {t('thankYou.redirecting')} <span>{countdown}</span>{' '}
+              {t('thankYou.seconds')}
             </p>
           </div>,
         ]}

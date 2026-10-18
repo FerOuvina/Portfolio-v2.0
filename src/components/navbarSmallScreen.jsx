@@ -3,6 +3,7 @@ import { gsap } from 'gsap';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
 import { minimizeCard, openCard } from '@/utils/cardPositions';
+import { useI18n } from '@/context/i18nContext';
 import Image from 'next/image';
 import icon1 from '../assets/images/icon1.ico';
 import icon2 from '../assets/images/icon2.ico';
@@ -15,6 +16,7 @@ import icon8 from '../assets/images/icon8.ico';
 import '../stylesheets/navbarSmallScreen.css';
 
 export default function NavbarSmallScreen() {
+  const { t } = useI18n();
   const isIntersecting = useObserver('welcomeCard');
   const [playWelcomeCardSound] = useSound('/sounds/Notify.mp3', {
     volume: 0.05
@@ -150,49 +152,49 @@ export default function NavbarSmallScreen() {
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openWelcomeCard}>
             <Image src={icon4} alt='icon' width={45} height={45} />
-            <p>This PC</p>
+            <p>{t('nav.thisPC')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openProjectsCard}>
             <Image src={icon3} alt='icon' width={45} height={45} />
-            <p>Projects</p>
+            <p>{t('nav.projects')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openSpecCard}>
             <Image src={icon2} alt='icon' width={45} height={45} />
-            <p>Specs</p>
+            <p>{t('nav.specs')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openContactCard}>
             <Image src={icon5} alt='icon' width={45} height={45} />
-            <p>Contact</p>
+            <p>{t('nav.contact')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openBlogCard}>
             <Image src={icon1} alt='icon' width={45} height={45} />
-            <p>Blog</p>
+            <p>{t('nav.blog')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openMusicCard}>
             <Image src={icon6} alt='icon' width={45} height={45} />
-            <p>Music</p>
+            <p>{t('nav.music')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-6 buttonIcon'
             onClick={openThemeCard}>
             <Image src={icon8} alt='icon' width={45} height={45} />
-            <p>Themes</p>
+            <p>{t('nav.themes')}</p>
           </button>
         </div>
       </div>

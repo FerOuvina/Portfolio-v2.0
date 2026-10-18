@@ -1,16 +1,18 @@
+import { useI18n } from '@/context/i18nContext';
 import ButtonContactNo from './button-contactNo';
 import Card from './card';
 
 export default function ContactNo() {
+  const { t } = useI18n();
   return (
     <Card
-      navTitle={'/contact/contact-failed'}
+      navTitle={t('paths.contactFailed')}
       contentFirst={[
         <div
           key={`contactNoContainer`}
           className='flex flex-col justify-center items-center bg-[var(--card-bg)]'
         >
-          <span>System Compomised</span>
+          <span>{t('contactNo.compromised')}</span>
         </div>,
       ]}
       contentH1={[
@@ -18,8 +20,7 @@ export default function ContactNo() {
           key={`contactNo-span`}
           className='flex justify-center items-center text-center'
         >
-          This device will self destruct unless you press the big red button
-          below
+          {t('contactNo.selfDestruct')}
         </span>,
       ]}
       id={'contactNo'}

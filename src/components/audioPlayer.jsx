@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Card from './card';
+import { useI18n } from '@/context/i18nContext';
 import '../stylesheets/audioPlayer.css';
 
 const SONGS = [
@@ -21,6 +22,7 @@ function formatTime(value) {
 }
 
 export default function AudioPlayer() {
+  const { t } = useI18n();
   const audioRef = useRef(null);
   const shouldResumeRef = useRef(false);
   const volumeRef = useRef(INITIAL_VOLUME);
@@ -139,7 +141,7 @@ export default function AudioPlayer() {
 
   return (
     <Card
-      navTitle={'/home/media-player'}
+      navTitle={t('paths.mediaPlayer')}
       contentFirst={[
         <span
           key={'media-player-title'}
@@ -172,7 +174,7 @@ export default function AudioPlayer() {
               value={Math.min(currentTime, duration || 0)}
               onChange={handleSeek}
               disabled={!duration}
-              aria-label='Seek'
+              aria-label={t('audioPlayer.seek')}
             />
 
             <span className='mediaPlayerTime'>
@@ -185,8 +187,8 @@ export default function AudioPlayer() {
               type='button'
               className='mediaPlayerButton'
               onClick={() => goTo(songIndex - 1)}
-              title='Previous song'
-              aria-label='Previous song'>
+              title={t('audioPlayer.previousSong')}
+              aria-label={t('audioPlayer.previousSong')}>
               <svg viewBox='0 0 24 24' aria-hidden='true'>
                 <path d='M18 5.5v13L8.5 12 18 5.5zM6 5.5h2v13H6z' />
               </svg>
@@ -196,8 +198,8 @@ export default function AudioPlayer() {
               type='button'
               className='mediaPlayerButton mediaPlayerButton-primary'
               onClick={togglePlay}
-              title={isPlaying ? 'Pause' : 'Play'}
-              aria-label={isPlaying ? 'Pause' : 'Play'}>
+              title={isPlaying ? t('audioPlayer.pause') : t('audioPlayer.play')}
+              aria-label={isPlaying ? t('audioPlayer.pause') : t('audioPlayer.play')}>
               {isPlaying ? (
                 <svg viewBox='0 0 24 24' aria-hidden='true'>
                   <path d='M8 5h3v14H8zM13 5h3v14h-3z' />
@@ -213,8 +215,8 @@ export default function AudioPlayer() {
               type='button'
               className='mediaPlayerButton'
               onClick={() => goTo(songIndex + 1)}
-              title='Next song'
-              aria-label='Next song'>
+              title={t('audioPlayer.nextSong')}
+              aria-label={t('audioPlayer.nextSong')}>
               <svg viewBox='0 0 24 24' aria-hidden='true'>
                 <path d='M6 5.5v13L15.5 12 6 5.5zM16 5.5h2v13h-2z' />
               </svg>
@@ -226,8 +228,8 @@ export default function AudioPlayer() {
               type='button'
               className='mediaPlayerVolumeButton'
               onClick={toggleMute}
-              title={isMuted ? 'Unmute' : 'Mute'}
-              aria-label={isMuted ? 'Unmute' : 'Mute'}>
+              title={isMuted ? t('audioPlayer.unmute') : t('audioPlayer.mute')}
+              aria-label={isMuted ? t('audioPlayer.unmute') : t('audioPlayer.mute')}>
               {isMuted || volume === 0 ? (
                 <svg viewBox='0 0 24 24' aria-hidden='true'>
                   <path d='M4 9v6h3.5L12 19V5L7.5 9H4zm12.5-.9-1.4-1.4-2.1 2.1-2.1-2.1-1.4 1.4L11.6 11l-2.1 2.1 1.4 1.4 2.1-2.1 2.1 2.1 1.4-1.4L13.9 12l2.6-2.1z' />
@@ -250,7 +252,7 @@ export default function AudioPlayer() {
               step={0.01}
               value={isMuted ? 0 : volume}
               onChange={handleVolume}
-              aria-label='Volume'
+              aria-label={t('audioPlayer.volume')}
             />
           </div>
         </div>

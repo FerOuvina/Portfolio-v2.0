@@ -1,0 +1,41 @@
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+  width: 100%;
+}
+
+.language-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 0.4rem;
+  font-size: 0.9rem;
+  color: var(--menu-text);
+  background: var(--card-bg);
+  border: 2px solid var(--menu-border-dark);
+  border-radius: 6px;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.language-button:hover {
+  background: var(--hover-bg);
+  color: var(--hover-text);
+}
+
+.language-button.active {
+  background: var(--hover-bg);
+  color: var(--hover-text);
+  font-weight: 700;
+}
+
+.language-check {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  font-size: 0.75rem;
+}

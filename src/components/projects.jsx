@@ -1,4 +1,5 @@
 import Card from './card';
+import { useI18n } from '@/context/i18nContext';
 import Image from 'next/image';
 import Link from 'next/link';
 import javaScriptLogo from '../assets/logos/JavaScript-COLOR-Logo.svg';
@@ -30,46 +31,43 @@ const stack = {
 
 const projects = [
   {
+    id: 'ishinoguro',
     title: 'Ishinoguro — Digital Artist',
     url: 'https://ishinoguro.vercel.app',
     image: ishinoguroGif,
-    summary:
-      'Portfolio and commission-management PWA that I built from scratch for a digital artist — it attracted 30–50 visitors a day.',
     stack: ['javascript', 'react', 'tailwind', 'million', 'wouter', 'vite']
   },
   {
+    id: 'grandFantasia',
     title: 'Grand Fantasia Awakening',
     url: 'https://gfawakening.vercel.app/',
     image: gfawakeningGif,
-    summary:
-      'Official game website with registration, downloads and news. I also maintained the Ubuntu VPS that hosted it.',
     stack: ['javascript', 'react', 'tailwind', 'styled', 'wouter']
   },
   {
+    id: 'xkcd',
     title: 'xkcd — Reimagined',
     url: 'https://xkcd-reimagined-git-master-ferouvina.vercel.app/en',
     image: xkcdGif,
-    summary:
-      'The xkcd comic archive rebuilt in Next.js: I scraped the comics from the source and served them with static generation.',
     stack: ['javascript', 'react', 'next', 'tailwind', 'nextui']
   },
   {
+    id: 'giphy',
     title: 'Giphy App',
     url: 'https://ferouvina.github.io/Giphy-App-v2/',
     image: giphy1,
-    summary:
-      'GIF search with infinite scroll and lazy loading — the project where I leveled up my React hooks and custom hooks.',
     stack: ['javascript', 'react', 'styled', 'wouter']
   }
 ];
 
 export default function Projects() {
+  const { t } = useI18n();
   return (
     <Card
-      navTitle={'/projects/hmm...'}
-      contentFirst={'My most recent work'}
-      contentH1={'Four projects I am proud of.'}
-      contentH2={'Click any of them to open the live version.'}
+      navTitle={t('paths.projects')}
+      contentFirst={t('projects.title')}
+      contentH1={t('projects.heading')}
+      contentH2={t('projects.subheading')}
       id={'projects'}
       minWidth={300}
       maxWidth={800}>
@@ -100,14 +98,14 @@ export default function Projects() {
                     <a
                       target='_blank'
                       className='bg-white projectLink'
-                      title='Open live version'>
+                      title={t('projects.openLiveVersion')}>
                       ↗
                     </a>
                   </Link>
                 </div>
 
                 <p className='font-mono text-sm text-[var(--menu-text)]'>
-                  {project.summary}
+                  {t(`projects.items.${project.id}.summary`)}
                 </p>
 
                 <div className='flex items-end h-full'>

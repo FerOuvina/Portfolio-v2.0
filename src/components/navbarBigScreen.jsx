@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
 import { minimizeCard, openCard } from '@/utils/cardPositions';
+import { useI18n } from '@/context/i18nContext';
 import Image from 'next/image';
 import icon1 from '../assets/images/icon1.ico';
 import icon2 from '../assets/images/icon2.ico';
@@ -13,6 +14,7 @@ import icon7 from '../assets/images/icon7.ico';
 import icon8 from '../assets/images/icon8.ico';
 
 export default function NavbarBigScreen() {
+  const { t } = useI18n();
   const [width, setWidth] = useState(window.innerWidth);
   const breakpoint = 1024;
 
@@ -173,7 +175,7 @@ export default function NavbarBigScreen() {
               openWelcomeCard();
             }}>
             <Image src={icon4} alt='icon' width={45} height={45} />
-            <p>This PC</p>
+            <p>{t('nav.thisPC')}</p>
           </button>
 
           <button
@@ -183,7 +185,7 @@ export default function NavbarBigScreen() {
               openProjectsCard();
             }}>
             <Image src={icon3} alt='icon' width={45} height={45} />
-            <p>Projects</p>
+            <p>{t('nav.projects')}</p>
           </button>
 
           <button
@@ -193,7 +195,7 @@ export default function NavbarBigScreen() {
               openSpecCard();
             }}>
             <Image src={icon2} alt='icon' width={45} height={45} />
-            <p>Specs</p>
+            <p>{t('nav.specs')}</p>
           </button>
 
           <button
@@ -203,7 +205,7 @@ export default function NavbarBigScreen() {
               openContactCard();
             }}>
             <Image src={icon5} alt='icon' width={45} height={45} />
-            <p>Contact</p>
+            <p>{t('nav.contact')}</p>
           </button>
 
           <button
@@ -213,7 +215,7 @@ export default function NavbarBigScreen() {
               openBlogCard();
             }}>
             <Image src={icon1} alt='icon' width={45} height={45} />
-            <p>Blog</p>
+            <p>{t('nav.blog')}</p>
           </button>
 
           <button
@@ -223,7 +225,7 @@ export default function NavbarBigScreen() {
               openMusicCard();
             }}>
             <Image src={icon6} alt='icon' width={45} height={45} />
-            <p>Music</p>
+            <p>{t('nav.music')}</p>
           </button>
 
           <button
@@ -233,7 +235,7 @@ export default function NavbarBigScreen() {
               openThemeCard();
             }}>
             <Image src={icon8} alt='icon' width={45} height={45} />
-            <p>Themes</p>
+            <p>{t('nav.themes')}</p>
           </button>
         </div>
       </div>
@@ -255,49 +257,49 @@ export default function NavbarBigScreen() {
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openWelcomeCard}>
             <Image src={icon4} alt='icon' width={30} height={30} />
-            <p>This PC</p>
+            <p>{t('nav.thisPC')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openProjectsCard}>
             <Image src={icon3} alt='icon' width={30} height={30} />
-            <p>Projects</p>
+            <p>{t('nav.projects')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openSpecCard}>
             <Image src={icon2} alt='icon' width={30} height={30} />
-            <p>Specs</p>
+            <p>{t('nav.specs')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openContactCard}>
             <Image src={icon5} alt='icon' width={30} height={30} />
-            <p>Contact</p>
+            <p>{t('nav.contact')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openBlogCard}>
             <Image src={icon1} alt='icon' width={30} height={30} />
-            <p>Blog</p>
+            <p>{t('nav.blog')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openMusicCard}>
             <Image src={icon6} alt='icon' width={30} height={30} />
-            <p>Music</p>
+            <p>{t('nav.music')}</p>
           </button>
 
           <button
             className='flex items-center justify-start w-full gap-2 buttonIcon'
             onClick={openThemeCard}>
             <Image src={icon8} alt='icon' width={30} height={30} />
-            <p>Themes</p>
+            <p>{t('nav.themes')}</p>
           </button>
         </div>
       </div>
