@@ -86,6 +86,23 @@
   --desktop-text: #000000;
 }
 
+.theme-yellow {
+  --taskbar-bg: #d9a404;
+  --menu-bg: #fde68a;
+  --menu-text: #4a3607;
+  --menu-border-light: #e6c257;
+  --menu-border-dark: #6b4e05;
+  --card-bg: #fcd34d;
+  --card-header-bg: #f9c933;
+  --text-primary: #3d2c05;
+  --separator-start: #fff6d6;
+  --separator-end: #8a6508;
+  --hover-bg: #7a4a00;
+  --hover-text: #fff3c4;
+  --desktop-overlay: transparent;
+  --desktop-text: #3d2c05;
+}
+
 body {
   color: var(--text-primary);
   overflow-y: hidden;

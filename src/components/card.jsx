@@ -9,7 +9,15 @@ import minus from '../assets/images/minus.svg';
 import x from '../assets/images/x.svg';
 import minusMacos from '../assets/images/minus-macos.svg';
 import xMacos from '../assets/images/x-macos.svg';
+import minusYellow from '../assets/images/minus-yellow.svg';
+import xYellow from '../assets/images/x-yellow.svg';
 import '../stylesheets/card.css';
+
+const THEME_ICONS = {
+  light: { minus, close: x },
+  yellow: { minus: minusYellow, close: xYellow },
+  default: { minus: minusMacos, close: xMacos }
+};
 
 export default function Card({
   children,
@@ -25,8 +33,7 @@ export default function Card({
   const ref = useRef();
   const { zIndex, setZIndex } = useContext(ZIndexContext);
   const { theme } = useTheme();
-  const minusIcon = theme === 'light' ? minus : minusMacos;
-  const closeIcon = theme === 'light' ? x : xMacos;
+  const icons = THEME_ICONS[theme] ?? THEME_ICONS.default;
   const zIndexRef = useRef(zIndex);
   zIndexRef.current = zIndex;
 
@@ -131,7 +138,7 @@ export default function Card({
         <h4 className='pl-1 font-mono text-[var(--menu-text)]'>{navTitle}</h4>
         <div className='flex gap-1 items-center mx-[2px]'>
           <Image
-            src={minusIcon}
+            src={icons.minus}
             alt='minimize'
             width={22}
             height={22}
@@ -140,7 +147,7 @@ export default function Card({
             title='minimize'
           />
           <Image
-            src={closeIcon}
+            src={icons.close}
             alt='close'
             width={22}
             height={22}

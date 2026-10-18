@@ -9,7 +9,8 @@ const themeOptions = [
   { id: 'dark', label: 'Midnight', color: '#2b2b2b' },
   { id: 'ocean', label: 'Ocean', color: '#1a4a5e' },
   { id: 'forest', label: 'Forest', color: '#2d5a3d' },
-  { id: 'sunset', label: 'Sunset', color: '#5e3a2a' }
+  { id: 'sunset', label: 'Sunset', color: '#5e3a2a' },
+  { id: 'yellow', label: 'Honey', color: '#e0b64a' }
 ];
 
 export default function ThemeCard() {
