@@ -8,8 +8,8 @@ import icon2 from '../assets/images/icon2.ico';
 import icon3 from '../assets/images/icon3.ico';
 import icon4 from '../assets/images/icon4.ico';
 import icon5 from '../assets/images/icon5.ico';
-import icon6 from '../assets/images/icon6.ico';
-import icon8 from '../assets/images/icon8.ico';
+import icon6 from '../assets/logos/music-player.png';
+import icon8 from '../assets/logos/themes.png';
 import globeIcon from '../assets/logos/globe.png';
 
 export default function DesktopIcons() {
@@ -43,7 +43,7 @@ export default function DesktopIcons() {
     volume: 0.05
   });
   const isLanguageCardIntersecting = useObserver('languageCard');
-  const [playLanguageSound] = useSound('/sounds/Ding.mp3', {
+  const [playLanguageSound] = useSound('/sounds/Chimes.mp3', {
     volume: 0.05
   });
 

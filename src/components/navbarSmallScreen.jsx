@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { gsap } from 'gsap';
+import { useEffect } from 'react';
 import useSound from 'use-sound';
 import useObserver from '@/hooks/useObserver';
 import { minimizeCard, openCard } from '@/utils/cardPositions';
@@ -10,9 +10,9 @@ import icon2 from '../assets/images/icon2.ico';
 import icon3 from '../assets/images/icon3.ico';
 import icon4 from '../assets/images/icon4.ico';
 import icon5 from '../assets/images/icon5.ico';
-import icon6 from '../assets/images/icon6.ico';
+import icon6 from '../assets/logos/music-player.png';
 import icon7 from '../assets/images/icon7.ico';
-import icon8 from '../assets/images/icon8.ico';
+import icon8 from '../assets/logos/themes.png';
 import '../stylesheets/navbarSmallScreen.css';
 
 export default function NavbarSmallScreen() {
@@ -136,11 +136,29 @@ export default function NavbarSmallScreen() {
 
   const menuIconRef = useRef();
   const menuRef = useRef();
+  const menuButtonRef = useRef();
+
+  const closeMenu = () => {
+    menuIconRef.current?.classList.remove('open');
+    menuRef.current?.classList.add('closed');
+  };
 
   const openMenu = () => {
-    menuIconRef.current.classList.toggle('open');
-    menuRef.current.classList.toggle('closed');
+    menuIconRef.current?.classList.toggle('open');
+    menuRef.current?.classList.toggle('closed');
   };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current?.contains(event.target)) return;
+      if (menuButtonRef.current?.contains(event.target)) return;
+      closeMenu();
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () =>
+      document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   return (
     <header className='fixed z-[10000] bottom-0 p-1 w-full bg-[var(--taskbar-bg)] mainNav'>
@@ -198,7 +216,7 @@ export default function NavbarSmallScreen() {
           </button>
         </div>
       </div>
-      <button>
+      <button ref={menuButtonRef}>
         <Image
           src={icon7}
           alt='icon'

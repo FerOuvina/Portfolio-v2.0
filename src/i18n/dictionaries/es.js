@@ -12,7 +12,7 @@ const es = {
     search: 'Buscar'
   },
   nav: {
-    thisPC: 'Este equipo',
+    thisPC: 'Equipo',
     projects: 'Proyectos',
     specs: 'Specs',
     contact: 'Contacto',
@@ -22,7 +22,7 @@ const es = {
     language: 'Idioma'
   },
   desktopIcons: {
-    thisPCTitle: 'Este equipo',
+    thisPCTitle: 'Equipo',
     projectsTitle: 'Proyectos',
     specsTitle: 'Especificaciones',
     contactTitle: 'Contacto',
@@ -34,7 +34,7 @@ const es = {
   paths: {
     welcome: '/home/bienvenida',
     about: '/home/especificaciones/acerca-de',
-    projects: '/home/proyectos/pues...',
+    projects: '/home/proyectos/hmm...',
     contactChoose: '/home/contacto/elegir',
     contactSuccess: '/home/contacto/contacto-exitoso',
     contactFailed: '/home/contacto/contacto-fallido',

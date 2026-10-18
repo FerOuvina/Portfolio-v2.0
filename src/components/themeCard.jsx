@@ -20,7 +20,7 @@ export default function ThemeCard() {
 
   return (
     <Card
-      navTitle='/settings/themes'
+      navTitle={t('paths.themes')}
       contentFirst={t('themeCard.appearance')}
       contentH2={t('themeCard.chooseTheme')}
       id='themesCard'
