@@ -1,107 +1,183 @@
-.progressBar {
-  --barBg: #749FA8;
-  --seekBeforeWidth: 0px;
-  --seekBeforeColor: #483E49;
-  --knoby: #E8BDC4;
-  --selectedKnobby: #CFDACC;
+.mediaPlayer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.5rem 0.25rem 0.25rem;
+}
 
-  -webkit-appearance: none;
+.mediaPlayerLed {
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  border: 1px solid var(--menu-border-dark);
+  background: var(--card-header-bg);
+}
+
+.mediaPlayerLed[data-playing='true'] {
+  background: var(--menu-text);
+}
+
+.mediaPlayerTimeline {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.mediaPlayerTime {
+  min-width: 2.5rem;
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--menu-text);
+  opacity: 0.8;
+}
+
+.mediaPlayerSeek {
+  --seek-progress: 0%;
+  --seek-track: color-mix(in srgb, var(--menu-text) 25%, transparent);
+  --seek-thumb: var(--menu-text);
+
+  flex: 1;
+  width: 100%;
+  height: 6px;
+  margin: 0;
   appearance: none;
-  background: var(--barBg);
-  border-radius: 10px;
-  position: relative;
-  width: 100%;
-  height: 11px;
+  background: linear-gradient(
+    to right,
+    var(--seek-thumb) var(--seek-progress),
+    var(--seek-track) var(--seek-progress)
+  );
+  border-radius: 999px;
   outline: none;
-}
-
-/* progressBar - Safari */
-
-.progressBar::-webkit-slider-runnable-track {
-  background: var(--barBg);
-  border-radius: 10px;
-  position: relative;
-  width: 100%;
-  height: 11px;
-  outline: none;
-}
-
-/* progressBar - Firefox */
-
-.progressBar::-moz-range-track {
-  background: var(--barBg);
-  border-radius: 10px;
-  position: relative;
-  width: 100%;
-  height: 11px;
-  outline: none;
-}
-
-.progressBar::-moz-focus-outer {
-  border: 0;
-}
-
-/* progressBar - Chrome & Safari */
-
-.progressBar::before {
-  content: '';
-  height: 11px;
-  width: var(--seekBeforeWidth);
-  background-color: var(--seekBeforeColor);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
   cursor: pointer;
 }
 
-/* progressBar - Firefox */
-
-.progressBar::-moz-range-progress {
-  background-color: var(--seekBeforeColor);
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  height: 11px;
+.mediaPlayerSeek:disabled {
+  cursor: default;
+  opacity: 0.6;
 }
 
-/* Knobby - Chrome & Safari */
-
-.progressBar::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 15px;
-  width: 15px;
+.mediaPlayerSeek::-webkit-slider-thumb {
+  appearance: none;
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  border: none;
-  background-color: var(--knoby);
+  border: 1px solid var(--menu-border-dark);
+  background: var(--seek-thumb);
   cursor: pointer;
-  position: relative;
-  margin: -2px 0 0 0;
-  z-index: 3;
-  box-sizing: border-box;
+  transition: transform 120ms ease;
 }
 
-.progressBar:active::-webkit-slider-thumb {
-  transform: scale(1.2);
-  background-color: var(--selectedKnobby);
-}
-
-/* Knobby - Firefox */
-
-.progressBar::-moz-range-thumb {
-  height: 15px;
-  width: 15px;
+.mediaPlayerSeek::-moz-range-thumb {
+  width: 13px;
+  height: 13px;
   border-radius: 50%;
-  border: transparent;
-  background-color: var(--knoby);
+  border: 1px solid var(--menu-border-dark);
+  background: var(--seek-thumb);
   cursor: pointer;
-  position: relative;
-  z-index: 3;
-  box-sizing: border-box;
+  transition: transform 120ms ease;
 }
 
-.progressBar:active::-moz-range-thumb {
-  transform: scale(1.2);
-  background-color: var(--selectedKnobby);
+.mediaPlayerSeek:hover::-webkit-slider-thumb,
+.mediaPlayerSeek:active::-webkit-slider-thumb {
+  transform: scale(1.15);
+}
+
+.mediaPlayerSeek:hover::-moz-range-thumb,
+.mediaPlayerSeek:active::-moz-range-thumb {
+  transform: scale(1.15);
+}
+
+.mediaPlayerSeek:focus-visible {
+  outline: 2px solid var(--menu-text);
+  outline-offset: 3px;
+}
+
+.mediaPlayerControls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.mediaPlayerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  color: var(--menu-text);
+  border: 1px solid transparent;
+  border-radius: 50%;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.mediaPlayerButton svg {
+  width: 22px;
+  height: 22px;
+  fill: currentColor;
+}
+
+.mediaPlayerButton:hover {
+  background: var(--hover-bg);
+  color: var(--hover-text);
+}
+
+.mediaPlayerButton:active {
+  transform: scale(0.92);
+}
+
+.mediaPlayerButton:focus-visible {
+  outline: 2px solid var(--menu-text);
+  outline-offset: 2px;
+}
+
+.mediaPlayerButton-primary {
+  padding: 0.55rem;
+  background: var(--menu-text);
+  color: var(--card-bg);
+}
+
+.mediaPlayerButton-primary svg {
+  width: 26px;
+  height: 26px;
+}
+
+.mediaPlayerVolume {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.mediaPlayerVolumeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  color: var(--menu-text);
+  border-radius: 4px;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease;
+}
+
+.mediaPlayerVolumeButton svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.mediaPlayerVolumeButton:hover {
+  background: var(--hover-bg);
+  color: var(--hover-text);
+}
+
+.mediaPlayerSeek-volume {
+  flex: 0 1 7rem;
+  height: 5px;
 }

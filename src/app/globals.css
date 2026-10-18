@@ -14,7 +14,7 @@
   --text-primary: #000000;
   --separator-start: rgba(115, 123, 234, 1);
   --separator-end: rgba(0, 0, 2, 1);
-  --hover-bg: blue;
+  --hover-bg: #493637;
   --hover-text: wheat;
   --desktop-overlay: transparent;
 }

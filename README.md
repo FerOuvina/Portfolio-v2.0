@@ -10,7 +10,7 @@ This is the second version of my personal portfolio website. Instead of a tradit
 - [Technologies Used](#technologies-used)
 - [Getting Started](#getting-started)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
+- [Music Source](#music-source)
 - [License](#license)
 
 ## Live Version
@@ -57,12 +57,6 @@ src/
 └── stylesheets/    # Global and component CSS
 ```
 
-## Contributing
+## Music Source
 
-Contributions are welcome! If you'd like to contribute to this project, please follow these steps:
-
-- Fork the repository.
-- Create a new branch for your feature or bug fix.
-- Make your changes and commit them.
-- Push your changes to your fork.
-- Submit a pull request to the main repository.
+The music used in this project comes from [this YouTube video](https://youtu.be/l3x0UCeQLe8?si=OKfdmv6VBdIct8kx).
