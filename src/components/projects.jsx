@@ -11,7 +11,9 @@ import nextUILogo from '../assets/logos/NextUI-Logo.png';
 import millionLogo from '../assets/logos/Million-Logo.png';
 import viteLogo from '../assets/logos/Vite-Logo.svg';
 import styledComponentsLogo from '../assets/logos/Styled-Components-Logo.svg';
-import xkcdGif from '../assets/images/xkcdGif.gif';
+import gitHubLogo from '../assets/logos/GitHub-Logo.svg';
+import linkedInLogo from '../assets/logos/LinkedIn-Logo.svg';
+import linkedinbotGif from '../assets/images/linkedinbot.gif';
 import giphy1 from '../assets/images/Giphy1.gif';
 import ishinoguroGif from '../assets/images/ishinoguroGif.gif';
 import gfawakeningGif from '../assets/images/gfawakening.gif';
@@ -26,16 +28,19 @@ const stack = {
   nextui: { src: nextUILogo, title: 'NextUI' },
   million: { src: millionLogo, title: 'Million.js' },
   vite: { src: viteLogo, title: 'Vite' },
-  styled: { src: styledComponentsLogo, title: 'Styled Components' }
+  styled: { src: styledComponentsLogo, title: 'Styled Components' },
+  github: { src: gitHubLogo, title: 'GitHub Actions' },
+  linkedin: { src: linkedInLogo, title: 'LinkedIn API' },
+  node: { title: 'Node.js', emoji: '⬢' }
 };
 
 const projects = [
   {
-    id: 'ishinoguro',
-    title: 'Ishinoguro — Digital Artist',
-    url: 'https://ishinoguro.vercel.app',
-    image: ishinoguroGif,
-    stack: ['javascript', 'react', 'tailwind', 'million', 'wouter', 'vite']
+    id: 'linkedinBot',
+    title: 'GitHub → LinkedIn Bot',
+    url: 'https://ferouvina.github.io/LinkedIn_Github_Bot/',
+    image: linkedinbotGif,
+    stack: ['javascript', 'react', 'node', 'github', 'linkedin']
   },
   {
     id: 'grandFantasia',
@@ -45,11 +50,11 @@ const projects = [
     stack: ['javascript', 'react', 'tailwind', 'styled', 'wouter']
   },
   {
-    id: 'xkcd',
-    title: 'xkcd — Reimagined',
-    url: 'https://xkcd-reimagined-git-master-ferouvina.vercel.app/en',
-    image: xkcdGif,
-    stack: ['javascript', 'react', 'next', 'tailwind', 'nextui']
+    id: 'ishinoguro',
+    title: 'Ishinoguro — Digital Artist',
+    url: 'https://ishinoguro.vercel.app',
+    image: ishinoguroGif,
+    stack: ['javascript', 'react', 'tailwind', 'million', 'wouter', 'vite']
   },
   {
     id: 'giphy',

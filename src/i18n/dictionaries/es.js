@@ -75,6 +75,10 @@ const es = {
     subheading: 'Haz clic en cualquiera para abrir la versión live.',
     openLiveVersion: 'Abrir versión live',
     items: {
+      linkedinBot: {
+        summary:
+          'Herramienta de automatización que convierte tus commits diarios de GitHub en publicaciones programadas de LinkedIn: escanea tus repos más activos, puntúa los mensajes de commit, genera un post breve con una IA y lo publica mediante GitHub Actions.'
+      },
       ishinoguro: {
         summary:
           'Portfolio y PWA de gestión de encargos que construí desde cero para una artista digital — atraía entre 30 y 50 visitas al día.'
@@ -82,10 +86,6 @@ const es = {
       grandFantasia: {
         summary:
           'Sitio web oficial del juego con registro, descargas y noticias. También mantuve el VPS con Ubuntu que lo alojaba.'
-      },
-      xkcd: {
-        summary:
-          'El archivo de cómics de xkcd reconstruido en Next.js: extraje los cómics de la fuente y los serví con generación estática.'
       },
       giphy: {
         summary:
